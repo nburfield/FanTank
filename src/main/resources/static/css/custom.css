@@ -1,0 +1,958 @@
+/*!
+ * BC Innovations, LLC - v1.0.0
+ * Copyright 2017-2017 BC Innovations, LLC
+ * Licensed under ISC
+ */
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  font-family: 'Lato', sans-serif;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-color: #272727;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+a {
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+  color: #fff;
+}
+a:hover,
+a:focus {
+  color: #cccccc;
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Oswald', sans-serif;
+}
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+hr {
+  border-color: #337ab8;
+  border-width: 3px;
+}
+.navbar-default {
+  background-color: rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
+  -ms-box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
+  border: none;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+}
+.navbar-default .navbar-header .navbar-brand {
+  color: rgba(0, 0, 0, 0.7);
+  height: auto;
+  text-transform: uppercase;
+}
+.navbar-default .navbar-header .navbar-brand:hover,
+.navbar-default .navbar-header .navbar-brand:focus {
+  color: #000000;
+}
+.navbar-default .navbar-header .navbar-brand img {
+  content: url('/images/fan-tank-logo.png');
+  display: inline-block;
+  height: 30px;
+}
+.navbar-default .navbar-header .navbar-toggle {
+  font-size: 12px;
+  color: #337ab8;
+  text-transform: uppercase;
+}
+.navbar-default .nav > li > a,
+.navbar-default .nav > li > a:focus {
+  text-transform: uppercase;
+  font-size: 20px;
+  color: #337ab8;
+}
+.navbar-default .nav > li > a:hover,
+.navbar-default .nav > li > a:focus:hover {
+  color: #fff;
+}
+.navbar-default .nav > li.active > a,
+.navbar-default .nav > li.active > a:focus {
+  color: #fff !important;
+  background-color: transparent;
+}
+.navbar-default .nav > li.active > a:hover,
+.navbar-default .nav > li.active > a:focus:hover {
+  background-color: transparent;
+}
+.navbar-default .nav .user-name {
+  text-align: center;
+  font-size: 25px;
+  color: white;
+}
+.navbar-default #mobile-user .nav {
+  display: block;
+}
+.navbar-default #top-navbar .main-btn {
+  display: none;
+}
+@media (min-width: 768px) {
+  .navbar-default {
+    background-color: transparent;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -ms-box-shadow: none;
+    box-shadow: none;
+  }
+  .navbar-default .navbar-header .navbar-brand {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  .navbar-default .navbar-header .navbar-brand:hover,
+  .navbar-default .navbar-header .navbar-brand:focus {
+    color: #000;
+  }
+  .navbar-default .navbar-header .navbar-brand img {
+    content: url('/images/fan-tank-logo-dark.png');
+    display: inline-block;
+    height: 70px;
+    transition: 500ms;
+  }
+  .navbar-default .nav {
+    transition: 500ms;
+    margin: 20px;
+  }
+  .navbar-default .nav > li > a,
+  .navbar-default .nav > li > a:focus {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.7);
+  }
+  .navbar-default .nav > li > a:hover,
+  .navbar-default .nav > li > a:focus:hover {
+    color: rgba(0, 0, 0, 0.9);
+  }
+  .navbar-default .nav > li > a.btn,
+  .navbar-default .nav > li > a:focus.btn {
+    border-radius: 0;
+    padding: 10px 0;
+    margin: 0 10px;
+    background-color: transparent;
+    border-bottom: 3px solid transparent;
+  }
+  .navbar-default .nav > li > a.btn:hover,
+  .navbar-default .nav > li > a:focus.btn:hover {
+    border-bottom: 3px solid #337ab8;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+  }
+  .navbar-default .nav > li.active > a.btn,
+  .navbar-default .nav > li.active > a:focus.btn {
+    border-bottom: 3px solid #337ab8;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+  }
+  .navbar-default .nav .main-btn > .btn,
+  .navbar-default .nav .main-btn > .btn:focus {
+    border-radius: 0;
+    min-width: 150px;
+    margin: 0 30px;
+    padding: 10px 10px;
+    border-bottom: 0 solid transparent;
+    border-top: 0 solid transparent;
+    border-left: 3px solid #337ab8;
+    border-right: 0 solid transparent;
+  }
+  .navbar-default .nav .main-btn .btn-not-login {
+    border-radius: 5px;
+    background-color: rgba(51, 122, 184, 0.8);
+    border-bottom: 3px solid transparent;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+  }
+  .navbar-default .nav .main-btn .btn-not-login:hover {
+    background-color: #337ab8;
+  }
+  .navbar-default .nav .main-btn > .btn-login,
+  .navbar-default .nav .main-btn > .btn-login:focus {
+    background-color: transparent;
+  }
+  .navbar-default .nav .main-btn > .btn-login:hover,
+  .navbar-default .nav .main-btn > .btn-login:focus:hover,
+  .navbar-default .nav .main-btn > .btn-login:active,
+  .navbar-default .nav .main-btn > .btn-login:focus:active {
+    background-color: transparent;
+    border-top: 0 transparent;
+    border-bottom: 0 transparent;
+    border-right: 0 transparent;
+    border-left: 3px solid #337ab8;
+  }
+  .navbar-default .nav .main-btn .dropdown-menu {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    left: 30px;
+  }
+  .navbar-default .nav .main-btn .dropdown-menu li > a,
+  .navbar-default .nav .main-btn .dropdown-menu li > a:focus {
+    font-size: 20px;
+  }
+  .navbar-default #mobile-user .nav {
+    display: none;
+  }
+  .navbar-default #top-navbar .main-btn {
+    display: block;
+  }
+  .navbar-default.affix {
+    background-color: rgba(0, 0, 0, 0.8);
+    -webkit-box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
+    -ms-box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
+  }
+  .navbar-default.affix .navbar-header .navbar-brand {
+    color: #fff;
+    padding: 10px 15px;
+  }
+  .navbar-default.affix .navbar-header .navbar-brand:hover,
+  .navbar-default.affix .navbar-header .navbar-brand:focus {
+    color: #e6e6e6;
+  }
+  .navbar-default.affix .navbar-header .navbar-brand img {
+    content: url('/images/fan-tank-logo.png');
+    transition: 1000ms;
+    height: 40px;
+  }
+  .navbar-default.affix .nav {
+    transition: 1000ms;
+    margin: 10px;
+  }
+  .navbar-default.affix .nav li > a,
+  .navbar-default.affix .nav li > a:focus {
+    transition: 1000ms;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .navbar-default.affix .nav li > a:hover,
+  .navbar-default.affix .nav li > a:focus:hover {
+    color: white;
+  }
+  .navbar-default.affix .nav .main-btn .dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.8);
+    margin-top: 13px;
+  }
+  .navbar-default.affix .nav .main-btn .dropdown-menu li > a:hover {
+    background-color: #337ab8;
+  }
+}
+header {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  background-position: center;
+  background-image: url('../images/hero-home-page.jpg');
+  text-align: center;
+  color: #000;
+}
+header .header-content {
+  position: relative;
+  text-align: center;
+  padding: 100px 15px 100px;
+  width: 100%;
+}
+header .header-content .header-content-inner h1 {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 30px;
+  text-align: left;
+}
+header .header-content .header-content-inner hr {
+  margin: 15px auto;
+  border-top: 1px solid #000;
+}
+header .header-content .header-content-inner p {
+  font-weight: 300;
+  color: #000;
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+@media (min-width: 768px) {
+  header {
+    min-height: 100%;
+  }
+  header .header-content {
+    position: absolute;
+    top: 60%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding: 0 50px;
+  }
+  header .header-content .header-content-inner {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  header .header-content .header-content-inner h1 {
+    font-size: 40px;
+  }
+  header .header-content .header-content-inner p {
+    text-align: left;
+    font-size: 25px;
+    max-width: 60%;
+  }
+}
+.bg-primary {
+  background-color: #337ab8;
+}
+.bg-primary hr {
+  border-color: white;
+}
+.bg-primary .btn-primary {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #337ab8;
+}
+.bg-primary .btn-primary:hover {
+  background-color: #ffffff;
+}
+.bg-white {
+  background-color: white;
+}
+.bg-white .service-card {
+  color: #337ab8;
+}
+.bg-white .section-heading {
+  color: #337ab8;
+}
+.section-heading {
+  color: white;
+  font-size: 30px;
+}
+.btn-primary {
+  margin: 20px;
+  font-size: 24px;
+  border-color: #337ab8;
+  background-color: rgba(51, 122, 184, 0.8);
+}
+.btn-primary:hover {
+  background-color: #337ab8;
+}
+.service-card {
+  color: white;
+}
+.service-card img {
+  margin-right: auto;
+  margin-left: auto;
+}
+.service-card h3 {
+  font-size: 24px;
+}
+.service-card p {
+  font-size: 18px;
+  color: #aaa;
+}
+.service-card .btn {
+  background-color: rgba(51, 122, 184, 0.8);
+}
+.service-card .btn:hover {
+  background-color: #337ab8;
+  color: white;
+}
+.main-container {
+  margin-top: 65px;
+}
+@media (min-width: 768px) {
+  .main-container {
+    margin-top: 130px;
+  }
+}
+footer {
+  font-size: 15px;
+  color: #337ab8;
+  padding: 10px 0px;
+}
+footer .footer-above {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+footer .footer-below {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+footer .fantank-socials {
+  margin: 20px 0;
+  float: right;
+}
+footer .fantank-socials .btn,
+footer .fantank-socials .btn:focus {
+  border-radius: 0;
+  font-size: 20px;
+  background-color: rgba(51, 122, 184, 0.7);
+  color: white;
+}
+footer .fantank-socials .btn:hover,
+footer .fantank-socials .btn:focus:hover {
+  background-color: rgba(51, 122, 184, 0.9);
+  color: white;
+}
+footer .list-unstyled {
+  margin-bottom: 10px;
+}
+footer .list-unstyled a,
+footer .list-unstyled a:focus {
+  line-height: 30px;
+  color: #337ab8;
+}
+footer .list-unstyled a:hover,
+footer .list-unstyled a:focus:hover {
+  text-decoration: underline;
+}
+footer h3 {
+  color: white;
+  font-size: 20px;
+}
+footer p {
+  color: white;
+  margin: 20px 0;
+  font-size: 14px;
+}
+.form-container {
+  background: white;
+  margin-bottom: 40px;
+  padding: 0;
+  border-radius: 5px;
+}
+.form-container header {
+  font-size: 16px;
+  text-transform: uppercase;
+  background: #F4F4F2;
+  position: relative;
+  padding: 10px 20px;
+  border-bottom: 1px solid #DDD;
+  font-weight: bold;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.btn_red {
+  background: #ED6347;
+  color: #FFF;
+}
+.btn_red:hover {
+  background: #C12B05;
+}
+a.btn_red {
+  color: #FFF;
+}
+.one_half {
+  width: 50%;
+  display: block;
+  float: left;
+}
+.one_half.last {
+  width: 45%;
+  margin-left: 5%;
+}
+/* Popup Styles*/
+.popupBody {
+  padding: 20px;
+}
+/* Social Login Form */
+.login,
+.register {
+  padding: 15px 15px;
+}
+.login .social-container,
+.register .social-container {
+  padding-bottom: 15px;
+}
+.login .social-container .social_box,
+.register .social-container .social_box {
+  display: block;
+  clear: both;
+  padding: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.login .social-container .social_box .icon,
+.register .social-container .social_box .icon {
+  display: block;
+  padding: 5px 10px;
+  margin-right: 10px;
+  float: left;
+  color: #FFF;
+  font-size: 16px;
+  text-align: center;
+}
+.login .social-container .social_box.fb,
+.register .social-container .social_box.fb {
+  background: #3b5998;
+}
+.login .social-container .social_box.instagram,
+.register .social-container .social_box.instagram {
+  background: #e95950;
+}
+.login .social-container .social_box:hover.fb,
+.register .social-container .social_box:hover.fb {
+  background: #2d4373;
+}
+.login .social-container .social_box:hover.instagram,
+.register .social-container .social_box:hover.instagram {
+  background: #e32e23;
+}
+.login .icon_title,
+.register .icon_title {
+  display: block;
+  padding: 5px 0;
+  float: left;
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+}
+.login .action_btns .btn-primary,
+.register .action_btns .btn-primary {
+  margin: 0;
+  font-size: inherit;
+}
+.login .action_btns .btn,
+.register .action_btns .btn,
+.login .action_btns .btn:focus,
+.register .action_btns .btn:focus {
+  background-color: rgba(51, 122, 184, 0.7);
+  margin: 0 20px;
+  padding: 10px 20px;
+}
+.login .action_btns .btn:hover,
+.register .action_btns .btn:hover,
+.login .action_btns .btn:focus:hover,
+.register .action_btns .btn:focus:hover {
+  background-color: rgba(51, 122, 184, 0.9);
+}
+.login label,
+.register label {
+  display: block;
+  margin-bottom: 5px;
+}
+.login input[type="text"],
+.register input[type="text"],
+.login input[type="email"],
+.register input[type="email"],
+.login input[type="password"],
+.register input[type="password"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #DDD;
+  color: #666;
+}
+.login input[type="checkbox"],
+.register input[type="checkbox"] {
+  float: left;
+  margin-right: 5px;
+}
+.login input[type="checkbox"] + label,
+.register input[type="checkbox"] + label {
+  float: left;
+}
+.login .checkbox,
+.register .checkbox {
+  margin-bottom: 10px;
+  clear: both;
+  overflow: hidden;
+}
+.login .alert,
+.register .alert {
+  padding: 5px;
+  font-size: 14px;
+}
+.login .sub-link,
+.register .sub-link {
+  margin: 20px 0 10px;
+}
+.login .sub-link a,
+.register .sub-link a {
+  color: rgba(0, 0, 0, 0.7);
+}
+.login .sub-link a:hover,
+.register .sub-link a:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+/* User Register Form */
+.centeredText {
+  text-align: center;
+  margin: 20px 0;
+  clear: both;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+.artist-card {
+  margin-bottom: 20px;
+  float: left;
+  clear: none;
+  padding: 0;
+  background-color: white;
+}
+.artist-card .img-column {
+  padding-left: 0;
+  padding-right: 0;
+}
+.artist-card .details-column {
+  padding-left: 0;
+  padding-right: 0;
+  min-height: 247px;
+  color: #000;
+  float: left;
+  padding-bottom: 10px;
+  min-height: inherit;
+}
+.artist-card .details-column .details-content {
+  color: #000;
+}
+.artist-card .details-column .details-content .offering {
+  font-size: 18px;
+  margin-top: 20px;
+}
+.artist-card .details-column .progress {
+  margin-bottom: 5px;
+}
+.artist-card .details-column .complete {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+.artist-card .details-column .days-left {
+  padding: 0;
+  margin: 0;
+  text-align: right;
+}
+.artist-card .details-column .days-left.red {
+  color: #ff0000;
+}
+.artist-card .details-column .days-left.green {
+  color: #1dbb15;
+}
+.artist-card .details-column .learn-more .btn-primary {
+  margin: 0;
+  font-size: 20px;
+  border-color: #337ab8;
+  background-color: rgba(51, 122, 184, 0.8);
+}
+.artist-card .details-column .learn-more .btn-primary:hover {
+  background-color: #337ab8;
+}
+.artist-card .details-header {
+  position: relative;
+  color: #fff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 75px;
+}
+.artist-card .details-header h2 {
+  padding: 0;
+  margin: 0 0 7px 0;
+  font-weight: 600;
+  font-size: 20px;
+}
+.artist-card .details-header h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+}
+.artist-card .details-header .details-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-top: 20px;
+  padding-right: 20px;
+}
+.artist-card .invest-now {
+  padding-top: 40px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .artist-card .details-header h2 {
+    font-size: 28px;
+  }
+  .artist-card .details-header h3 {
+    font-size: 20px;
+  }
+}
+.container-fantank-body {
+  padding-left: 0;
+  padding-right: 0;
+}
+#artistCardFloat {
+  padding: 0;
+  background-color: white;
+  border-radius: 5px;
+}
+.artist-card-float {
+  padding: 0;
+  background-color: white;
+  border-radius: 5px;
+}
+.artist-card-float.affix {
+  position: static;
+}
+.artist-card-float .details-column {
+  padding-left: 0;
+  padding-right: 0;
+  min-height: 247px;
+  color: #000;
+  float: left;
+  padding-bottom: 10px;
+  min-height: inherit;
+}
+.artist-card-float .details-column .details-content {
+  color: #000;
+}
+.artist-card-float .details-column .details-content .offering {
+  font-size: 18px;
+  margin-top: 20px;
+}
+.artist-card-float .details-column .progress {
+  margin-bottom: 5px;
+}
+.artist-card-float .details-column .complete {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+.artist-card-float .details-column .days-left {
+  padding: 0;
+  margin: 0;
+  text-align: right;
+}
+.artist-card-float .details-column .days-left.red {
+  color: #ff0000;
+}
+.artist-card-float .details-column .days-left.green {
+  color: #1dbb15;
+}
+.artist-card-float .details-column .learn-more .btn-primary {
+  margin: 0;
+  font-size: 20px;
+  border-color: #337ab8;
+  background-color: rgba(51, 122, 184, 0.8);
+}
+.artist-card-float .details-column .learn-more .btn-primary:hover {
+  background-color: #337ab8;
+}
+.artist-card-float .details-header {
+  color: white;
+  padding: 15px 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.artist-card-float .details-header h2 {
+  padding: 0;
+  margin: 0 0 7px 0;
+  font-weight: 600;
+  font-size: 20px;
+}
+.artist-card-float .details-header h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+}
+.artist-card-float .invest-now {
+  padding-top: 40px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .artist-card-float .details-header h2 {
+    font-size: 28px;
+  }
+  .artist-card-float .details-header h3 {
+    font-size: 20px;
+  }
+  .artist-card-float.affix {
+    top: 100px;
+    position: fixed;
+  }
+}
+.artist-tabs {
+  padding: 15px 15px;
+  margin-bottom: 30px;
+}
+.artist-tabs .nav-tabs {
+  border-bottom: 0;
+}
+.artist-tabs .nav-tabs > li {
+  margin-bottom: 0;
+  margin-right: 20px;
+  float: none;
+}
+.artist-tabs .nav-tabs > li > a {
+  color: #666;
+  text-transform: uppercase;
+  font-size: 22px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 0;
+  padding-right: 0;
+  margin-right: 0;
+  border: 0;
+}
+.artist-tabs .nav-tabs > li > a:hover {
+  font-size: 22px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 0;
+  padding-right: 0;
+  font-weight: normal;
+  background: transparent;
+  color: #fff;
+  border-bottom: 3px solid transparent;
+  border: 0;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  margin-right: 0;
+}
+.artist-tabs .nav-tabs > li > a:focus {
+  font-size: 22px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 0;
+  padding-right: 0;
+  font-weight: normal;
+  background: transparent;
+  color: #fff;
+  border-bottom: 3px solid transparent;
+  border: 0;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  margin-right: 0;
+}
+.artist-tabs .nav-tabs > li.active > a {
+  font-weight: bold;
+  border-bottom: 3px solid #3990ce;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  color: #fff;
+  cursor: pointer;
+  background-color: transparent;
+}
+.artist-tabs .nav-tabs > li.active > a:hover {
+  color: #fff;
+  cursor: pointer;
+  background-color: transparent;
+}
+.artist-tabs .nav-tabs > li.active > a:focus {
+  color: #fff;
+  cursor: pointer;
+  background-color: transparent;
+}
+.artist-tabs .tab-content-wrapper {
+  color: white;
+  border: 1px solid #333;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+.artist-tabs #bio .artist-bio {
+  padding: 20px 0;
+}
+.artist-tabs #bio .artist-bio .media-body {
+  vertical-align: middle;
+  text-align: center;
+}
+.artist-tabs #bio .artist-bio .media-heading {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.artist-tabs #bio .artist-bio .media-subheading {
+  margin: 0;
+  padding: 0;
+  font-size: 22px;
+}
+.artist-tabs #bio img.img-artist-bio {
+  border: 2px solid #fff;
+  margin-right: auto;
+  margin-left: auto;
+}
+.artist-tabs #bio p {
+  line-height: 1.8;
+}
+@media (min-width: 768px) {
+  .artist-tabs {
+    padding: 15px 50px;
+    float: left;
+    margin-bottom: 30px;
+  }
+  .artist-tabs .nav-tabs > li {
+    float: left;
+  }
+  .artist-tabs .tab-content-wrapper {
+    color: white;
+    float: left;
+    width: 100%;
+    border: 1px solid #333;
+    padding: 10px 30px 30px;
+    margin-top: 20px;
+    border-radius: 20px;
+    min-height: 500px;
+  }
+}
+.container-fantank-body {
+  padding: 0 0 25px 0;
+}
+.container-fantank-body h1 {
+  text-align: center;
+}
+.container .jumbotron-fantank {
+  background-color: inherit;
+  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+@media (min-width: 768px) {
+  .container .jumbotron-fantank {
+    background-color: inherit;
+    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+}
+.container .jumbotron-fantank img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+.details-page .artist-card .details-column {
+  min-height: inherit;
+  width: 100%;
+}
+.jumbotron-fantank {
+  padding: 0;
+}
+.jumbotron-fantank img {
+  width: 100%;
+}
