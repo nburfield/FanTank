@@ -129,10 +129,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //        return jdbcUsersConnectionRepository;
 //    }
     
-  @Bean
-  public ProviderSignInUtils RegistrationController(ConnectionFactoryLocator connectionFactoryLocator, UsersConnectionRepository connectionRepository) {
-      return new ProviderSignInUtils(connectionFactoryLocator, connectionRepository);
-  }
+    @Autowired
+    ConnectionFactoryLocator connectionFactoryLocator;
+    
+    @Autowired
+    UsersConnectionRepository connectionRepository;
+    
+	@Bean
+	public ProviderSignInUtils RegistrationController() {
+		return new ProviderSignInUtils(connectionFactoryLocator, connectionRepository);
+	}
     
     @Bean
     public SocialConfigurer socialConfigurerAdapter() {
