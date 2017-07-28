@@ -58,12 +58,8 @@ public class RegistrationController {
 	@Autowired
     private Environment env;
 	
-	private final ProviderSignInUtils signInUtils;
-
-    @Autowired
-    public RegistrationController(ConnectionFactoryLocator connectionFactoryLocator, UsersConnectionRepository connectionRepository) {
-        signInUtils = new ProviderSignInUtils(connectionFactoryLocator, connectionRepository);
-    }
+	@Autowired
+	private ProviderSignInUtils signInUtils;
 	
 	@GetMapping("/register")
 	public String getRegistration(HttpServletRequest request) {

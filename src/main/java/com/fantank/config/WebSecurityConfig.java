@@ -28,6 +28,7 @@ import org.springframework.social.connect.ConnectionFactoryLocator;
 import org.springframework.social.connect.UsersConnectionRepository;
 import org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository;
 import org.springframework.social.connect.web.ProviderSignInController;
+import org.springframework.social.connect.web.ProviderSignInUtils;
 import org.springframework.social.connect.web.SignInAdapter;
 
 import com.fantank.service.AuthUtil;
@@ -128,6 +129,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //        return jdbcUsersConnectionRepository;
 //    }
     
+  @Bean
+  public ProviderSignInUtils RegistrationController(ConnectionFactoryLocator connectionFactoryLocator, UsersConnectionRepository connectionRepository) {
+      return new ProviderSignInUtils(connectionFactoryLocator, connectionRepository);
+  }
     
     @Bean
     public SocialConfigurer socialConfigurerAdapter() {
