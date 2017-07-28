@@ -14,17 +14,24 @@ import org.springframework.core.env.Environment;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.social.connect.Connection;
+import org.springframework.social.connect.ConnectionFactoryLocator;
+import org.springframework.social.connect.UserProfile;
+import org.springframework.social.connect.UsersConnectionRepository;
+import org.springframework.social.connect.web.ProviderSignInUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fantank.dto.PasswordDto;
 import com.fantank.dto.UserDto;
 import com.fantank.model.User;
+import com.fantank.service.AuthUtil;
 import com.fantank.service.GenericResponse;
 import com.fantank.service.ISecurityService;
 import com.fantank.service.IUserService;
@@ -56,12 +63,39 @@ public class RegistrationController {
 		return "registration";
 	}
 	
+	private final ProviderSignInUtils signInUtils;
+
+    @Autowired
+    public RegistrationController(ConnectionFactoryLocator connectionFactoryLocator, UsersConnectionRepository connectionRepository) {
+        signInUtils = new ProviderSignInUtils(connectionFactoryLocator, connectionRepository);
+    }
+	
 	@PostMapping("/register")
 	@ResponseBody
 	public GenericResponse registration(@Valid UserDto userForm, HttpServletRequest request) {
 		User registered = userService.registerNewUserAccount(userForm);
         eventPublisher.publishEvent(new OnRegistrationCompleteEvent(registered, request.getLocale(), getAppUrl(request)));
         return new GenericResponse(registered.getEmail());
+	}
+	
+	@GetMapping("/signup")
+	public String socialRegistration(Locale locale, WebRequest request, Model model) {
+		System.out.println("Calling Social Registration");
+		Connection<?> connection = signInUtils.getConnectionFromSession(request);
+		if(connection != null) {
+			UserProfile userProfile = connection.fetchUserProfile();
+			UserDto user = new UserDto();
+			user.setEmail(userProfile.getEmail());
+			user.setFirstName(userProfile.getFirstName());
+			user.setLastName(userProfile.getLastName());
+			user.setPassword(UUID.randomUUID().toString());
+			userService.registerNewUserAccountSocial(user);
+			AuthUtil.authenticate(connection);
+			signInUtils.doPostSignUp(user.getEmail(), request);
+	        return "redirect:/";
+		}
+		model.addAttribute("message", "Failed to Authenticate Login");
+		return "redirect:/login";
 	}
 	
 	@GetMapping("/temporary/userValidation")
@@ -121,8 +155,7 @@ public class RegistrationController {
     @ResponseBody
     public GenericResponse savePassword(final Locale locale, @Valid PasswordDto passwordDto) {
         final User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        System.out.println(passwordDto);
-        userService.changeUserPassword(user, passwordDto.getNewPassword());
+        userService.changeUserPassword(user, passwordDto.getPassword());
         return new GenericResponse(messages.getMessage("message.resetPasswordSuc", null, locale));
     }
 	

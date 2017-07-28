@@ -120,7 +120,7 @@
       <div class="register">
         <p>No email server is running, use the link below to 'Reset Password'</p>
         <div class="sub-link">
-          <a th:href="@{/user/changePassword(id=${verification.id}, token=${verification.token})}" th:text="@{http://localhost/user/changePassword(id=${verification.id}, token=${verification.token})}">link</a>
+          <a th:href="@{/user/changePassword(id=${verification.user.id}, token=${verification.token})}" th:text="@{http://localhost/user/changePassword(id=${verification.user.id}, token=${verification.token})}">link</a>
         </div>
         
       </div>

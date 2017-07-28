@@ -31,10 +31,12 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
 	
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
-        handle(request, response, authentication);
+		System.out.println("running the on authentication");
+		handle(request, response, authentication);
         final HttpSession session = request.getSession(false);
         if (session != null) {
             session.setMaxInactiveInterval(30 * 60);
+            System.out.println("running the on authentication");
             LoggedUser user = new LoggedUser(authentication.getName(), activeUserStore);
             session.setAttribute("user", user);
         }

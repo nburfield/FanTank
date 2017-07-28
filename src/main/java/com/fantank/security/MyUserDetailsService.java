@@ -40,18 +40,20 @@ public class MyUserDetailsService implements UserDetailsService {
 	@Override
     public UserDetails loadUserByUsername(final String email) throws UsernameNotFoundException {
         String ip = getClientIP();
+        System.out.println("runnin the loadUserByUsername");
         if (loginAttemptService.isBlocked(ip)) {
             throw new RuntimeException("blocked");
         }
-
+        
         try {
             User user = userRepository.findByEmail(email);
             if (user == null) {
                 throw new UsernameNotFoundException("No user found with username: " + email);
             }
-
+            
             return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), user.getEnabled(), true, true, true, getAuthorities(user.getRoles()));
         } catch (final Exception e) {
+        	System.out.println("error the loadUser");
             throw new RuntimeException(e);
         }
     }
@@ -63,6 +65,7 @@ public class MyUserDetailsService implements UserDetailsService {
     private final List<String> getPrivileges(final Collection<Role> roles) {
         final List<String> privileges = new ArrayList<String>();
         final List<Privilege> collection = new ArrayList<Privilege>();
+        System.out.println(roles);
         for (final Role role : roles) {
             collection.addAll(role.getPrivileges());
         }

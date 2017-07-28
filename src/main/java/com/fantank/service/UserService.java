@@ -54,6 +54,20 @@ public class UserService implements IUserService{
 	}
 	
 	@Override
+	public void registerNewUserAccountSocial(UserDto userDto) {
+		if (!emailExist(userDto.getEmail())) {
+	        User user = new User();
+	        user.setFirstName(userDto.getFirstName());
+	        user.setLastName(userDto.getLastName());
+	        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+	        user.setEmail(userDto.getEmail());
+	        user.setEnabled(true);
+	        user.setRoles(Arrays.asList(roleRepository.findByName("ROLE_USER")));
+	        userRepository.save(user);
+		}
+	}
+	
+	@Override
     public void createVerificationTokenForUser(final User user, final String token) {
         VerificationToken myToken = new VerificationToken(token, user);
         tokenRepository.save(myToken);

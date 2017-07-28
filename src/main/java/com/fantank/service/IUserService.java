@@ -17,4 +17,5 @@ public interface IUserService {
 	void createPasswordResetTokenForUser(User user, String token);
 	PasswordResetToken getPasswordResetTokenForUser(User user);
 	void changeUserPassword(User user, String password);
+	void registerNewUserAccountSocial(UserDto accountDto);
 }

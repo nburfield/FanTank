@@ -55,6 +55,23 @@ public class SecurityService implements ISecurityService {
 			return ((UserDetails)userDetails).getUsername();
 		}
 		
-		return null;
+		return userDetails.toString();
+	}
+
+	@Override
+	public boolean autologin(String email, String password) {
+		UserDetails userDetails = userDetailsService.loadUserByUsername(email);
+		UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
+				userDetails, password, userDetails.getAuthorities());
+		
+		//authenticationManager.authenticate(usernamePasswordAuthenticationToken);
+		
+		//if(usernamePasswordAuthenticationToken.isAuthenticated()) {
+			SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+			return true;
+		//}
+		//else {
+		//	return false;
+		//}
 	}
 }

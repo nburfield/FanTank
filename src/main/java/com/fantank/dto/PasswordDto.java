@@ -1,13 +1,16 @@
 package com.fantank.dto;
 
+import com.fantank.validation.PasswordMatches;
 import com.fantank.validation.ValidPassword;
 
+@PasswordMatches
 public class PasswordDto {
 	
     private String oldPassword;
 
     @ValidPassword
-    private String newPassword;
+    private String password;
+    private String passwordConfirm;
 
     public String getOldPassword() {
         return oldPassword;
@@ -17,12 +20,19 @@ public class PasswordDto {
         this.oldPassword = oldPassword;
     }
 
-    public String getNewPassword() {
-        return newPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setNewPassword(String newPassword) {
-        this.newPassword = newPassword;
+    public void setPassword(String newPassword) {
+        this.password = newPassword;
     }
 
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+    }
 }

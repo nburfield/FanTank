@@ -60,5 +60,4 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new AuthInterceptor()).addPathPatterns("/login*", "/register*", "/user/reset*");
     }
-
 }
