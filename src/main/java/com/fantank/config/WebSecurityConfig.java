@@ -54,8 +54,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
-	@Autowired
-    private ConnectionFactoryLocator connectionFactoryLocator;
+//	@Autowired
+//    private ConnectionFactoryLocator connectionFactoryLocator;
 	
 //	@Autowired
 //	private SignInAdapter signInAdapter;
