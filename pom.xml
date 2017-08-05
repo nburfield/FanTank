@@ -31,6 +31,28 @@
        <id>alfresco-public</id>
        <url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
     </repository>
+    <repository>
+      <id>org.springframework.maven.release</id>
+      <name>Spring Maven Release Repository</name>
+      <url>http://maven.springframework.org/release</url>
+      <releases><enabled>true</enabled></releases>
+      <snapshots><enabled>false</enabled></snapshots>
+    </repository>
+    <!-- For testing against latest Spring snapshots -->
+    <repository>
+      <id>org.springframework.maven.snapshot</id>
+      <name>Spring Maven Snapshot Repository</name>
+      <url>http://maven.springframework.org/snapshot</url>
+      <releases><enabled>false</enabled></releases>
+      <snapshots><enabled>true</enabled></snapshots>
+    </repository>
+    <!-- For developing against latest Spring milestones -->
+    <repository>
+      <id>org.springframework.maven.milestone</id>
+      <name>Spring Maven Milestone Repository</name>
+      <url>http://maven.springframework.org/milestone</url>
+      <snapshots><enabled>false</enabled></snapshots>
+    </repository>
   </repositories>
 
 	<dependencies>
@@ -105,6 +127,19 @@
 			<groupId>org.springframework.social</groupId>
 			<artifactId>spring-social-facebook</artifactId>
 			<version>3.0.0.M1</version><!--$NO-MVN-MAN-VER$-->
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.social</groupId>
+			<artifactId>spring-social-twitter</artifactId>
+		</dependency>
+		<dependency>
+      <groupId>org.springframework.social</groupId>
+      <artifactId>spring-social-linkedin</artifactId>
+    </dependency>
+		<dependency>
+			<groupId>org.springframework.social</groupId>
+			<artifactId>spring-social-google</artifactId>
+			<version>1.0.0.RELEASE</version>
 		</dependency>
 	</dependencies>
 

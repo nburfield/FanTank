@@ -504,17 +504,37 @@ a.btn_red {
 .register .social-container .social_box.fb {
   background: #3b5998;
 }
-.login .social-container .social_box.instagram,
-.register .social-container .social_box.instagram {
-  background: #e95950;
+.login .social-container .social_box.linkedin,
+.register .social-container .social_box.linkedin {
+  background: #0077B5;
+}
+.login .social-container .social_box.twitter,
+.register .social-container .social_box.twitter {
+  background: #1da1f2;
+}
+.login .social-container .social_box.google,
+.register .social-container .social_box.google {
+  background: #d34836;
+}
+.login .social-container .social_box:hover,
+.register .social-container .social_box:hover {
+  cursor: pointer;
 }
 .login .social-container .social_box:hover.fb,
 .register .social-container .social_box:hover.fb {
   background: #2d4373;
 }
-.login .social-container .social_box:hover.instagram,
-.register .social-container .social_box:hover.instagram {
-  background: #e32e23;
+.login .social-container .social_box:hover.linkedin,
+.register .social-container .social_box:hover.linkedin {
+  background: #005582;
+}
+.login .social-container .social_box:hover.twitter,
+.register .social-container .social_box:hover.twitter {
+  background: #0c85d0;
+}
+.login .social-container .social_box:hover.google,
+.register .social-container .social_box:hover.google {
+  background: #b03626;
 }
 .login .icon_title,
 .register .icon_title {

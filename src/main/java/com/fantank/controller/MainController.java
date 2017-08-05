@@ -23,14 +23,11 @@ public class MainController {
 	@Autowired
 	private ISecurityService securityService;
 	
-	@Autowired
-    private ActiveUserStore activeUserStore;
-	
 	@GetMapping("/")
 	public String welcome(Model model) {
 		
-		System.out.println(activeUserStore.getUsers());
-		System.out.println(SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+		System.out.println(securityService.findLoggedInUsername());
+		System.out.println(SecurityContextHolder.getContext().getAuthentication().isAuthenticated());
 		User user = userService.findByEmail(securityService.findLoggedInUsername());
 		model.addAttribute("user", user);
 		

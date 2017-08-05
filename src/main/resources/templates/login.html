@@ -119,23 +119,42 @@
       </header>
 
       <div th:if="${param.message != null}" class="alert alert-info" th:text="${param.message[0]}">message</div>
-      <div th:if="${param.error != null}" class="alert alert-danger" th:text="${param.message[0]}">error</div>
+      <div th:if="${param.error != null}" class="alert alert-danger" th:text="${param.error[0]}">error</div>
 
       <!-- Social Login -->
       <div class="login">
         <div class="social-container">
           <form id="facebookform" action="/signin/facebook" method="POST">
             <input type="hidden" name="scope" value="public_profile,email" />
-            <a href="javascript:void(0)" class="social_box fb">
+            <a class="social_box fb">
               <span class="icon"><i class="fa fa-facebook"></i></span>
               <span class="icon_title">Connect with Facebook</span>
             </a>
           </form>
 
-          <a href="#" class="social_box instagram">
-            <span class="icon"><i class="fa fa-instagram"></i></span>
-            <span class="icon_title">Connect with Instagram</span>
-          </a>
+          <form id="twitterform" action="/signin/twitter" method="POST">
+            <input type="hidden" name="scope" value="include_email" />
+            <a class="social_box twitter">
+              <span class="icon"><i class="fa fa-twitter"></i></span>
+              <span class="icon_title">Connect with Twitter</span>
+            </a>
+          </form>
+
+          <form id="linkedinform" action="/signin/linkedin" method="POST">
+            <input type="hidden" name="scope" value="r_basicprofile,r_emailaddress" />
+            <a class="social_box linkedin">
+              <span class="icon"><i class="fa fa-linkedin"></i></span>
+              <span class="icon_title">Connect with Linkedin</span>
+            </a>
+          </form>
+          
+          <form id="googleform" action="/signin/google" method="POST">
+            <input type="hidden" name="scope" value="profile email" />
+            <a class="social_box google">
+              <span class="icon"><i class="fa fa-google-plus"></i></span>
+              <span class="icon_title">Connect with Google</span>
+            </a>
+          </form>
         </div>
 
         <form name='f' action="login" method='POST' onsubmit="return validate();">
@@ -261,6 +280,19 @@
 
         $('.fb').click(function(event) {
           $('#facebookform').submit();
+        });
+        $('.twitter').click(function(event) {
+          console.log("Calling twitter auth")
+          $('#twitterform').submit();
+        });
+        $('.instagram').click(function(event) {
+          $('#instagramform').submit();
+        });
+        $('.linkedin').click(function(event) {
+          $('#linkedinform').submit();
+        });
+        $('.google').click(function(event) {
+          $('#googleform').submit();
         });
       });
 

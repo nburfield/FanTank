@@ -19,12 +19,16 @@ import org.springframework.social.connect.ConnectionFactoryLocator;
 import org.springframework.social.connect.UserProfile;
 import org.springframework.social.connect.UsersConnectionRepository;
 import org.springframework.social.connect.web.ProviderSignInUtils;
+import org.springframework.social.google.api.Google;
+import org.springframework.social.twitter.api.Twitter;
+import org.springframework.social.twitter.api.impl.TwitterTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.client.RestOperations;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -36,6 +40,7 @@ import com.fantank.service.GenericResponse;
 import com.fantank.service.ISecurityService;
 import com.fantank.service.IUserService;
 import com.fantank.service.OnRegistrationCompleteEvent;
+import com.fantank.service.TwitterProfileWithEmail;
 
 @Controller
 public class RegistrationController {
@@ -77,11 +82,25 @@ public class RegistrationController {
 	@GetMapping("/signup")
 	public String socialRegistration(Locale locale, WebRequest request, Model model) {
 		System.out.println("Calling Social Registration");
+
 		Connection<?> connection = signInUtils.getConnectionFromSession(request);
 		if(connection != null) {
 			UserProfile userProfile = connection.fetchUserProfile();
 			UserDto user = new UserDto();
 			user.setEmail(userProfile.getEmail());
+			
+			if(userProfile.getEmail() == null) {
+				if(connection.getKey().getProviderId() == "twitter") {
+					Twitter twitter = (Twitter) connection.getApi();
+					RestOperations restOperations = twitter.restOperations();
+			        TwitterProfileWithEmail response = restOperations.getForObject("https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true", TwitterProfileWithEmail.class);
+			        user.setEmail(response.getEmail());
+	        	}
+	        	else {
+	        		throw new RuntimeException("User Social Email not available");
+	        	}
+			}
+			
 			user.setFirstName(userProfile.getFirstName());
 			user.setLastName(userProfile.getLastName());
 			user.setPassword(UUID.randomUUID().toString());
@@ -90,6 +109,7 @@ public class RegistrationController {
 			signInUtils.doPostSignUp(user.getEmail(), request);
 	        return "redirect:/";
 		}
+		
 		model.addAttribute("message", "Failed to Authenticate Login");
 		return "redirect:/login";
 	}
