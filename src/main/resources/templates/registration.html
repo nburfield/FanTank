@@ -252,6 +252,7 @@
     /*<![CDATA[*/
     var serverContext = /*[[@{/login}]]*/;
     serverContext = "http://localhost:8080/";
+    //serverContext = "http://fantank.bcinnovationsonline.com/";
 
     $(document).ready(function () {
       $('form').submit(function(event) {
@@ -312,7 +313,7 @@
                 $("#emailError").show().html(data.responseJSON.message);
             }
             else if(data.responseJSON.error.indexOf("InternalError") > -1){
-                window.location.href = serverContext + "login?message=" + data.responseJSON.message;
+                window.location.href = serverContext + "login?error=" + data.responseJSON.message;
             }
             else{
               var errors = $.parseJSON(data.responseJSON.message);

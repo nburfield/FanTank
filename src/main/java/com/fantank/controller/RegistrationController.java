@@ -76,6 +76,7 @@ public class RegistrationController {
 	public GenericResponse registration(@Valid UserDto userForm, HttpServletRequest request) {
 		User registered = userService.registerNewUserAccount(userForm);
         eventPublisher.publishEvent(new OnRegistrationCompleteEvent(registered, request.getLocale(), getAppUrl(request)));
+        System.out.println(registered.getEmail());
         return new GenericResponse(registered.getEmail());
 	}
 	

@@ -70,7 +70,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
     // 500
     @ExceptionHandler({ MailAuthenticationException.class })
     public ResponseEntity<Object> handleMail(final RuntimeException ex, final WebRequest request) {
-        logger.error("500 Status Code", ex);
+        logger.error("500 Status Code - Mail Error: ", ex);
         final GenericResponse bodyOfResponse = new GenericResponse(messages.getMessage("message.email.config.error", null, request.getLocale()), "MailError");
         return new ResponseEntity<Object>(bodyOfResponse, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
