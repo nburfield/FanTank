@@ -5,6 +5,8 @@ import java.util.Locale;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,12 +26,16 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.social.config.annotation.SocialConfigurer;
+import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionFactoryLocator;
+import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.connect.UsersConnectionRepository;
 import org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository;
+import org.springframework.social.connect.web.GenericConnectionStatusView;
 import org.springframework.social.connect.web.ProviderSignInController;
 import org.springframework.social.connect.web.ProviderSignInUtils;
 import org.springframework.social.connect.web.SignInAdapter;
+import org.springframework.social.google.api.Google;
 
 import com.fantank.service.AuthUtil;
 
@@ -134,6 +140,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     
     @Autowired
     UsersConnectionRepository connectionRepository;
+    
+//	@Bean
+//	@ConditionalOnMissingBean(Google.class)
+//	@Scope(value = "request", proxyMode = ScopedProxyMode.INTERFACES)
+//	public Google google(ConnectionRepository repository) {
+//		Connection<Google> connection = repository.findPrimaryConnection(Google.class);
+//		return connection != null ? connection.getApi() : null;
+//	}
+//
+//	@Bean(name = { "connect/googleConnect", "connect/googleConnected" })
+//	@ConditionalOnProperty(prefix = "spring.social", name = "auto-connection-views")
+//	public GenericConnectionStatusView googleConnectView() {
+//		return new GenericConnectionStatusView("google", "Google");
+//	}
+//    
+    
+    
     
 	@Bean
 	public ProviderSignInUtils RegistrationController() {

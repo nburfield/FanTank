@@ -59,6 +59,5 @@ public class GoogleAutoConfiguration {
 		protected ConnectionFactory<?> createConnectionFactory() {
 			return new GoogleConnectionFactory(this.properties.getAppId(), this.properties.getAppSecret());
 		}
-
 	}
 }

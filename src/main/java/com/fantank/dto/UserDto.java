@@ -11,11 +11,11 @@ import com.fantank.validation.ValidPassword;
 @PasswordMatches
 public class UserDto {
 	@NotNull
-    @Size(min = 1)
+    @Size(min = 1, max=255)
     private String firstName;
      
     @NotNull
-    @Size(min = 1)
+    @Size(min = 1, max=255)
     private String lastName;
      
     @NotNull
@@ -25,7 +25,7 @@ public class UserDto {
      
     @ValidEmail
     @NotNull
-    @Size(min = 1)
+    @Size(min = 1, max=255)
     private String email;
 
 	public String getFirstName() {

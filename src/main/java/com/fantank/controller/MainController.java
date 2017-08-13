@@ -1,7 +1,6 @@
 package com.fantank.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -10,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.fantank.model.User;
-import com.fantank.security.ActiveUserStore;
 import com.fantank.service.ISecurityService;
 import com.fantank.service.IUserService;
 
@@ -25,7 +23,7 @@ public class MainController {
 	
 	@GetMapping("/")
 	public String welcome(Model model) {
-		
+
 		System.out.println(securityService.findLoggedInUsername());
 		System.out.println(SecurityContextHolder.getContext().getAuthentication().isAuthenticated());
 		User user = userService.findByEmail(securityService.findLoggedInUsername());
