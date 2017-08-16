@@ -1,4 +1,4 @@
-package com.fantank.config;
+package com.fantank.config.social;
 
 import org.springframework.boot.autoconfigure.social.SocialProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;

@@ -1,4 +1,4 @@
-package com.fantank.service;
+package com.fantank.config.social;
 
 import java.util.HashMap;
 import java.util.Map;

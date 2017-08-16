@@ -32,15 +32,15 @@ import org.springframework.web.client.RestOperations;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fantank.config.social.AuthUtil;
+import com.fantank.config.social.TwitterProfileWithEmail;
 import com.fantank.dto.PasswordDto;
 import com.fantank.dto.UserDto;
 import com.fantank.model.User;
-import com.fantank.service.AuthUtil;
 import com.fantank.service.GenericResponse;
 import com.fantank.service.ISecurityService;
 import com.fantank.service.IUserService;
 import com.fantank.service.OnRegistrationCompleteEvent;
-import com.fantank.service.TwitterProfileWithEmail;
 
 @Controller
 public class RegistrationController {
@@ -63,8 +63,8 @@ public class RegistrationController {
 	@Autowired
     private Environment env;
 	
-	@Autowired
-	private ProviderSignInUtils signInUtils;
+//	@Autowired
+//	private ProviderSignInUtils signInUtils;
 	
 	@GetMapping("/register")
 	public String getRegistration(HttpServletRequest request) {
@@ -80,40 +80,40 @@ public class RegistrationController {
         return new GenericResponse(registered.getEmail());
 	}
 	
-	@GetMapping("/signup")
-	public String socialRegistration(Locale locale, WebRequest request, Model model) {
-		System.out.println("Calling Social Registration");
-
-		Connection<?> connection = signInUtils.getConnectionFromSession(request);
-		if(connection != null) {
-			UserProfile userProfile = connection.fetchUserProfile();
-			UserDto user = new UserDto();
-			user.setEmail(userProfile.getEmail());
-			
-			if(userProfile.getEmail() == null) {
-				if(connection.getKey().getProviderId() == "twitter") {
-					Twitter twitter = (Twitter) connection.getApi();
-					RestOperations restOperations = twitter.restOperations();
-			        TwitterProfileWithEmail response = restOperations.getForObject("https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true", TwitterProfileWithEmail.class);
-			        user.setEmail(response.getEmail());
-	        	}
-	        	else {
-	        		throw new RuntimeException("User Social Email not available");
-	        	}
-			}
-			
-			user.setFirstName(userProfile.getFirstName());
-			user.setLastName(userProfile.getLastName());
-			user.setPassword(UUID.randomUUID().toString());
-			userService.registerNewUserAccountSocial(user);
-			AuthUtil.authenticate(connection);
-			signInUtils.doPostSignUp(user.getEmail(), request);
-	        return "redirect:/";
-		}
-		
-		model.addAttribute("message", "Failed to Authenticate Login");
-		return "redirect:/login";
-	}
+//	@GetMapping("/signup")
+//	public String socialRegistration(Locale locale, WebRequest request, Model model) {
+//		System.out.println("Calling Social Registration");
+//
+//		Connection<?> connection = signInUtils.getConnectionFromSession(request);
+//		if(connection != null) {
+//			UserProfile userProfile = connection.fetchUserProfile();
+//			UserDto user = new UserDto();
+//			user.setEmail(userProfile.getEmail());
+//			
+//			if(userProfile.getEmail() == null) {
+//				if(connection.getKey().getProviderId() == "twitter") {
+//					Twitter twitter = (Twitter) connection.getApi();
+//					RestOperations restOperations = twitter.restOperations();
+//			        TwitterProfileWithEmail response = restOperations.getForObject("https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true", TwitterProfileWithEmail.class);
+//			        user.setEmail(response.getEmail());
+//	        	}
+//	        	else {
+//	        		throw new RuntimeException("User Social Email not available");
+//	        	}
+//			}
+//			
+//			user.setFirstName(userProfile.getFirstName());
+//			user.setLastName(userProfile.getLastName());
+//			user.setPassword(UUID.randomUUID().toString());
+//			userService.registerNewUserAccountSocial(user);
+//			AuthUtil.authenticate(connection);
+//			signInUtils.doPostSignUp(user.getEmail(), request);
+//	        return "redirect:/";
+//		}
+//		
+//		model.addAttribute("message", "Failed to Authenticate Login");
+//		return "redirect:/login";
+//	}
 	
 	@GetMapping("/temporary/userValidation")
 	public ModelAndView userValidation(@RequestParam("email") String username, HttpServletRequest request) {

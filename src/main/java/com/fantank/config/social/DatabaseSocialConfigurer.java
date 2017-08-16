@@ -1,4 +1,4 @@
-package com.fantank.config;
+package com.fantank.config.social;
 
 import javax.sql.DataSource;
 

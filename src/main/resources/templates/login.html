@@ -276,13 +276,13 @@
       //serverContext = "http://fantank.bcinnovationsonline.com/";
 
       $(document).ready(function () {
-        // $('.fb').click(function(event) {
-        //   facebookLogin(event);
-        // });
-
         $('.fb').click(function(event) {
-          $('#facebookform').submit();
+          facebookLogin(event);
         });
+
+        // $('.fb').click(function(event) {
+        //   $('#facebookform').submit();
+        // });
         $('.twitter').click(function(event) {
           console.log("Calling twitter auth")
           $('#twitterform').submit();
@@ -318,7 +318,7 @@
 
       function facebookLogin(event){
 
-        event.preventDefault(); 
+        event.preventDefault();
         $.post(serverContext + "signin/facebook", function(data){
           console.log("success");
         })

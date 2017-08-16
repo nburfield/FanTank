@@ -37,7 +37,8 @@ import org.springframework.social.connect.web.ProviderSignInUtils;
 import org.springframework.social.connect.web.SignInAdapter;
 import org.springframework.social.google.api.Google;
 
-import com.fantank.service.AuthUtil;
+import com.fantank.config.social.AuthUtil;
+import com.fantank.config.social.DatabaseSocialConfigurer;
 
 @Configuration
 @EnableWebSecurity
@@ -60,12 +61,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
     @Autowired
     private DataSource dataSource;
-
-//	@Autowired
-//    private ConnectionFactoryLocator connectionFactoryLocator;
-	
-//	@Autowired
-//	private SignInAdapter signInAdapter;
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
@@ -113,66 +108,29 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public SessionRegistry sessionRegistry() {
         return new SessionRegistryImpl();
     }
-
-//    @Bean
-//    public ProviderSignInController providerSignInController() {
-//    	ProviderSignInController providerSignInController = new ProviderSignInController(
-//    			connectionFactoryLocator, usersConnectionRepository());
-//    	providerSignInController.setSignUpUrl("/signup");
-//        return providerSignInController;
-//    }
     
+//    @Autowired
+//    ConnectionFactoryLocator connectionFactoryLocator;
+//    
+//    @Autowired
+//    UsersConnectionRepository connectionRepository;
+//    
+//	@Bean
+//	public ProviderSignInUtils RegistrationController() {
+//		return new ProviderSignInUtils(connectionFactoryLocator, connectionRepository);
+//	}
+//  
 //    @Bean
-//    public SocialConfigurer socialConfigurerAdapter(DataSource dataSource) {
+//    public SocialConfigurer socialConfigurerAdapter() {
 //        return new DatabaseSocialConfigurer(dataSource);
 //    }
-   
+//
 //    @Bean
-//    @Scope(value="singleton", proxyMode=ScopedProxyMode.INTERFACES)
-//    public UsersConnectionRepository usersConnectionRepository() {
-//    	JdbcUsersConnectionRepository jdbcUsersConnectionRepository = new JdbcUsersConnectionRepository(
-//    			dataSource, connectionFactoryLocator, Encryptors.noOpText());
-//        return jdbcUsersConnectionRepository;
+//    public SignInAdapter authSignInAdapter() {
+//        return (email, connection, request) -> {
+//            AuthUtil.authenticate(connection);
+//            return null;
+//        };
 //    }
     
-    @Autowired
-    ConnectionFactoryLocator connectionFactoryLocator;
-    
-    @Autowired
-    UsersConnectionRepository connectionRepository;
-    
-//	@Bean
-//	@ConditionalOnMissingBean(Google.class)
-//	@Scope(value = "request", proxyMode = ScopedProxyMode.INTERFACES)
-//	public Google google(ConnectionRepository repository) {
-//		Connection<Google> connection = repository.findPrimaryConnection(Google.class);
-//		return connection != null ? connection.getApi() : null;
-//	}
-//
-//	@Bean(name = { "connect/googleConnect", "connect/googleConnected" })
-//	@ConditionalOnProperty(prefix = "spring.social", name = "auto-connection-views")
-//	public GenericConnectionStatusView googleConnectView() {
-//		return new GenericConnectionStatusView("google", "Google");
-//	}
-//    
-    
-    
-    
-	@Bean
-	public ProviderSignInUtils RegistrationController() {
-		return new ProviderSignInUtils(connectionFactoryLocator, connectionRepository);
-	}
-    
-    @Bean
-    public SocialConfigurer socialConfigurerAdapter() {
-        return new DatabaseSocialConfigurer(dataSource);
-    }
-
-    @Bean
-    public SignInAdapter authSignInAdapter() {
-        return (email, connection, request) -> {
-            AuthUtil.authenticate(connection);
-            return null;
-        };
-    }
 }

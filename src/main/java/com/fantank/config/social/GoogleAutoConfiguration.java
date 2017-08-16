@@ -1,4 +1,4 @@
-package com.fantank.config;
+package com.fantank.config.social;
 
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
@@ -23,16 +23,16 @@ import org.springframework.social.connect.web.GenericConnectionStatusView;
 import org.springframework.social.google.api.Google;
 import org.springframework.social.google.connect.GoogleConnectionFactory;
 
-@Configuration
-@ConditionalOnClass({ SocialConfigurerAdapter.class, GoogleConnectionFactory.class })
-@ConditionalOnProperty(prefix = "spring.social.google", name = "app-id")
-@AutoConfigureBefore(SocialWebAutoConfiguration.class)
-@AutoConfigureAfter(WebMvcAutoConfiguration.class)
+//@Configuration
+//@ConditionalOnClass({ SocialConfigurerAdapter.class, GoogleConnectionFactory.class })
+//@ConditionalOnProperty(prefix = "spring.social.google", name = "app-id")
+//@AutoConfigureBefore(SocialWebAutoConfiguration.class)
+//@AutoConfigureAfter(WebMvcAutoConfiguration.class)
 public class GoogleAutoConfiguration {
-	@Configuration
-	@EnableSocial
-	@EnableConfigurationProperties(GoogleProperties.class)
-	@ConditionalOnWebApplication
+//	@Configuration
+//	@EnableSocial
+//	@EnableConfigurationProperties(GoogleProperties.class)
+//	@ConditionalOnWebApplication
 	protected static class GoogleConfigurerAdapter extends SocialAutoConfigurerAdapter {
 
 		private final GoogleProperties properties;

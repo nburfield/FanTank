@@ -1,4 +1,4 @@
-package com.fantank.service;
+package com.fantank.config.social;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
