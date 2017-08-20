@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <title>FanTank | Register</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+
+  <!-- Custom CSS -->
+  <link href="../static/css/custom.min.css" th:href="@{/css/custom.min.css}" rel="stylesheet"/>
+
+  <!-- Fonts -->
+  <link href="../static/css/font-awesome.min.css" th:href="@{css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css?family=Dosis:500" rel="stylesheet"/>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" th:href="@{/images/icons/apple-touch-icon-57x57.png}" href="../static/images/icons/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" th:href="@{/images/icons/apple-touch-icon-114x114.png}" href="../static/icons/images/icons/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" th:href="@{/images/icons/apple-touch-icon-72x72.png}" href="../static/images/icons/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" th:href="@{/images/icons/apple-touch-icon-144x144.png}" href="../static/images/icons/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" th:href="@{/images/icons/apple-touch-icon-60x60.png}" href="../static/images/icons/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" th:href="@{/images/icons/apple-touch-icon-120x120.png}" href="../static/images/icons/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" th:href="@{/images/icons/apple-touch-icon-76x76.png}" href="../static/images/icons/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" th:href="@{/images/icons/apple-touch-icon-152x152.png}" href="../static/images/icons/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" th:href="@{/images/icons/favicon-196x196.png}" href="../static/images/icons/favicon-196x196.png" sizes="196x196" />
+  <link rel="icon" type="image/png" th:href="@{/images/icons/favicon-96x96.png}" href="../static/images/icons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" th:href="@{/images/icons/favicon-32x32.png}" href="../static/images/icons/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" th:href="@{/images/icons/favicon-16x16.png}" href="../static/images/icons/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" th:href="@{/images/icons/favicon-128.png}" href="../static/images/icons/favicon-128.png" sizes="128x128" />
+  <meta name="application-name" content="&nbsp;"/>
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="/images/icons/mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="/images/icons/mstile-150x150.png" />
+  <meta name="msapplication-wide310x150logo" content="/images/icons/mstile-310x150.png" />
+  <meta name="msapplication-square310x310logo" content="/images/icons/mstile-310x310.png" />
+
+</head>
+
+<body>
+
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-fixed-top-home">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar">
+          <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand page-scroll" href="/">
+          <img class="img-responsive img-centered" alt=""/>
+        </a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mobile-user">
+          <span class="sr-only">Toggle user</span><i class="fa fa-user"></i>
+        </button>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="top-navbar">
+          <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a class="btn page-scroll" href="#">About Us</a>
+              </li>
+              <li>
+                <a class="btn page-scroll" href="#">How It Works</a>
+              </li>
+              <li>
+                <a class="btn page-scroll" href="/explore">Explore</a>
+              </li>
+              <li th:if="${user == null}" class="main-btn">
+                <a class="btn btn-not-login" href="/login">Register/Login</a>
+              </li>
+              <li th:if="${user != null}" class="main-btn">
+                <a data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" th:inline="text" class="dropdown-toggle btn btn-login" href="#"><i class="fa fa-user pull-left" aria-hidden="true"></i> [[${user.firstName}]] <i class="fa fa-caret-down pull-right" aria-hidden="true"></i></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/logout" th:href="@{/logout}">Logout <i class="fa fa-sign-out pull-right" aria-hidden="true"></i></a></li>
+                </ul>
+              </li>
+          </ul>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="mobile-user">
+          <ul th:if="${user != null}" class="nav navbar-nav navbar-right">
+              <li class="main-btn">
+                <span th:inline="text" class="">[[${user.firstName}]]</span>
+              </li>
+              <li>
+                <a href="/logout" th:href="@{/logout}">Logout <i class="fa fa-sign-out pull-right" aria-hidden="true"></i></a>
+              </li>
+          </ul>
+          <ul th:if="${user == null}" class="nav navbar-nav navbar-right">
+              <li class="main-btn">
+                <a class="btn btn-not-login" href="/login">Register/Login</a>
+              </li>
+          </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+  <div class="container main-container">
+
+    <div class="col-lg-offset-4 col-lg-4 col-sm-12 form-container">
+      <header>
+        Temporary Password Reset Email
+      </header>
+
+      <div class="register">
+        <p>No email server is running, use the link below to 'Reset Password'</p>
+        <div class="sub-link">
+          <a th:href="@{/user/changePassword(id=${verification.user.id}, token=${verification.token})}" th:text="@{http://localhost/user/changePassword(id=${verification.user.id}, token=${verification.token})}">link</a>
+        </div>
+        
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="footer-above">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5">
+
+            <a href="/">
+              <img src="/images/fan-tank-logo.png" class="footer-logo" width="300" />
+            </a>
+
+          </div>
+
+          <div class="col-md-7 footer-nav">
+            <div class="col-xs-12 col-md-3">
+              <h3>About Us</h3>
+              <ul class="list-unstyled">
+                <li><a href="#">Management</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-md-4">
+              <h3>How It Works</h3>
+              <ul class="list-unstyled">
+                <li><a href="#">Equity Crowdfunding</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-md-5">
+              <h3>Learn More</h3>
+              <ul class="list-unstyled">
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Equity Crowd Funding Disclaimers</a></li>
+                <li><a href="#">Jobs</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-below">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <p class="text-center">
+              &copy; 2017 FanTank, LLC&trade;
+              <br/>
+              ALL RIGHTS RESERVED
+            </p>
+          </div>
+          <div class="col-xs-12 col-md-7">
+            <div class="fantank-socials">
+              <a class="btn" href="http://facebook.com" role="button" target="_blank"><i class="fa fa-facebook-official"></i></a>
+              <a class="btn" href="http://instagram.com" role="button" target="_blank"><i class="fa fa-instagram"></i></a>
+              <a class="btn" href="http://twitter.com" role="button" target="_blank"><i class="fa fa-twitter"></i></a>
+              <a class="btn" href="http://linkedin.com" role="button" target="_blank"><i class="fa fa-linkedin"></i></a>
+              <a class="btn" href="http://wechat.com" role="button" target="_blank"><i class="fa fa-wechat"></i></a>
+              <a class="btn" href="http://snapchat.com" role="button" target="_blank"><i class="fa fa-snapchat-ghost"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- jQuery -->
+  <script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+  <script src="../static/js/scrollreveal.min.js" th:src="@{/js/scrollreveal.min.js}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+
+  <!-- Theme JavaScript -->
+  <script src="../static/js/custom.min.js" th:src="@{/js/custom.min.js}"></script>
+
+</body>
+</html>
