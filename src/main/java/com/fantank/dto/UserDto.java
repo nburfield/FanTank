@@ -27,6 +27,8 @@ public class UserDto {
     @NotNull
     @Size(min = 1, max=255)
     private String email;
+    
+    private long id;
 
 	public String getFirstName() {
 		return firstName;
@@ -66,5 +68,13 @@ public class UserDto {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 }

@@ -19,19 +19,14 @@ import org.springframework.social.config.annotation.SocialConfigurer;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionFactory;
 import org.springframework.social.connect.ConnectionFactoryLocator;
-import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.connect.ConnectionSignUp;
 import org.springframework.social.connect.UserProfile;
 import org.springframework.social.connect.UsersConnectionRepository;
 import org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository;
-import org.springframework.social.connect.web.ProviderSignInUtils;
 import org.springframework.social.connect.web.SignInAdapter;
-import org.springframework.social.facebook.connect.FacebookConnectionFactory;
 import org.springframework.social.google.connect.GoogleConnectionFactory;
-import org.springframework.social.linkedin.connect.LinkedInConnectionFactory;
 import org.springframework.social.security.AuthenticationNameUserIdSource;
 import org.springframework.social.twitter.api.Twitter;
-import org.springframework.social.twitter.connect.TwitterConnectionFactory;
 import org.springframework.web.client.RestOperations;
 
 import com.fantank.config.social.AuthUtil;
@@ -80,10 +75,7 @@ public class SocialConfig implements SocialConfigurer {
 	
 	public enum Provider {
 		
-		//facebook("facebook"),
-		//twitter("twitter"),
 		google("google");
-		//linkedin("linkedin");
 		
 		private String label;
 		
@@ -93,14 +85,8 @@ public class SocialConfig implements SocialConfigurer {
 		
 		public ConnectionFactory<?> createConnectionFactory(String appId, String appSecret) {
 			switch(this) {
-//			case facebook:
-//				return new FacebookConnectionFactory(appId, appSecret);
-//			case twitter:
-//				return new TwitterConnectionFactory(appId, appSecret);
 			case google:
 				return new GoogleConnectionFactory(appId, appSecret);
-//			case linkedin:
-//				return new LinkedInConnectionFactory(appId, appSecret);
 			default:
 				return null;
 			}
@@ -118,11 +104,6 @@ public class SocialConfig implements SocialConfigurer {
 			return environment.getProperty(String.format("spring.social.%s.appSecret", this.toString()));
 		}
 	}
-	
-//	@Bean
-//	public ProviderSignInUtils RegistrationController() {
-//		return new ProviderSignInUtils(connectionFactoryLocator, userConnectionRepository);
-//	}
 
     @Bean
     public SignInAdapter authSignInAdapter() {
@@ -153,12 +134,11 @@ public class SocialConfig implements SocialConfigurer {
 						throw new RuntimeException("User Social Email not available");
 					}
 				}
-			
+
 				user.setFirstName(userProfile.getFirstName());
 				user.setLastName(userProfile.getLastName());
 				user.setPassword(UUID.randomUUID().toString());
 				userService.registerNewUserAccountSocial(user);
-				//AuthUtil.authenticate(connection);
 				return connection.getDisplayName();
 			}
 			return null;

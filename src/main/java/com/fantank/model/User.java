@@ -3,6 +3,7 @@ package com.fantank.model;
 
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -24,6 +26,7 @@ public class User {
 	private String passwordConfirm;
 	private Boolean enabled;
 	private Collection<Role> roles;
+	private Collection<Investment> investments;
 	
 	public User() {
 		super();
@@ -85,7 +88,7 @@ public class User {
 		return enabled;
 	}
 
-	public void setEnabled(boolean enabled) {
+	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
 
@@ -97,5 +100,14 @@ public class User {
 	
 	public void setRoles(Collection<Role> roles) {
 		this.roles = roles;
+	}
+
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	public Collection<Investment> getInvestments() {
+		return investments;
+	}
+
+	public void setInvestments(Collection<Investment> investments) {
+		this.investments = investments;
 	}
 }

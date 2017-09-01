@@ -65,7 +65,7 @@ public class MyUserDetailsService implements UserDetailsService {
     private final List<String> getPrivileges(final Collection<Role> roles) {
         final List<String> privileges = new ArrayList<String>();
         final List<Privilege> collection = new ArrayList<Privilege>();
-        System.out.println(roles);
+
         for (final Role role : roles) {
             collection.addAll(role.getPrivileges());
         }

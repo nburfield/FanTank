@@ -85,6 +85,9 @@
               <li th:if="${user != null}" class="main-btn">
                 <a data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" th:inline="text" class="dropdown-toggle btn btn-login" href="#"><i class="fa fa-user pull-left" aria-hidden="true"></i> [[${user.firstName}]] <i class="fa fa-caret-down pull-right" aria-hidden="true"></i></a>
                 <ul class="dropdown-menu">
+                  <li>
+                    <a href="/dashboard" th:href="@{/dashboard}">Dashboard <i class="fa fa-tachometer pull-right" aria-hidden="true"></i></a>
+                  </li>
                   <li><a href="/logout" th:href="@{/logout}">Logout <i class="fa fa-sign-out pull-right" aria-hidden="true"></i></a></li>
                 </ul>
               </li>
@@ -95,6 +98,9 @@
           <ul th:if="${user != null}" class="nav navbar-nav navbar-right">
               <li th:inline="text" class="main-btn user-name">
                 [[${user.firstName}]]
+              </li>
+              <li>
+                <a href="/dashboard" th:href="@{/dashboard}">Dashboard <i class="fa fa-tachometer pull-right" aria-hidden="true"></i></a>
               </li>
               <li>
                 <a href="/logout" th:href="@{/logout}">Logout <i class="fa fa-sign-out pull-right" aria-hidden="true"></i></a>
@@ -193,17 +199,17 @@
         <div class="col-lg-4 col-md-4 col-sm-12 text-center service-card">
           <img class="img-responsive img-centered sr-icons" alt="" th:src="@{/images/chance.jpg}" src="../static/images/chance.jpg"/>
           <h3>Chance The Rapper</h3>
-          <a href="/explore/1" class="btn">More Info</a>
+          <a href="/explore/chance-the-rapper" class="btn">More Info</a>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 text-center service-card">
           <img class="img-responsive img-centered sr-icons" alt="" th:src="@{/images/dave-chapelle.jpg}" src="../static/images/dave-chapelle.jpg"/>
           <h3>Dave Chappelle &amp; Antwone Fisher</h3>
-          <a href="/explore/1" class="btn">More Info</a>
+          <a href="/explore/chance-the-rapper" class="btn">More Info</a>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 text-center service-card">
           <img class="img-responsive img-centered sr-icons" alt="" th:src="@{/images/ll.jpg}" src="../static/images/ll.jpg"/>
           <h3>Matthew Levy &amp; LL Cool J</h3>
-          <a href="/explore/1" class="btn">More Info</a>
+          <a href="/explore/chance-the-rapper" class="btn">More Info</a>
         </div>
       </div>
 

@@ -49,7 +49,7 @@ public class UserService implements IUserService{
         user.setLastName(userDto.getLastName());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         user.setEmail(userDto.getEmail());
-        user.setRoles(Arrays.asList(roleRepository.findByName("ROLE_USER")));
+        user.setRoles(Arrays.asList(roleRepository.findByName("ROLE_INVESTOR")));
         return userRepository.save(user);
 	}
 	
@@ -62,7 +62,7 @@ public class UserService implements IUserService{
 	        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 	        user.setEmail(userDto.getEmail());
 	        user.setEnabled(true);
-	        user.setRoles(Arrays.asList(roleRepository.findByName("ROLE_USER")));
+	        user.setRoles(Arrays.asList(roleRepository.findByName("ROLE_INVESTOR")));
 	        userRepository.save(user);
 		}
 	}

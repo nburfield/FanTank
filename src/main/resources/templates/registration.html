@@ -117,6 +117,8 @@
         Register
       </header>
 
+      <div id="globalError" class="alert alert-danger" style="display:none"></div>
+
       <div class="register">
         <form action="/" method="post" enctype="utf8">
             <div class="form-group">
@@ -151,12 +153,19 @@
                 <label class="">Confirm Password</label>
                 <div class="">
                     <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" placeholder="Confirm Password" required="required"/>
-                    <p id="globalError" class="alert alert-danger" style="display:none"></p>
+                    <p id="matchError" class="alert alert-danger" style="display:none"></p>
                 </div>
+            </div>
+            <div class="form-group">
+              <div class="">
+								<div class="g-recaptcha" th:attr="data-sitekey=${@captchaService.getReCaptchaSite()}" data-callback="onReCaptchaSuccess" data-expired-callback="onReCaptchaExpired"></div>
+								<p id="captchaError" class="alert alert-danger" style="display:none"></p>
+							</div>
             </div>
             <div class="">
                 <div class="">
                     <button type="submit" class="btn btn-default">Sign up</button>
+                    <i id="loader" class="pull-right fa fa-spinner fa-spin" style="font-size:24px"></i>
                 </div>
             </div>
             <div class="form-group">
@@ -247,10 +256,16 @@
 
   <!-- Theme JavaScript -->
   <script src="../static/js/custom.min.js" th:src="@{/js/custom.min.js}"></script>
+  
+  <!-- reCaptcha -->
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+  
+  <!-- Powerstrength -->
+  <script src="../static/js/pwstrength-bootstrap.min.js" th:src="@{/js/pwstrength-bootstrap.min.js}"></script>
 
   <script th:inline="javascript">
     /*<![CDATA[*/
-    var serverContext = /*[[@{/login}]]*/;
+    var serverContext = /*[[@{/register}]]*/;
     serverContext = "http://localhost:8080/";
     //serverContext = "http://fantank.bcinnovationsonline.com/";
 
@@ -258,62 +273,96 @@
       $('form').submit(function(event) {
         register(event);
       });
+
+      $('#loader').hide();
       
       $(":password").keyup(function(){
         if($("#password").val() != $("#passwordConfirm").val()){
-              $("#globalError").show().html(/*[[#{PasswordMatches.user}]]*/);
+              $("#matchError").show().html(/*[[#{PasswordMatches.user}]]*/);
           }else{
-            $("#globalError").html("").hide();
+            $("#matchError").html("").hide();
           }
       });
       
-      //  options = {
-      //        common: {minChar:8},
-      //        ui: {
-      //          showVerdictsInsideProgressBar:true,
-      //          showErrors:true,
-      //          errorMessages:{
-      //              wordLength: /*[[#{error.wordLength}]]*/,
-      //              wordNotEmail: /*[[#{error.wordNotEmail}]]*/,
-      //              wordSequences: /*[[#{error.wordSequences}]]*/,
-      //              wordLowercase: /*[[#{error.wordLowercase}]]*/,
-      //              wordUppercase: /*[[#{error.wordUppercase}]]*/,
-      //                    wordOneNumber: /*[[#{error.wordOneNumber}]]*/,
-      //             wordOneSpecialChar: /*[[#{error.wordOneSpecialChar}]]*/
-      //            }
-      //          }
-      //    };
-      //   $('#password').pwstrength(options);
+			options = {
+			  common: {minChar:8},
+        rules: {
+          activated: {
+            wordNotEmail: true,
+            wordMinLength: true,
+            wordMaxLength: false,
+            wordInvalidChar: true,
+            wordSimilarToUsername: true,
+            wordSequences: true,
+            wordTwoCharacterClasses: false,
+            wordRepetitions: false,
+            wordLowercase: true,
+            wordUppercase: true,
+            wordOneNumber: true,
+            wordThreeNumbers: true,
+            wordOneSpecialChar: true,
+            wordTwoSpecialChar: true,
+            wordUpperLowerCombo: true,
+            wordLetterNumberCombo: true,
+            wordLetterNumberCharCombo: true
+          }
+        },
+				ui: {
+					showVerdictsInsideProgressBar:true,
+					showErrors:true,
+					errorMessages:{
+						wordLength: /*[[#{error.wordLength}]]*/,
+						wordNotEmail: /*[[#{error.wordNotEmail}]]*/,
+						wordSequences: /*[[#{error.wordSequences}]]*/,
+						wordLowercase: /*[[#{error.wordLowercase}]]*/,
+						wordUppercase: /*[[#{error.wordUppercase}]]*/,
+						wordOneNumber: /*[[#{error.wordOneNumber}]]*/,
+						wordOneSpecialChar: /*[[#{error.wordOneSpecialChar}]]*/
+					}
+				}
+			};
+		  $('#password').pwstrength(options);
 
     });
 
     function register(event){
       event.preventDefault();
         $(".alert").html("").hide();
+        $('#loader').show();
         $(".error-list").html("");
         if($("#password").val() != $("#passwordConfirm").val()){
-          $("#globalError").show().html(/*[[#{PasswordMatches.user}]]*/);
+          $("#matchError").show().html(/*[[#{PasswordMatches.user}]]*/);
           return;
+        }
+        if (typeof grecaptcha !== 'undefined') {
+            var resp = grecaptcha.getResponse();
+            if (resp.length == 0) {
+                $("#captchaError").show().html("Please verify that you are not a robot.");
+                return;
+            }
         }
         var formData = $('form').serialize();
         $.post(serverContext + "/register",formData ,function(data){
-            if(data.message == "success"){
-                window.location.href = serverContext + "login";
-            }
-            else {
-            	window.location.href = serverContext + "temporary/userValidation?email=" + data.message;
-            }
+          $('#loader').hide();
+          if(data.message == "success"){
+              window.location.href = serverContext + "login";
+          }
         })
         .fail(function(data) {
+            grecaptcha.reset();
+            $('#loader').hide();
             if(data.responseJSON.error.indexOf("MailError") > -1)
             {
-                window.location.href = serverContext + "emailError.html";
+              $("#globalError").show().html(data.responseJSON.message);
+            }
+            else if(data.responseJSON.error == "InvalidReCaptcha"){
+                $("#captchaError").show().html(data.responseJSON.message);
             }
             else if(data.responseJSON.error == "UserAlreadyExist"){
                 $("#emailError").show().html(data.responseJSON.message);
             }
             else if(data.responseJSON.error.indexOf("InternalError") > -1){
-                window.location.href = serverContext + "login?error=" + data.responseJSON.message;
+              $("#globalError").show().html(data.responseJSON.message);
             }
             else{
               var errors = $.parseJSON(data.responseJSON.message);
@@ -328,7 +377,16 @@
         });
     }
     /*]]>*/
-
+    
+		var onReCaptchaSuccess = function(response) {
+		    $("#captchaError").html("").hide();
+		};
+		
+		var onReCaptchaExpired = function(response) {
+		    $("#captchaError").html("reCaptcha has expired.  Please solve a new reCaptcha").show();
+		    grecaptcha.reset();
+		};
+		
   </script>
 
 </body>
