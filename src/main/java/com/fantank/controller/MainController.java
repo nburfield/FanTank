@@ -37,12 +37,6 @@ public class MainController {
 		return "index";
 	}
 	
-	@GetMapping(value = {"/robots", "/robot", "/robot.txt", "/robots.txt", "/null"})
-	public void robot(HttpServletResponse response) {
-	 
-
-	}
-	
 	@GetMapping("/explore")
 	public String explore(Model model) {
 		User user = userService.findByEmail(securityService.findLoggedInUsername());

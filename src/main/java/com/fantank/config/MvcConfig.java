@@ -48,6 +48,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         if (!registry.hasMappingForPattern("/**")) {
             registry.addResourceHandler("/**").addResourceLocations("classpath:/static/app/");
+            //registry.addResourceHandler("/robots.txt").addResourceLocations("classpath:/app/robots.txt");
          }
     }
     
