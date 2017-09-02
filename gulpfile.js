@@ -32,10 +32,7 @@ gulp.task('less', function() {
         .pipe(less())
         .pipe(plumber.stop())
         .pipe(header(banner, { pkg: pkg }))
-        .pipe(gulp.dest('src/main/resources/static/css'))
-        .pipe(browserSync.reload({
-            stream: true
-        }))
+        .pipe(gulp.dest('src/main/resources/static/app/css'))
 });
 
 // Minify compiled CSS
@@ -48,9 +45,7 @@ gulp.task('minify-css', ['less'], function() {
         .pipe(plumber.stop())
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('src/main/resources/static/app/css'))
-        .pipe(browserSync.reload({
-            stream: true
-        }))
+        .pipe(gulp.dest('target/classes/static/app/css'))
 });
 
 // Minify JS
@@ -64,9 +59,7 @@ gulp.task('minify-js', function() {
         .pipe(header(banner, { pkg: pkg }))
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('src/main/resources/static/app/js'))
-        .pipe(browserSync.reload({
-            stream: true
-        }))
+        .pipe(gulp.dest('target/classes/static/app/js'))
 });
 
 // Copy Dashboard JS
@@ -74,9 +67,7 @@ gulp.task('dashboard-js', function() {
     gulp.src('src/main/resources/static/dev/js/dashboard.js')
         .pipe(header(banner, { pkg: pkg }))
         .pipe(gulp.dest('src/main/resources/static/app/js'))
-        .pipe(browserSync.reload({
-            stream: true
-        }))
+        .pipe(gulp.dest('target/classes/static/app/js'))
 });
 
 // Copy vendor libraries from /node_modules into /vendor
@@ -131,5 +122,7 @@ gulp.task('serve', ['less', 'minify-css', 'minify-js'], function() {
     //gulp.watch('src/main/resources/templates/**/*.html', browserSync.reload);
     gulp.watch('target/classes/templates/*.html', browserSync.reload);
     gulp.watch('target/classes/templates/**/*.html', browserSync.reload);
+    gulp.watch('target/classes/static/app/css/*.css', browserSync.reload);
+    gulp.watch('target/classes/static/app/js/*.js', browserSync.reload);
     //gulp.watch('src/main/resources/static/js/**/*.js', browserSync.reload);
 });
