@@ -1,0 +1,273 @@
+/*!
+ * BC Innovations, LLC - v1.0.0
+ * Copyright 2017-2017 BC Innovations, LLC
+ * Licensed under ISC
+ */
+/* #673ab7 deep purple*/
+/* Wrapper */
+/* Circle */
+/* Icons */
+html {
+  height: 100%;
+}
+main {
+  height: 100%;
+}
+body {
+  height: 80%;
+  font-size: 16px;
+}
+.invest-in-art {
+  background-image: linear-gradient(rgba(20, 20, 20, 0.5), rgba(20, 20, 20, 0.5)), url("../images/invest-in-art.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#invest-in-art {
+  height: 100%;
+}
+.btn-primary {
+  background-color: #3e5e93 !important;
+}
+.invest-in-art-text-elegant {
+  background: rgba(46, 46, 46, 0.7);
+}
+.invest-in-art-text-elegant-dark {
+  background: rgba(33, 33, 33, 0.7);
+}
+.jumbotron {
+  height: 315px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+}
+.infoi {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 10;
+}
+.navbar {
+  background-color: #000;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: 500;
+}
+.nav-item a:hover {
+  color: #78bfe7 !important;
+}
+a.navbar-toggler {
+  font-size: 0.95rem;
+}
+a.navbar-toggler:hover {
+  color: #78bfe7 !important;
+}
+.register {
+  font-size: 0.9rem;
+}
+.icon-button {
+  background-color: #2E2E2E;
+  border-radius: 3.6rem;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 2.0rem;
+  height: 3.6rem;
+  line-height: 3.6rem;
+  margin: 0 5px;
+  position: relative;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 3.6rem;
+}
+.icon-button span {
+  border-radius: 0;
+  display: block;
+  height: 0;
+  left: 50%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 0;
+}
+.icon-button:hover span {
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 3.6rem;
+  margin: -1.8rem;
+}
+.icon-button:hover .icon-twitter {
+  color: white;
+}
+.icon-button:hover .icon-facebook {
+  color: white;
+}
+.icon-button:hover .icon-google-plus {
+  color: white;
+}
+.icon-button:hover .icon-pinterest {
+  color: #ffffff;
+}
+.icon-button:hover .icon-linkedin {
+  color: #ffffff;
+}
+.icon-button:hover .icon-youtube {
+  color: #ffffff;
+}
+.icon-button:hover .icon-tumblr {
+  color: #ffffff;
+}
+.icon-button:hover .icon-instagram {
+  color: #ffffff;
+}
+.icon-button:hover .icon-flickr {
+  color: #ffffff;
+}
+.icon-button:hover .icon-stumbleupon {
+  color: #ffffff;
+}
+.icon-button:hover .icon-yahoo {
+  color: #ffffff;
+}
+.icon-button:hover .icon-blogger {
+  color: #ffffff;
+}
+.icon-button:hover .icon-soundcloud {
+  color: #ffffff;
+}
+.icon-button i {
+  background: none;
+  color: white;
+  height: 3.6rem;
+  left: 0;
+  line-height: 3.6rem;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 3.6rem;
+  z-index: 10;
+}
+.icon-button .icon-twitter {
+  color: #4099ff;
+}
+.icon-button .icon-facebook {
+  color: #3B5998;
+}
+.icon-button .icon-google-plus {
+  color: #db5a3c;
+}
+.icon-button .icon-pinterest {
+  color: #cb2027;
+}
+.icon-button .icon-linkedin {
+  color: #007bb6;
+}
+.icon-button .icon-youtube {
+  color: #bb0000;
+}
+.icon-button .icon-tumblr {
+  color: #32506d;
+}
+.icon-button .icon-instagram {
+  color: #bc2a8d;
+}
+.icon-button .icon-flickr {
+  color: #ff0084;
+}
+.icon-button .icon-stumbleupon {
+  color: #EB4823;
+}
+.icon-button .icon-yahoo {
+  color: #7B0099;
+}
+.icon-button .icon-blogger {
+  color: #fb8f3d;
+}
+.icon-button .icon-soundcloud {
+  color: #ff3a00;
+}
+.twitter span {
+  background-color: #4099ff;
+}
+.facebook span {
+  background-color: #3B5998;
+}
+.google-plus span {
+  background-color: #db5a3c;
+}
+.pinterest span {
+  background-color: #cb2027;
+}
+.linkedin span {
+  background-color: #007bb6;
+}
+.youtube span {
+  background-color: #bb0000;
+}
+.tumblr span {
+  background-color: #32506d;
+}
+.instagram span {
+  background-color: #bc2a8d;
+}
+.flickr span {
+  background-color: #ff0084;
+}
+.stumbleupon span {
+  background-color: #EB4823;
+}
+.yahoo span {
+  background-color: #7B0099;
+}
+.blogger span {
+  background-color: #fb8f3d;
+}
+.soundcloud span {
+  background-color: #ff3a00;
+}
+@media screen and (max-width: 319px) {
+  .show-login {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 768px) {
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    transition: background 0.5s ease-in, padding 0.5s ease-in-out;
+  }
+  .top-nav-collapse {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    transition: background 0.5s ease-in, padding 0.5s ease-in-out;
+  }
+  .text-center-less-than-md {
+    text-align: left !important;
+  }
+}

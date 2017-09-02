@@ -60,6 +60,7 @@ public class RegistrationController {
 	public String getRegistration(HttpServletRequest request) {
 		return "registration";
 	}
+  
 	
 	@PostMapping("/register")
 	@ResponseBody
