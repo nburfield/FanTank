@@ -1,5 +1,0 @@
-/*!
- * BC Innovations, LLC - v1.0.0
- * Copyright 2017-2017 BC Innovations, LLC
- * Licensed under ISC
- */.view-animate{padding:10px}.view-animate .ng-enter,.view-animate .ng-leave{transition:all cubic-bezier(.25,.46,.45,.94) 1.5s;display:block;width:100%;border-left:1px solid #000;position:absolute;top:0;left:0;right:0;bottom:0;padding:10px}.view-animate .ng-enter{left:100%}.view-animate .ng-enter .ng-enter-active{left:0}.view-animate .ng-leave .ng-leave-active{left:-100%}
