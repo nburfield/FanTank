@@ -70,6 +70,12 @@ gulp.task('dashboard-js', function() {
         .pipe(gulp.dest('target/classes/static/app/js'))
 });
 
+// Copy HTML to target
+gulp.task('html-copy', function() {
+    gulp.src('src/main/resources/templates/*.html')
+        .pipe(gulp.dest('target/classes/templates'))
+});
+
 // Copy vendor libraries from /node_modules into /vendor
 gulp.task('copy', function() {
     gulp.src(['node_modules/bootstrap/dist/js/*.min.js', '!**/npm.js'])
@@ -116,6 +122,7 @@ gulp.task('serve', ['less', 'minify-css', 'minify-js'], function() {
     gulp.watch(['src/main/resources/static/app/css/*.css', '!src/main/resources/static/app/css/*.min.css'], ['minify-css']);
     gulp.watch('src/main/resources/static/dev/js/*.js', ['minify-js']);
     gulp.watch('src/main/resources/static/dev/js/dashboard.js', ['dashboard-js']);
+    gulp.watch('src/main/resources/templates/*.html', ['html-copy']);
 
     // Reloads the browser whenever HTML or JS files change
     //gulp.watch('src/main/resources/templates/*.html', browserSync.reload);
