@@ -1,8 +1,12 @@
 package com.fantank.controller;
 
 
-import javax.servlet.http.HttpServletRequest;
+import java.io.InputStream;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +35,12 @@ public class MainController {
 		model.addAttribute("user", user);
 		
 		return "index";
+	}
+	
+	@GetMapping(value = {"/robots", "/robot", "/robot.txt", "/robots.txt", "/null"})
+	public void robot(HttpServletResponse response) {
+	 
+
 	}
 	
 	@GetMapping("/explore")

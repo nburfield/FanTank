@@ -47,14 +47,13 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         if (!registry.hasMappingForPattern("/**")) {
-            registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
+            registry.addResourceHandler("/**").addResourceLocations("classpath:/static/app/");
          }
     }
     
     @Override
     public void addViewControllers(final ViewControllerRegistry registry) {
         super.addViewControllers(registry);
-        registry.addViewController("/robots.txt").setViewName("robots.txt");
         registry.addViewController("/login").setViewName("login");
         //registry.addViewController("/register").setViewName("registration");
     }
