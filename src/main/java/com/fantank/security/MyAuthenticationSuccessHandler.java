@@ -87,14 +87,8 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
                 break;
             }
         }
-        if (isUser) {
-            return "/homepage.html?user=" + authentication.getName();
-        } else if (isAdmin) {
-            return "/console.html";
-        } else {
-        	return "/#MYAuthenticationSuccessHandler";
-            //throw new IllegalStateException();
-        }
+
+        return "/";
 	}
 
     public void setRedirectStrategy(final RedirectStrategy redirectStrategy) {

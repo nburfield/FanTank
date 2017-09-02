@@ -5,6 +5,7 @@ import java.util.Locale;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.context.request.RequestContextListener;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -18,6 +19,7 @@ import com.fantank.security.ActiveUserStore;
 
 @Configuration
 @EnableWebMvc
+@EnableScheduling
 public class MvcConfig extends WebMvcConfigurerAdapter {
 	
 	public MvcConfig() {
@@ -52,6 +54,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(final ViewControllerRegistry registry) {
         super.addViewControllers(registry);
+        registry.addViewController("/robots.txt").setViewName("robots.txt");
         registry.addViewController("/login").setViewName("login");
         //registry.addViewController("/register").setViewName("registration");
     }

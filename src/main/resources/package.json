@@ -10,6 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "@ryancavanaugh/jquery.leanmodal": "^1.1.13-alpha",
+    "angular-base64": "^2.0.5",
     "bootstrap": "^3.3.7",
     "browser-sync": "^2.18.12",
     "font-awesome": "^4.7.0",
@@ -17,12 +18,14 @@
     "gulp-clean-css": "^3.6.0",
     "gulp-header": "^1.8.8",
     "gulp-less": "^3.3.2",
+    "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-ruby-sass": "^2.1.1",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^3.0.0",
     "http-proxy-middleware": "^0.17.4",
     "jquery": "^3.2.1",
+    "moment": "^2.18.1",
     "pwstrength-bootstrap": "^2.1.1",
     "scrollreveal": "^3.3.6"
   }

@@ -12,14 +12,16 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import com.fantank.model.Offering;
 import com.fantank.model.Privilege;
 import com.fantank.model.Role;
 import com.fantank.model.User;
+import com.fantank.repository.OfferingRepository;
 import com.fantank.repository.PrivilegeRepository;
 import com.fantank.repository.RoleRepository;
 import com.fantank.repository.UserRepository;
 
-//@Component
+@Component
 public class InitialDataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
     private boolean alreadySetup = false;
@@ -35,6 +37,9 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+    
+    @Autowired
+    private OfferingRepository offeringRepository;
 
     // API
 
@@ -56,7 +61,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         createRoleIfNotFound("ROLE_ADMIN", adminPrivileges);
         createRoleIfNotFound("ROLE_INVESTOR", userPrivileges);
 
-        if(userRepository.findByEmail("admin@bcinnovationsonline.com") != null) {
+        if(userRepository.findByEmail("admin@bcinnovationsonline.com") == null) {
 	        final Role adminRole = roleRepository.findByName("ROLE_ADMIN");
 	        final User user = new User();
 	        user.setFirstName("Admin");
@@ -68,6 +73,12 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 	        userRepository.save(user);
     	}
 
+        if(offeringRepository.findByOfferingId("pi40LCw9QripXEowWqR2hA") == null) {
+        	Offering chance = new Offering();
+        	chance.setId("chancetherapper");
+        	chance.setOfferingId("pi40LCw9QripXEowWqR2hA");
+        	offeringRepository.save(chance);
+        }
        
         alreadySetup = true;
     }

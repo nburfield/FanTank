@@ -1,0 +1,33 @@
+
+curl https://sandbox.fundamerica.com/api/investments \
+-u Bn9Zt7XwZADoUMLh_nFPxZ81bYR0aXpy: \
+-d amount="1000000" \
+-d entity[city]='Elko' \
+-d entity[country]='US' \
+-d entity[date_of_birth]='1980-01-01' \
+-d entity[email]='none@test.com' \
+-d entity[name]='ajax' \
+-d entity[phone]='13333333333' \
+-d entity[postal_code]='89123' \
+-d entity[region]='NV' \
+-d entity[street_address_1]='555 Some St' \
+-d entity[tax_id_number]='000000000' \
+-d offering_id="pi40LCw9QripXEowWqR2hA" \
+-d payment_method="wire"
+
+curl https://sandbox.fundamerica.com/api/test_mode/investments/0BeE7WzIQQeYDQRo5KCpTQ \
+-u Bn9Zt7XwZADoUMLh_nFPxZ81bYR0aXpy: \
+-X PATCH \
+-d status="received"
+
+// Test Webhook
+curl http://localhost:8080/investments/webhook \
+-X POST \
+-d object='investment' \
+-d id='0BeE7WzIQQeYDQRo5KCpTQ' \
+-d url='https//apps.fundamerica.com/api/investments/0BeE7WzIQQeYDQRo5KCpTQ' \
+-d webhook_id='4ozqZlvpTLCbZxGstnqU2Q' \
+-d signature='ea17648df2666aef21822882bb1a9abc' \
+-d action='update' \
+-d changes=["status"]
+

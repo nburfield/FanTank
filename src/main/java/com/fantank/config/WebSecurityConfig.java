@@ -44,7 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .csrf().disable()
             .authorizeRequests()
                 .antMatchers("/", "/user/reset*", "/user/token*", "/signin/**", "/signup*", "/user/changePassword*", "/logout*", "/explore", "/explore/*", "/registrationConfirm*", "/css/**/*", "/images/**/*", 
-                		"/js/**/*", "/fonts/**/*").permitAll()
+                		"/js/**/*", "/fonts/**/*", "/user/data", "/investments/webhook", "/offerings/*", "/robots.txt").permitAll()
                 .antMatchers("/invalidSession*", "/login*", "/register*").anonymous()
                 .antMatchers("/user/updatePassword*","/user/savePassword*","/updatePassword*").hasAuthority("CHANGE_PASSWORD_PRIVILEGE")
                 .anyRequest().hasAuthority("READ_PRIVILEGE")
