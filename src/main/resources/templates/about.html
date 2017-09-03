@@ -1,8 +1,5 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    xmlns:th="http://www.thymeleaf.org"
-    layout:decorator="layout/mainpages">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org" layout:decorator="layout/mainpages">
 
 <head>
   <title>About Us</title>
@@ -10,6 +7,21 @@
     .jumbotron {
       background-image: url('../images/about-orchestra.jpg');
     }
+
+    .about .card-body strong {
+      font-size: 0.9rem;
+    }
+
+    .about .card-body {
+      font-size: 0.80rem;
+    }
+
+    .img-responsive {
+      width: 100%;
+      max-width: 100% ;
+      height: auto;
+    }
+
   </style>
 </head>
 
@@ -25,60 +37,191 @@
       </div>
     </div>
 
-    <div class="container mt-5 mb-3 black">
-
-      <div class="row">
-        <div class="col">
-          <h1 class="">Board Of Directors</h1>
-        </div>
+    <div class="container mt-5 mb-3 ">
+      <div class="row my-2">
+        <h1>Board of Directors</h1>
       </div>
-      <div class="row">
-        <div class="col-12 col-lg-4 mx-0 my-1">
-          <div class="row">
-            <div class="col px-0 white black-text text-center border" style="width:140px;">
-              <h6 class="pt-1"><strong>Michael Mathews</strong></h6>
-              <h6>Founder - Chairman</h6>
-              <h6>Chief Visionary Officer</h6>
-              <a class="sq-btn" href="http://linkedin.com" role="button" target="_blank"><i class="fa fa-linkedin px-2 py-2"></i></a>
+      <div class="about my-2 row mx-0 px-0 d-flex justify-content-center">
+        <div class="col-12  col-lg-4 z-depth-0 my-1">
+          <!--Card content-->
+          <div class="row mx-0 px-0 white">
+            <div class="col-6">
+                  <p class="black-text text-center py-2"><strong>Michael Mathews</strong><br/> Founder - Chairman<br/> Chief Visionary Officer</p>
             </div>
-            <div class="col px-0" >
-              <img src="/images/no-photo.png" style="width: 160px;" />
+            <div class="col-6 mx-0 px-0">
+              <img src="/images/no-photo.png" class="img-responsive" />
             </div>
           </div>
         </div>
 
-        <div class="col-12 col-lg-4 mx-0 my-1">
-          <div class="row" >
-            <div class="col px-0 white black-text text-center border" style="width:140px;">
-              <h6 class="pt-1"><strong>Kevin Harington</strong></h6>
-              <h6>Board Member</h6>
-              <h6>Board of Advisors</h6>
-              <a class="sq-btn" href="http://linkedin.com" role="button" target="_blank"><i class="fa fa-linkedin px-2 py-2"></i></a>
+        <div class="col-12  col-lg-4 z-depth-0 my-1">
+          <!--Card content-->
+          <div class="row mx-0 px-0 white">
+            <div class="col-6">
+                <p class="black-text text-center py-2"><strong>Kevin Harington</strong><br/> Board Member<br/> Board Of Advisors</p>
             </div>
-            <div class="col px-0"   >
-              <img src="/images/kevin-harrington2.jpg" style="width: 160px;" />
+            <div class="col-6 mx-0 px-0">
+              <img src="/images/kevin-harrington2.jpg" class="img-responsive" />
             </div>
           </div>
         </div>
 
-        <div class="col-12 col-lg-4 mx-0 my-1">
-          <div class="row" >
-            <div class="col px-0 white black-text text-center border" style="width:140px;">
-              <h6 class="pt-1"><strong>Chris Koomey</strong></h6>
-              <h6>Board Member</h6>
-              <h6>Chief Operating Officer</h6>
-              <a class="sq-btn" href="http://linkedin.com" role="button" target="_blank"><i class="fa fa-linkedin px-2 py-2"></i></a>
+        <div class="col-12  col-lg-4 z-depth-0 my-1">
+          <!--Card content-->
+          <div class="row mx-0 px-0 white">
+            <div class="col-6">
+                <p class="black-text text-center py-2"><strong>Chris Koomey</strong><br/> Board Member<br/> Chief Operating Officer</p>
             </div>
-            <div class="col px-0"  >
-              <img src="/images/chris-koomey.jpg" style="width: 160px;" />
+            <div class="col-6 mx-0 px-0">
+              <img src="/images/chris-koomey.jpg" class="img-responsive" />
             </div>
           </div>
         </div>
       </div>
+      <div class="row my-2">
+        <h1>Executives</h1>
+      </div>
 
-      <div class="row">
-        <div class="col">
-          <h1>Executives</h1>
+
+      <div class="about my-2 row mx-0 px-0 d-flex justify-content-center">
+        <div class="col-12  col-lg-4 z-depth-0 my-1">
+          <!--Card content-->
+          <div class="row mx-0 px-0 fantank_graydian_blue_color">
+            <div class="col-6">
+                  <p class="white-text text-center py-2"><strong class="black-text">?</strong><br/> Chief Executive Officer<br/></p>
+            </div>
+            <div class="col-6 mx-0 px-0">
+              <img src="/images/no-photo.png" class="img-responsive" />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12  col-lg-4 z-depth-0 my-1">
+          <!--Card content-->
+          <div class="row mx-0 px-0 fantank_graydian_blue_color">
+            <div class="col-6">
+                <p class="white-text text-center py-2"><strong class="black-text">Suresh Kumar</strong><br/>Chief Technology Officer<br/></p>
+            </div>
+            <div class="col-6 mx-0 px-0">
+              <img src="/images/no-photo.png" class="img-responsive" />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12  col-lg-4 z-depth-0 my-1">
+          <!--Card content-->
+          <div class="row mx-0 px-0 fantank_graydian_blue_color">
+            <div class="col-6">
+                <p class="white-text text-center py-2"><strong class="black-text">?</strong><br/>Co-Chief Artistry Officer<br/>(CAO-FILM)</p>
+            </div>
+            <div class="col-6 mx-0 px-0">
+              <img src="/images/no-photo.png" class="img-responsive" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about my-2 row mx-0 px-0 d-flex justify-content-center">
+        <div class="col-12  col-lg-4 z-depth-0 my-1">
+          <!--Card content-->
+
+          <div class="row mx-0 px-0 fantank_graydian_blue_color">
+            <div class="col-6 mx-0 px-0">
+              <img src="/images/no-photo.png" class="img-responsive" />
+            </div>
+            <div class="col-6">
+                  <p class="white-text text-center py-2"><strong class="black-text">?</strong><br/>Co-Chief Artistry Officer<br/>(CAO-MODELING)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12  col-lg-4 z-depth-0 my-1">
+          <!--Card content-->
+          <div class="row mx-0 px-0 fantank_graydian_blue_color">
+            <div class="col-6 mx-0 px-0">
+              <img src="/images/no-photo.png" class="img-responsive" />
+            </div>
+            <div class="col-6">
+                <p class="white-text text-center py-2"><strong class="black-text">?</strong><br/>Co-Chief Artistry Officer<br/>(CAO-MUSIC)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12  col-lg-4 z-depth-0 my-1">
+          <!--Card content-->
+          <div class="row mx-0 px-0 fantank_graydian_blue_color">
+            <div class="col-6 mx-0 px-0">
+              <img src="/images/no-photo.png" class="img-responsive" />
+            </div>
+            <div class="col-6">
+                <p class="white-text text-center py-2"><strong class="black-text">Tal Finney</strong><br/>Chief LEGAL Officer<br/>(CAO-FILM)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about my-2 row mx-0 px-0 d-flex justify-content-center">
+        <div class="col-12  col-lg-4 z-depth-0 my-1">
+          <!--Card content-->
+          <div class="row mx-0 px-0 fantank_graydian_blue_color">
+            <div class="col-6">
+                  <p class="white-text text-center py-2"><strong class="black-text">Kendall Almerico</strong><br/>President of Equity Crowdfunding Operations<br/></p>
+            </div>
+            <div class="col-6 mx-0 px-0">
+              <img src="/images/kendall-almerico-thumb.jpg" class="img-responsive" />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12  col-lg-4 z-depth-0 my-1">
+          <!--Card content-->
+          <div class="row mx-0 px-0 fantank_graydian_blue_color">
+            <div class="col-6">
+                <p class="white-text text-center py-1"><strong class="black-text">Greg Cook</strong><br/>President of Business Development and Sales<br/></p>
+            </div>
+            <div class="col-6 mx-0 px-0">
+              <img src="/images/no-photo.png" class="img-responsive" />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12   col-lg-4 z-depth-0 my-1">
+          <!--Card content-->
+          <div class="row mx-0 px-0 fantank_graydian_blue_color">
+            <div class="col-6">
+                <p class="white-text text-center py-2"><strong class="black-text">Elijah Rock</strong><br/>EVP of Artisitic Operations<br/></p>
+            </div>
+            <div class="col-6 mx-0 px-0">
+              <img src="/images/elijah-rock.jpg" class="img-responsive" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about my-2 row mx-0 px-0 d-flex justify-content-center">
+        <div class="col-12  col-lg-4 z-depth-0 my-1">
+          <!--Card content-->
+
+          <div class="row mx-0 px-0 fantank_graydian_blue_color">
+            <div class="col-6 mx-0 px-0">
+              <img src="/images/lynnette-san-miguel.jpg" class="img-responsive" />
+            </div>
+            <div class="col-6">
+                  <p class="white-text text-center py-2"><strong class="black-text">Lynnette San Miguel</strong><br/>EVP of Artistic Services<br/></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12  col-lg-4 z-depth-0 my-1">
+          <!--Card content-->
+          <div class="row mx-0 px-0 fantank_graydian_blue_color">
+            <div class="col-6 mx-0 px-0">
+              <img src="/images/no-photo.png" class="img-responsive" />
+            </div>
+            <div class="col-6">
+                <p class="white-text text-center py-2"><strong class="black-text">Alvin Issacs JR</strong><br/><br/></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
