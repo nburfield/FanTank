@@ -40,14 +40,39 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
+    	//@formatter: off
         http
             .csrf().disable()
             .authorizeRequests()
-                .antMatchers("/", "/user/reset*", "/user/token*", "/signin/**", "/signup*", "/user/changePassword*", "/logout*", "/explore", "/explore/*", "/registrationConfirm*", "/css/**/*", "/images/**/*", 
-                		"/js/**/*", "/fonts/**/*", "/user/data", "/investments/webhook", "/offerings/*", "/robots.txt").permitAll()
-                .antMatchers("/invalidSession*", "/login*", "/register*").anonymous()
-                .antMatchers("/user/updatePassword*","/user/savePassword*","/updatePassword*").hasAuthority("CHANGE_PASSWORD_PRIVILEGE")
-                .anyRequest().hasAuthority("READ_PRIVILEGE")
+                .antMatchers("/", 
+                		"/user/reset*", 
+                		"/user/token*", 
+                		"/signin/**", 
+                		"/signup*", 
+                		"/user/changePassword*",
+                		"/logout*", 
+                		"/explore", 
+                		"/explore/*",
+                		"/registrationConfirm*", 
+                		"/css/**/*", 
+                		"/images/**/*", 
+                		"/js/**/*", 
+                		"/fonts/**/*", 
+                		"/user/data", 
+                		"/investments/webhook", 
+                		"/offerings/*", 
+                		"/robots.txt",
+                		Routes.ABOUT,
+                		Routes.CONTACT,
+                		Routes.DISCLAIMER,
+                		Routes.HOWITWORKS,
+                		Routes.INVEST,
+                		Routes.JOBS,
+                		Routes.LOGIN,
+                		Routes.PRIVACY,
+                		Routes.REGISTER,
+                		Routes.TERMS
+                		).permitAll()
                 .and()
             .formLogin()
                 .loginPage("/login")
@@ -68,6 +93,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/login?message=" + messages.getMessage("message.accountLogout", null, Locale.ENGLISH))
                 .deleteCookies("JSESSIONID")
                 .permitAll();
+        // @formatter: on
     }
     
     @Autowired

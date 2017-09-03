@@ -1,93 +1,28 @@
-<!DOCTYPE HTML>
-<html>
-<head lang="en">
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
 
+<head>
+  <title>Fantank</title>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-
-  <title>FanTank</title>
-
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css"/>
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"/>
-  
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"/>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css" />
 
-  <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="/css/fantank.min.css"/>
-  
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/icons/images/icons/apple-touch-icon-114x114.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/icons/apple-touch-icon-60x60.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png" />
-  <link rel="icon" type="image/png" href="/images/icons/favicon-196x196.png" sizes="196x196" />
-  <link rel="icon" type="image/png" href="/images/icons/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16" />
-  <link rel="icon" type="image/png" href="/images/icons/favicon-128.png" sizes="128x128" />
-  <meta name="application-name" content="&nbsp;"/>
-  <meta name="msapplication-TileColor" content="#FFFFFF" />
-  <meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png" />
-  <meta name="msapplication-square70x70logo" content="/images/icons/mstile-70x70.png" />
-  <meta name="msapplication-square150x150logo" content="/images/icons/mstile-150x150.png" />
-  <meta name="msapplication-wide310x150logo" content="/images/icons/mstile-310x150.png" />
-  <meta name="msapplication-square310x310logo" content="/images/icons/mstile-310x310.png" />
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="/css/fantank.css"/>
 
 </head>
 
 <body class="invest-in-art">
 
   <!--Main Navigation-->
-  <header>
-    <nav class="navbar navbar-dark navbar-expand-md fixed-top scrolling-navbar">
-      <a class="navbar-brand hm-zoom" href="./index.html">
-          <img src="/images/fan-tank-logo.png" height="45"/>
-      </a>
-      <a class="navbar-toggler ml-auto show-login" href="./login.html">
-        Login<i class="fa fa-sign-in ml-1"></i>
-      </a>
-      <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="./invest.html">Investments</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./howitworks.html">How It Works</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./faq.html">FAQ</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./about.html">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./login.html">
-              Login<i class="fa fa-sign-in ml-1"></i>
-            </a>
-          </li>
-          <a class="btn btn-primary ml-md-3 my-md-0 register" href="/register" role="button">Register</a>
-        </ul>
-      </div>
-    </nav>
-  </header>
+  <div th:replace="fragments/header :: header">
+  </div>
 
   <main>
     <div id="invest-in-art">
@@ -123,12 +58,12 @@
           <div class="col-sm-12 col-md-4 d-flex mb-1">
 
             <!--Card-->
-            <div class="card wow fadeIn elegant-color-dark text-white z-depth-3  ml-auto mr-auto">
+            <div class="card wow fadeIn z-depth-3 ml-auto mr-auto" data-wow-delay="0.4s">
+              <div class="view overlay hm-white-light hm-zoom">
+                  <img class="img-fluid" src="/images/chance.jpg" alt="Card image cap"/>
 
-              <!--Card image-->
-              <a class="hm-zoom" href="./projects/chance.html">
-                <img class="img-fluid" src="/images/chance.jpg" alt="Card image cap"/>
-              </a>
+                  <a href="./projects/chance" ><div class="mask flex-center" ></div></a>
+              </div>
               <!--Card content-->
               <div class="card-body text-center">
                 <!--Title-->
@@ -136,7 +71,7 @@
                 <!--Text-->
                 <p class="card-text">Music Tour (2017)</p>
 
-                <a href="./projects/chance.html" class="btn btn-primary btn-lg">Learn More</a>
+                <a href="./projects/chance" class="btn btn-primary btn-lg">Learn More</a>
               </div>
 
             </div>
@@ -147,13 +82,12 @@
           <!--Second columnn-->
           <div class="col-sm-12 col-md-4  d-flex mb-1">
             <!--Card-->
-            <div class="card wow fadeIn elegant-color-dark text-white z-depth-3 ml-auto mr-auto" data-wow-delay="0.2s">
+            <div class="card wow fadeIn z-depth-3 ml-auto mr-auto" data-wow-delay="0.2s">
+                <div class="view overlay hm-white-light hm-zoom">
+                    <img class="img-fluid" src="/images/perry.jpg" alt="Card image cap"/>
 
-              <!--Card image-->
-
-              <a class="hm-zoom" href="./projects/perry.html">
-                  <img class="img-fluid" src="/images/perry.jpg" alt="Card image cap"/>
-                </a>
+                    <a href="./projects/perry"><div class="mask flex-center" ></div></a>
+                </div>
 
               <!--Card content-->
               <div class="card-body text-center">
@@ -161,7 +95,7 @@
                 <h4 class="card-title">Lincoln Perry</h4>
                 <!--Text-->
                 <p class="card-text">A film by Antwone Fisher</p>
-                <a href="./projects/perry.html" class="btn btn-primary btn-lg">Learn More</a>
+                <a href="./projects/perry" class="btn btn-primary btn-lg">Learn More</a>
 
               </div>
 
@@ -173,12 +107,11 @@
           <!--Third columnn-->
           <div class="col-sm-12 col-md-4 d-flex mb-1">
             <!--Card-->
-            <div class="card wow fadeIn elegant-color-dark text-white z-depth-3 ml-auto mr-auto" data-wow-delay="0.4s">
-
-              <!--Card image-->
-              <a class="hm-zoom" href="./projects/ll.html">
-                <img class="img-fluid" src="/images/ll.jpg" alt="Card image cap"/>
-              </a>
+            <div class="card wow fadeIn z-depth-3 ml-auto mr-auto" data-wow-delay="0.4s">
+              <div class="view overlay hm-white-light hm-zoom">
+                  <img class="img-fluid" src="/images/ll.jpg" alt="Card image cap"/>
+                  <a href="./projects/ll"><div class="mask flex-center" ></div></a>
+              </div>
               <!--Card content-->
               <div class="card-body text-center">
                 <!--Title-->
@@ -187,7 +120,7 @@
                 <p class="card-text">
                   Film
                 </p>
-                <a href="./projects/ll.html" class="btn btn-primary btn-lg">Learn More</a>
+                <a href="./projects/ll" class="btn btn-primary btn-lg">Learn More</a>
               </div>
 
             </div>
@@ -197,7 +130,7 @@
         </div>
         <div class="row py-1">
           <div class="col text-center">
-            <a href="./projects/ll.html" class="btn btn-primary btn-lg">Explore Investment Opportunities</a>
+            <a href="./invest" class="btn btn-primary btn-lg">Explore Investment Opportunities</a>
           </div>
         </div>
       </div>
@@ -233,7 +166,7 @@
 
             <div class="row">
               <div class="col-sm-12 ml-auto mr-auto text-center pt-2">
-                <a href="./howitworks.html" class="btn btn-primary btn-lg">More On How It Works</a>
+                <a href="./howitworks" class="btn btn-primary btn-lg">More On How It Works</a>
               </div>
             </div>
           </div>
@@ -254,79 +187,18 @@
         </div>
         <div class="row">
           <div class="col text-center">
-            <a href="./about.html" class="btn btn-primary btn-lg">More About Us</a>
+            <a href="./about" class="btn btn-primary btn-lg">More About Us</a>
           </div>
         </div>
       </div>
     </div>
 
-
-
-
-
-
-    <div class="black">
-      <div class="container text-white">
-        <div class="row">
-
-          <!--First column-->
-          <div class="col-sm-6 col-md-8 text-center">
-            <a href="./index.html">
-                <img class="img-centered" width="250px" src="/images/fan-tank-logo.png"/>
-              </a>
-            <p>
-              <a href="https://twitter.com/fantank" class="icon-button twitter"><i class="fa fa-twitter icon-twitter"></i><span></span></a>
-              <a href="https://facebook.com/fantank" class="icon-button facebook"><i class="fa fa-facebook icon-facebook"></i><span></span></a>
-              <a href="https://plus.google.com/fantank" class="icon-button google-plus"><i class="fa fa-google-plus icon-google-plus"></i><span></span></a>
-              <a href="https://linkedin.com/fantank" class="icon-button linkedin"><i class="fa fa-linkedin icon-linkedin"></i><span></span></a>
-              <a href="https://instagram.com/fantank" class="icon-button instagram"><i class="fa fa-instagram icon-instagram"></i><span></span></a>
-              <a href="https://pinterest.com/fantank" class="icon-button pinterest"><i class="fa fa-pinterest icon-pinterest"></i><span></span></a>
-            </p>
-            <p>© 2017 FanTank, LLC™</p>
-            <p>ALL RIGHTS RESERVED</p>
-          </div>
-          <!--/.First column-->
-
-          <!--Second column-->
-          <div class="col-sm-3 col-md-2 text-center text-center-less-than-md">
-            <h5 class="title font-bold my-2">Menu</h5>
-            <ul>
-              <li><a href="./invest.html">Investments</a></li>
-              <li><a href="./howitworks.html">How It Works</a></li>
-              <li><a href="./faq.html">FAQ</a></li>
-              <li><a href="./about.html">About Us</a></li>
-              <li><a href="./jobs.html">Jobs</a></li>
-              <li><a href="./contact.html">Contact Us</a></li>
-            </ul>
-          </div>
-          <!--/.Second column-->
-
-          <!--Third column-->
-          <div class="col-sm-3 col-md-2 text-center text-center-less-than-md">
-            <h5 class="title font-bold my-2">Legal</h5>
-            <ul>
-              <li><a href="./terms.html">Terms</a></li>
-              <li><a href="./privacy.html">Privacy Policy</a></li>
-              <li><a href="./disclaimer.html">Disclaimers</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div th:replace="fragments/footer :: footer"></div>
   </main>
 
-  <script>
-  </script>
-
   <!--Main Layout-->
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js"></script>
-  
-  <!-- Theme JavaScript -->
-  <script src="/js/user.min.js"></script>
+  <div th:replace="fragments/scripts :: scripts"></div>
 
 </body>
+
 </html>

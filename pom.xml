@@ -25,7 +25,7 @@
 		<guava.version>20.0</guava.version>
 		<passay.version>1.3.0</passay.version>
 	</properties>
-	
+
   <repositories>
     <repository>
        <id>alfresco-public</id>
@@ -73,6 +73,10 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		<dependency>
+  		<groupId>nz.net.ultraq.thymeleaf</groupId>
+  		<artifactId>thymeleaf-layout-dialect</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
@@ -80,7 +84,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>

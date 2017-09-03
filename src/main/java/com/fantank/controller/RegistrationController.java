@@ -23,6 +23,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fantank.config.Routes;
+import com.fantank.config.ThymeleafTemplateNames;
 import com.fantank.config.captcha.ICaptchaService;
 import com.fantank.dto.PasswordDto;
 import com.fantank.dto.UserDto;
@@ -56,13 +58,13 @@ public class RegistrationController {
 	@Autowired
     private ICaptchaService captchaService;
 	
-	@GetMapping("/register")
+	@GetMapping(Routes.REGISTER)
 	public String getRegistration(HttpServletRequest request) {
-		return "registration";
+		return ThymeleafTemplateNames.REGISTER;
 	}
   
 	
-	@PostMapping("/register")
+	@PostMapping(Routes.REGISTER)
 	@ResponseBody
 	public GenericResponse registration(@Valid UserDto userForm, HttpServletRequest request) {
 		
