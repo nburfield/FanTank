@@ -1,0 +1,161 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    xmlns:th="http://www.thymeleaf.org"
+    layout:decorator="layout/mainpages">
+
+<head>
+  <title>Login</title>
+  <style>
+    .jumbotron {
+      background-image: url('../images/register-music.jpg');
+    }
+  </style>
+</head>
+
+<body >
+  <main layout:fragment="content">
+    <div class="start_location">
+      <div class="jumbotron jumbotron-fluid mt-3">
+      </div>
+      <div class="infoi mt-5 pt-5 text-white text-center">
+        <h1><strong>Register</strong></h1>
+      </div>
+    </div>
+
+    <div class="container mt-5 mb-3">
+      <div class="row d-flex">
+        <div class="col-12 col-md-6 d-flex">
+          <div class="card card-body elegant-color">
+            <div class="divider-new">
+              <h2 class="text-center">Register using Social Login</h2>
+            </div>
+            <p class="facebook">
+              <a href="" class="btn btn-block">
+                <span class="d-flex">
+                  <i class="fa fa-facebook mr-auto"></i>
+                  <span class="text-center mr-auto">Login using Facebook</span>
+                </span>
+              </a>
+            </p>
+            <p class="linkedin">
+              <a href="" class="btn btn-block">
+                <span class="d-flex">
+                  <i class="fa fa-linkedin mr-auto"></i>
+                  <span class="text-center mr-auto">Login using LinkedIn</span>
+                </span>
+              </a>
+            </p>
+            <p class="twitter">
+              <a href="" class="btn btn-block">
+                <span class="d-flex">
+                  <i class="fa fa-twitter mr-auto"></i>
+                  <span class="text-center mr-auto">Login using Twitter</span>
+                </span>
+              </a>
+            </p>
+            <p class="google-plus">
+              <a href="" class="btn btn-block">
+                <span class="d-flex">
+                  <i class="fa fa-google-plus mr-auto"></i>
+                  <span class="text-center mr-auto">Login using Google Plus</span>
+                </span>
+              </a>
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 d-flex">
+          <div class="card card-body elegant-color">
+            <div class="divider-new">
+              <h2 class="text-center">Or</h2>
+            </div>
+
+            <form class="my-auto">
+              <div class="md-form">
+                <input type="text" id="firstname" class="form-control">
+                <label for="firstname">First name</label>
+              </div>
+              <div class="md-form">
+                <input type="text" id="lastname" class="form-control">
+                <label for="lastname">Last name</label>
+              </div>
+              <div class="md-form">
+                <i class="fa fa-envelope prefix grey-text"></i>
+                <input type="text" id="email" class="form-control">
+                <label for="email">Your email</label>
+              </div>
+
+              <div class="md-form">
+                <i class="fa fa-lock prefix grey-text"></i>
+                <input type="password" id="pass" class="form-control">
+                <label for="pass">Your password</label>
+              </div>
+
+              <div class="text-center">
+                <button class="btn btn-deep-orange waves-effect waves-light">Sign In</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="black">
+      <div class="container text-white">
+        <div class="row">
+
+          <!--First column-->
+          <div class="col-sm-6 col-md-8 text-center">
+            <a href="./index.html">
+                  <img class="img-centered" width="250px" src="./img/fan-tank-logo.png">
+                </a>
+            <p>
+              <a href="https://twitter.com/fantank" class="icon-button twitter"><i class="fa fa-twitter icon-twitter"></i><span></span></a>
+              <a href="https://facebook.com/fantank" class="icon-button facebook"><i class="fa fa-facebook icon-facebook"></i><span></span></a>
+              <a href="https://plus.google.com/fantank" class="icon-button google-plus"><i class="fa fa-google-plus icon-google-plus"></i><span></span></a>
+              <a href="https://linkedin.com/fantank" class="icon-button linkedin"><i class="fa fa-linkedin icon-linkedin"></i><span></span></a>
+              <a href="https://instagram.com/fantank" class="icon-button instagram"><i class="fa fa-instagram icon-instagram"></i><span></span></a>
+              <a href="https://pinterest.com/fantank" class="icon-button pinterest"><i class="fa fa-pinterest icon-pinterest"></i><span></span></a>
+            </p>
+            <p>© 2017 FanTank, LLC™</p>
+            <p>ALL RIGHTS RESERVED</p>
+          </div>
+          <!--/.First column-->
+
+          <!--Second column-->
+          <div class="col-sm-3 col-md-2 text-center text-center-less-than-md">
+            <h5 class="title font-bold my-2">Menu</h5>
+            <ul>
+              <li><a href="./invest.html">Investments</a></li>
+              <li><a href="./howitworks.html">How It Works</a></li>
+              <li><a href="./about.html">About Us</a></li>
+              <li><a href="./jobs.html">Jobs</a></li>
+              <li><a href="./contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <!--/.Second column-->
+
+          <!--Third column-->
+          <div class="col-sm-3 col-md-2 text-center text-center-less-than-md">
+            <h5 class="title font-bold my-2">Legal</h5>
+            <ul>
+              <li><a href="./terms.html">Terms</a></li>
+              <li><a href="./privacy.html">Privacy Policy</a></li>
+              <li><a href="./disclaimer.html">Disclaimers</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--Main Layout-->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js"></script>
+</body>
+
+</html>

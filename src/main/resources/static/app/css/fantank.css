@@ -40,6 +40,9 @@ body {
 .invest-in-art-text-elegant-dark {
   background: rgba(33, 33, 33, 0.7);
 }
+.view:hover {
+  cursor: pointer;
+}
 .jumbotron {
   height: 315px;
   width: 100%;
@@ -47,6 +50,7 @@ body {
   top: 0;
   left: 0;
   -webkit-filter: blur(5px);
+  /* Safari */
   filter: blur(5px);
   background-position: center;
   background-repeat: no-repeat;
@@ -64,6 +68,11 @@ body {
   left: 0;
   overflow: hidden;
   z-index: 10;
+}
+.start_location {
+  position: relative;
+  width: 100%;
+  height: 315px;
 }
 .navbar {
   background-color: #000;
@@ -121,13 +130,13 @@ a.navbar-toggler:hover {
   margin: -1.8rem;
 }
 .icon-button:hover .icon-twitter {
-  color: white;
+  color: #ffffff;
 }
 .icon-button:hover .icon-facebook {
-  color: white;
+  color: #ffffff;
 }
 .icon-button:hover .icon-google-plus {
-  color: white;
+  color: #ffffff;
 }
 .icon-button:hover .icon-pinterest {
   color: #ffffff;
@@ -161,7 +170,7 @@ a.navbar-toggler:hover {
 }
 .icon-button i {
   background: none;
-  color: white;
+  color: #ffffff;
   height: 3.6rem;
   left: 0;
   line-height: 3.6rem;
@@ -213,43 +222,56 @@ a.navbar-toggler:hover {
 .icon-button .icon-soundcloud {
   color: #ff3a00;
 }
-.twitter span {
+.twitter span,
+.twitter a {
   background-color: #4099ff;
 }
-.facebook span {
+.facebook span,
+.facebook a {
   background-color: #3B5998;
 }
-.google-plus span {
+.google-plus span,
+.google-plus a {
   background-color: #db5a3c;
 }
-.pinterest span {
+.pinterest span,
+.pinterest a {
   background-color: #cb2027;
 }
-.linkedin span {
+.linkedin span,
+.linkedin a {
   background-color: #007bb6;
 }
-.youtube span {
+.youtube span,
+.youtube a {
   background-color: #bb0000;
 }
-.tumblr span {
+.tumblr span,
+.tumblr a {
   background-color: #32506d;
 }
-.instagram span {
+.instagram span,
+.instagram a {
   background-color: #bc2a8d;
 }
-.flickr span {
+.flickr span,
+.flickr a {
   background-color: #ff0084;
 }
-.stumbleupon span {
+.stumbleupon span,
+.stumbleupon a {
   background-color: #EB4823;
 }
-.yahoo span {
+.yahoo span,
+.yahoo a {
   background-color: #7B0099;
 }
-.blogger span {
+.blogger span,
+.blogger a {
   background-color: #fb8f3d;
 }
-.soundcloud span {
+.soundcloud span,
+.soundcloud a {
   background-color: #ff3a00;
 }
 @media screen and (max-width: 319px) {

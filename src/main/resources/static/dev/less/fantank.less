@@ -1,35 +1,24 @@
-@color_1: #78bfe7;
-@color_2: white;
-@color_3: #4099ff;
-@color_4: #3B5998;
-@color_5: #db5a3c;
-@color_6: #cb2027;
-@color_7: #007bb6;
-@color_8: #bb0000;
-@color_9: #32506d;
-@color_10: #bc2a8d;
-@color_11: #ff0084;
-@color_12: #EB4823;
-@color_13: #7B0099;
-@color_14: #fb8f3d;
-@color_15: #ff3a00;
-@color_16: #ffffff;
-@background_color_1: #3e5e93;
-@background_color_2: #000;
-@background_color_3: #2E2E2E;
-@background_color_4: #4099ff;
-@background_color_5: #3B5998;
-@background_color_6: #db5a3c;
-@background_color_7: #cb2027;
-@background_color_8: #007bb6;
-@background_color_9: #bb0000;
-@background_color_10: #32506d;
-@background_color_11: #bc2a8d;
-@background_color_12: #ff0084;
-@background_color_13: #EB4823;
-@background_color_14: #7B0099;
-@background_color_15: #fb8f3d;
-@background_color_16: #ff3a00;
+@nav_hover_color: #78bfe7;
+@white_color: #ffffff;
+@black_color: #000;
+
+@twitter_color: #4099ff;
+@facebook_color: #3B5998;
+@googleplus_color: #db5a3c;
+@pinterest_color: #cb2027;
+@linkedin_color: #007bb6;
+@youtube_color: #bb0000;
+@tumblr_color: #32506d;
+@instagram_color: #bc2a8d;
+@flickr_color: #ff0084;
+@stumbleupon_color: #EB4823;
+@yahoo_color: #7B0099;
+@blogger_color: #fb8f3d;
+@soundcloud_color: #ff3a00;
+
+@fantank_dark_blue: #3e5e93;
+@fantank_elegant_color: #2E2E2E;
+
 
 /* #673ab7 deep purple*/
 /* Wrapper */
@@ -60,7 +49,7 @@ body {
   height: 100%;
 }
 .btn-primary {
-  background-color: @background_color_1 !important;
+  background-color: @fantank_dark_blue !important;
 }
 .invest-in-art-text-elegant {
   background: rgba(46, 46, 46, 0.7);
@@ -68,13 +57,18 @@ body {
 .invest-in-art-text-elegant-dark {
   background: rgba(33, 33, 33, 0.7);
 }
+
+.view:hover {
+  cursor: pointer;
+}
+
 .jumbotron {
   height: 315px;
-  width: 100%;
+  width:100%;
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-filter: blur(5px);
+  -webkit-filter: blur(5px); /* Safari */
   filter: blur(5px);
   background-position: center;
   background-repeat: no-repeat;
@@ -86,15 +80,22 @@ body {
   overflow: hidden;
 }
 .infoi {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  z-index: 10;
+width: 100%;
+position: absolute;
+top: 0;
+left: 0;
+overflow: hidden;
+z-index: 10;
 }
+
+.start_location {
+  position: relative;
+  width: 100%;
+  height: 315px;
+}
+
 .navbar {
-  background-color: @background_color_2;
+  background-color: @black_color;
   padding-top: 5px;
   padding-bottom: 5px;
   font-weight: 500;
@@ -102,21 +103,21 @@ body {
 .nav-item {
   a {
     &:hover {
-      color: @color_1 !important;
+      color: @nav_hover_color !important;
     }
   }
 }
 a.navbar-toggler {
   font-size: 0.95rem;
   &:hover {
-    color: @color_1 !important;
+    color: @nav_hover_color !important;
   }
 }
 .register {
   font-size: 0.9rem;
 }
 .icon-button {
-  background-color: @background_color_3;
+  background-color: @fantank_elegant_color;
   border-radius: 3.6rem;
   cursor: pointer;
   display: inline-block;
@@ -153,48 +154,48 @@ a.navbar-toggler {
       margin: -1.8rem;
     }
     .icon-twitter {
-      color: @color_2;
+      color: @white_color;
     }
     .icon-facebook {
-      color: @color_2;
+      color: @white_color;
     }
     .icon-google-plus {
-      color: @color_2;
+      color: @white_color;
     }
     .icon-pinterest {
-      color: @color_16;
+      color: @white_color;
     }
     .icon-linkedin {
-      color: @color_16;
+      color: @white_color;
     }
     .icon-youtube {
-      color: @color_16;
+      color: @white_color;
     }
     .icon-tumblr {
-      color: @color_16;
+      color: @white_color;
     }
     .icon-instagram {
-      color: @color_16;
+      color: @white_color;
     }
     .icon-flickr {
-      color: @color_16;
+      color: @white_color;
     }
     .icon-stumbleupon {
-      color: @color_16;
+      color: @white_color;
     }
     .icon-yahoo {
-      color: @color_16;
+      color: @white_color;
     }
     .icon-blogger {
-      color: @color_16;
+      color: @white_color;
     }
     .icon-soundcloud {
-      color: @color_16;
+      color: @white_color;
     }
   }
   i {
     background: none;
-    color: @color_2;
+    color: @white_color;
     height: 3.6rem;
     left: 0;
     line-height: 3.6rem;
@@ -208,108 +209,109 @@ a.navbar-toggler {
     z-index: 10;
   }
   .icon-twitter {
-    color: @color_3;
+    color: @twitter_color;
   }
   .icon-facebook {
-    color: @color_4;
+    color: @facebook_color;
   }
   .icon-google-plus {
-    color: @color_5;
+    color: @googleplus_color;
   }
   .icon-pinterest {
-    color: @color_6;
+    color: @pinterest_color;
   }
   .icon-linkedin {
-    color: @color_7;
+    color: @linkedin_color;
   }
   .icon-youtube {
-    color: @color_8;
+    color: @youtube_color;
   }
   .icon-tumblr {
-    color: @color_9;
+    color: @tumblr_color;
   }
   .icon-instagram {
-    color: @color_10;
+    color: @instagram_color;
   }
   .icon-flickr {
-    color: @color_11;
+    color: @flickr_color;
   }
   .icon-stumbleupon {
-    color: @color_12;
+    color: @stumbleupon_color;
   }
   .icon-yahoo {
-    color: @color_13;
+    color: @yahoo_color;
   }
   .icon-blogger {
-    color: @color_14;
+    color: @blogger_color;
   }
   .icon-soundcloud {
-    color: @color_15;
+    color: @soundcloud_color;
   }
 }
 .twitter {
-  span {
-    background-color: @background_color_4;
+  span, a {
+    background-color: @twitter_color;
   }
+
 }
 .facebook {
-  span {
-    background-color: @background_color_5;
+  span, a {
+    background-color: @facebook_color;
   }
 }
 .google-plus {
-  span {
-    background-color: @background_color_6;
+  span, a {
+    background-color: @googleplus_color;
   }
 }
 .pinterest {
-  span {
-    background-color: @background_color_7;
+  span, a {
+    background-color: @pinterest_color;
   }
 }
 .linkedin {
-  span {
-    background-color: @background_color_8;
+  span, a {
+    background-color: @linkedin_color;
   }
 }
 .youtube {
-  span {
-    background-color: @background_color_9;
+  span, a {
+    background-color: @youtube_color;
   }
 }
 .tumblr {
-  span {
-    background-color: @background_color_10;
+  span, a {
+    background-color: @tumblr_color;
   }
 }
 .instagram {
-  span {
-    background-color: @background_color_11;
+  span, a {
+    background-color: @instagram_color;
   }
 }
 .flickr {
-  span {
-    background-color: @background_color_12;
+  span, a {
+    background-color: @flickr_color;
   }
 }
 .stumbleupon {
-  span {
-    background-color: @background_color_13;
+  span, a {
+    background-color: @stumbleupon_color;
   }
 }
 .yahoo {
-  span {
-    background-color: @background_color_14;
+  span, a {
+    background-color: @yahoo_color;
   }
 }
 .blogger {
-  span {
-    background-color: @background_color_15;
+  span, a {
+    background-color: @blogger_color;
   }
 }
 .soundcloud {
-  span {
-    background-color: @background_color_16;
+  span, a {
+    background-color: @soundcloud_color;
   }
 }
 @media screen and (max-width: 319px) {

@@ -54,8 +54,18 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(final ViewControllerRegistry registry) {
         super.addViewControllers(registry);
-        registry.addViewController("/login").setViewName("login");
-        //registry.addViewController("/register").setViewName("registration");
+        registry.addViewController(Routes.ROOT).setViewName(ThymeleafTemplateNames.INDEX);
+        registry.addViewController(Routes.LOGIN).setViewName(ThymeleafTemplateNames.LOGIN);
+        registry.addViewController(Routes.ABOUT).setViewName(ThymeleafTemplateNames.ABOUT);
+        registry.addViewController(Routes.INVEST).setViewName(ThymeleafTemplateNames.INVEST);
+        registry.addViewController(Routes.HOWITWORKS).setViewName(ThymeleafTemplateNames.HOWITWORKS);
+        registry.addViewController(Routes.JOBS).setViewName(ThymeleafTemplateNames.JOBS);
+        registry.addViewController(Routes.CONTACT).setViewName(ThymeleafTemplateNames.CONTACT);
+        registry.addViewController(Routes.TERMS).setViewName(ThymeleafTemplateNames.TERMS);
+        registry.addViewController(Routes.PRIVACY).setViewName(ThymeleafTemplateNames.PRIVACY);
+        registry.addViewController(Routes.DISCLAIMER).setViewName(ThymeleafTemplateNames.DISCLAIMER);
+
+        
     }
     
     @Override
