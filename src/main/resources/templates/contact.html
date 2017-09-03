@@ -1,17 +1,15 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    xmlns:th="http://www.thymeleaf.org"
-    layout:decorator="layout/mainpages">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org" layout:decorator="layout/mainpages">
 
 <head>
   <title>Contact Us</title>
   <style>
-  .jumbotron {
-      background-image:   url("../images/contactus-records.jpg") ;
-  }
+    .jumbotron {
+      background-image: url("../images/contactus-records.jpg");
+    }
   </style>
 </head>
+
 <body>
   <main layout:fragment="content">
     <div class="start_location">
@@ -22,7 +20,76 @@
       </div>
     </div>
 
-    <div class="container mt-5 mb-3 black">
+    <div class="container mt-5 mb-3">
+      <div class="row d-flex">
+        <div class="col-12 col-md-6 d-flex">
+          <div class="card card-body elegant-color">
+            <form class="my-auto px-1">
+              <div class="row">
+                <div class="col-12 col-md-6 md-form">
+                  <input type="text" id="firstname" class="form-control" />
+                  <label for="firstname">First name</label>
+                </div>
+                <div class="col-12 col-md-6 md-form">
+                  <input type="text" id="lastname" class="form-control" />
+                  <label for="lastname">Last name</label>
+                </div>
+              </div>
+              <div class="md-form">
+                <i class="fa fa-envelope prefix grey-text"></i>
+                <input type="text" id="email" class="form-control" />
+                <label for="email">Your email</label>
+              </div>
+
+              <div class="md-form">
+                <i class="fa fa-user prefix grey-text"></i>
+                <input type="text" id="usertype" class="form-control" />
+                <label for="usertype">Your interests? Artist, Investor ...</label>
+              </div>
+
+              <div class="md-form">
+                <i class="fa fa-lock prefix grey-text"></i>
+                <input type="text" id="reason" class="form-control" />
+                <label for="reason">What is your enquiry regarding?</label>
+              </div>
+
+              <div class="md-form">
+                <i class="fa fa-pencil prefix grey-text"></i>
+                <textarea type="text" id="details" class="md-textarea"></textarea>
+                <label for="details">Provide as much details as possible</label>
+              </div>
+
+              <div class="text-center">
+                <button class="btn btn-deep-orange waves-effect waves-light">Submit</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 d-flex">
+          <div class="card card-body white black-text">
+            <div class="divider-new">
+              <h2 class="text-center">Other resources</h2>
+            </div>
+            <div class="row my-auto">
+              <div class="col-12 text-center my-1">
+                <p>For questions and answers, visit our <a href="/howitworks">FAQs</a></p>
+              </div>
+              <div class="col-12 text-center white-text z-index-1 py-1 elegant-color">
+                <p>Email: contact@fantank.com<br/>
+                	 Phone: 1.310.555.1212<br/>
+                  Fax: 1.310.777.1212
+               </p>
+              </div>
+              <div class="col-12 text-center white-text z-index-1 elegant-color py-1">
+                <p>324 S. Beverly Drive<br/>
+								Suite # 123<br/>
+								Beverly Hills, CA 90212</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
