@@ -294,3 +294,16 @@ a.navbar-toggler:hover {
     text-align: left !important;
   }
 }
+.form-control {
+  color: #ffffff !important;
+}
+.checkbox-form label {
+  font-size: 1rem !important;
+}
+.checkbox-form input {
+  font-size: 2rem !important;
+  border-radius: 0;
+}
+.fantank_graydian_blue_color {
+  background-color: #3c92cd;
+}
