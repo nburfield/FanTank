@@ -85,13 +85,13 @@
             <form id="loginform" name='f' action="login" method='POST' class="my-auto">
               <div class="md-form">
                 <i class="fa fa-envelope prefix grey-text"></i>
-                <input type="email" name="username" id="orangeForm-email" class="form-control"/>
+                <input type="email" name="username" id="email" class="form-control"/>
                 <label for="email">Your email</label>
               </div>
 
               <div class="md-form">
                 <i class="fa fa-lock prefix grey-text"></i>
-                <input type="password"  name="password" id="orangeForm-pass" class="form-control"/>
+                <input type="password"  name="password" id="pass" class="form-control"/>
                 <label for="pass">Your password</label>
               </div>
 
@@ -131,7 +131,7 @@
           var error = /*[[${session[SPRING_SECURITY_LAST_EXCEPTION]}]]*/
           $.notify(error, "error");
         }
-        $('.facebook').click(function(event) {        
+        $('.facebook').click(function(event) {
           $('#facebookform').submit();
         });
         $('.twitter').click(function(event) {
@@ -173,7 +173,7 @@
           return true;
       }
 
-    /*]]>*/ 
+    /*]]>*/
   </script>
 </th:block>
 

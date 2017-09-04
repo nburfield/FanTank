@@ -7,6 +7,15 @@
     .jumbotron {
       background-image: url('../images/register-music.jpg');
     }
+
+    .progress {
+      border-radius: 0;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+    }
   </style>
 </head>
 
@@ -104,21 +113,22 @@
                 <i class="fa fa-lock prefix grey-text"></i>
                 <input type="password" id="password" class="form-control" name="password" required="required"/>
                 <p id="passwordError" class="alert alert-danger" style="display:none"></p>
-                <label for="pass">Your password</label>
+                <label for="password">Your password</label>
               </div>
 
               <div class="md-form">
                 <i class="fa fa-lock prefix grey-text"></i>
                 <input type="password" id="passwordConfirm" class="form-control" name="passwordConfirm" required="required"/>
                 <p id="matchError" class="alert alert-danger" style="display:none"></p>
-                <label for="pass">Confirm your password</label>
+                <label for="passwordConfirm">Confirm your password</label>
               </div>
 
-              <div class="md-form">
-                <div class="g-recaptcha" th:attr="data-sitekey=${@captchaService.getReCaptchaSite()}" data-callback="onReCaptchaSuccess" data-expired-callback="onReCaptchaExpired"></div>
-                <p id="captchaError" class="alert alert-danger" style="display:none"></p>
+              <div class="row my-2 mt-3">
+                <div class="md-form col text-center">
+                  <div class="g-recaptcha d-inline-block text-center elegant-color" th:attr="data-sitekey=${@captchaService.getReCaptchaSite()}" data-callback="onReCaptchaSuccess" data-expired-callback="onReCaptchaExpired"></div>
+                  <p id="captchaError" class="alert alert-danger" style="display:none"></p>
+                </div>
               </div>
-
               <div class="text-center">
                 <button id="register-submit" class="btn btn-deep-orange waves-effect waves-light">Register</button>
               </div>
@@ -138,7 +148,7 @@
     //serverContext = "http://fantank.bcinnovationsonline.com/";
 
     $(document).ready(function () {
-      $('.facebook').click(function(event) {        
+      $('.facebook').click(function(event) {
         $('#facebookform').submit();
       });
       $('.twitter').click(function(event) {
@@ -155,7 +165,7 @@
       });
 
       $('#register-submit').html('Register');
-      
+
       options = {
         common: {minChar:8},
         rules: {
@@ -183,7 +193,7 @@
           showVerdictsInsideProgressBar:true,
           showErrors:false,
           errorMessages:{
-            
+
             wordNotEmail: /*[[#{error.wordNotEmail}]]*/,
             wordSequences: /*[[#{error.wordSequences}]]*/,
             wordLowercase: /*[[#{error.wordLowercase}]]*/,
@@ -279,16 +289,16 @@
       });
     }
     /*]]>*/
-    
+
     var onReCaptchaSuccess = function(response) {
         $("#captchaError").html("").hide();
     };
-    
+
     var onReCaptchaExpired = function(response) {
         $("#captchaError").html("reCaptcha has expired.  Please solve a new reCaptcha").show();
         grecaptcha.reset();
     };
-    
+
   </script>
 </th:block>
 
