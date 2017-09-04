@@ -31,7 +31,6 @@
       max-width: 100%;
       height: auto;
     }
-
   </style>
 </head>
 
@@ -57,6 +56,9 @@
   <div th:replace="fragments/scripts :: scripts"></div>
   <script>
     $(".projects .nav-item").removeClass("waves-effect waves-light");
+    $("#invest_now_panel").stick_in_parent({
+      offset_top: 75
+    });
   </script>
 </body>
 
