@@ -61,7 +61,7 @@
     }
 
     .dollar_background {
-      color: lightgreen;
+      color: #85bb65;
     }
 
     .dollar_background2 {
@@ -71,29 +71,60 @@
     .progress {
       border-radius: 0;
     }
+
+    .camera-color {
+      background-color: #337ab7;
+    }
+
+    #fa-invest-now-modal {
+      background-color: #212121;
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: white;
+      font-size: 1rem;
+    }
+    #fa-invest-now-modal label {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    #fa-invest-now-modal input {
+      border-radius: 0;
+      color: black !important;
+    }
+    #fa-invest-now-modal .modal-header i {
+      color: white;
+    }
+    #fa-invest-now-modal .btn-primary {
+      border-radius: 0px;
+      background-color: #d73d0e !important;
+      background-image: linear-gradient(to bottom,#337ab7 0,#265a88 100%);
+    }
   </style>
 </head>
 
 <body>
 
   <main layout:fragment="content">
-    <div class="fixed-bottom d-md-none" style="font-size: 2rem">
+    <div class="jumbotron jumbotron-fantank px-0 py-0 mt-4 mt-sm-3 mt-md-0 mb-0">
+      <img src="/projects/perry/perry1.jpg" class="img-responsive" />
+    </div>
+    <div class="fixed-bottom d-md-none" style="font-size: 1.5rem">
       <div class="text-left">
+        <a href="" target="_blank">
         <span class="fa-stack fa-lg z-index-5">
           <i class="fa fa-circle fa-stack-2x dollar_background"></i>
           <i class="fa fa-circle-thin fa-stack-2x dollar_background2"></i>
           <i class="fa fa-usd fa-stack-1x" style="color: black;"></i>
         </span>
+      </a>
       </div>
     </div>
-    <div class="jumbotron jumbotron-fantank px-0 py-0 mt-4 mt-sm-3 mt-md-0 mb-0">
-      <img src="/projects/perry/perry1.jpg" class="img-responsive" />
-    </div>
-    <div class="container projects my-0 px-0">
+    <div class="container projects my-1 px-0">
       <div class="row flex-md-row-reverse">
         <div class="col-12 col-md-3">
           <div id="invest_now_panel" class="card card-body px-0 py-0 mt-0 mb-2 z-index-3">
-            <div class="row black mx-0 my-0">
+            <div class="row camera-color mx-0 my-0">
               <div class="col-12 align-items-center my-1">
                 <img src="/images/film.png" class="img-fluid mx-auto" style="width: 3rem;" />
               </div>
@@ -110,8 +141,12 @@
                     <span class="sr-only">0% Complete</span>
                   </div>
                 </div>
-                <p>
-                  <a class="btn btn-deep-orange">Invest Now</a>
+                <p class="text-center">
+                  <script src="https://my-sandbox.fundamerica.com/widgets/invest_now.js" id="fa-invest-now-launcher"></script>
+                  <a href="#" class="btn btn-deep-orange"
+                    data-fa-invest-now="qhLRygdbqoYXet6K3BwFtFxXQRkE8KeN:oti-7QMSSFyi2Q9Wt2w0nw"
+                    target="_blank"
+                    >Invest Now</a>
                 </p>
               </div>
             </div>
