@@ -133,9 +133,7 @@
 <th:block layout:fragment="script">
   <script th:inline="javascript">
     /*<![CDATA[*/
-    var serverContext = /*[[@{/register}]]*/;
-    serverContext = "http://localhost:8080/";
-    //serverContext = "http://fantank.bcinnovationsonline.com/";
+    var serverContext = window.location.protocol + "//" + window.location.host + "/";
 
     $(document).ready(function () {
       $('.facebook').click(function(event) {        

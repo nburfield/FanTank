@@ -1,6 +1,5 @@
 
-var serverContext = "http://localhost:3000/";
-//serverContext = "http://fantank.bcinnovationsonline.com/";
+var serverContext = window.location.protocol + "//" + window.location.host + "/";
 
 $(document).ready(function () {
   $(".user").hide();
