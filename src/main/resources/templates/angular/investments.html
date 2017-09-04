@@ -1,3 +1,17 @@
 <div>
-  {{investments}}
+  <h3>Investments</h3>
+  <table>
+    <thead>
+      <td>Amount</td>
+      <td>Unit Size</td>
+      <td>Status</td>
+    </thead>
+    <tbody ng-repeat="invest in investments">
+      <tr>
+        <td>{{invest.amount}}</td>
+        <td>{{invest.unit_count}}</td>
+        <td>{{invest.status}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

@@ -14,6 +14,9 @@ public class Investment {
     private User user;
     private String investmentId;
     private Offering offering;
+    
+    public Investment() {
+    }
 
 	public Investment(String investmentId, User userLoggedIn) {
 		this.setInvestmentId(investmentId);
