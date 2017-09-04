@@ -30,38 +30,50 @@
             <div class="divider-new">
               <h2 class="text-center">Social Login</h2>
             </div>
-            <p class="facebook">
-              <a href="" class="btn btn-block">
-                <span class="d-flex">
-                  <i class="fa fa-facebook mr-auto"></i>
-                  <span class="text-center mr-auto">Login using Facebook</span>
-                </span>
-              </a>
-            </p>
-            <p class="linkedin">
-              <a href="" class="btn btn-block">
-                <span class="d-flex">
-                  <i class="fa fa-linkedin mr-auto"></i>
-                  <span class="text-center mr-auto">Login using LinkedIn</span>
-                </span>
-              </a>
-            </p>
-            <p class="twitter">
-              <a href="" class="btn btn-block">
-                <span class="d-flex">
-                  <i class="fa fa-twitter mr-auto"></i>
-                  <span class="text-center mr-auto">Login using Twitter</span>
-                </span>
-              </a>
-            </p>
-            <p class="google-plus">
-              <a href="" class="btn btn-block">
-                <span class="d-flex">
-                  <i class="fa fa-google-plus mr-auto"></i>
-                  <span class="text-center mr-auto">Login using Google Plus</span>
-                </span>
-              </a>
-            </p>
+            <form id="facebookform" action="/signin/facebook" method="POST">
+              <input type="hidden" name="scope" value="public_profile,email" />
+              <p class="facebook">
+                <a class="btn btn-block">
+                  <span class="d-flex">
+                    <i class="fa fa-facebook mr-auto"></i>
+                    <span class="text-center mr-auto">Login using Facebook</span>
+                  </span>
+                </a>
+              </p>
+            </form>
+            <form id="linkedinform" action="/signin/linkedin" method="POST">
+              <input type="hidden" name="scope" value="r_basicprofile,r_emailaddress" />
+              <p class="linkedin">
+                <a class="btn btn-block">
+                  <span class="d-flex">
+                    <i class="fa fa-linkedin mr-auto"></i>
+                    <span class="text-center mr-auto">Login using LinkedIn</span>
+                  </span>
+                </a>
+              </p>
+            </form>
+            <form id="twitterform" action="/signin/twitter" method="POST">
+              <input type="hidden" name="scope" value="include_email" />
+              <p class="twitter">
+                <a class="btn btn-block">
+                  <span class="d-flex">
+                    <i class="fa fa-twitter mr-auto"></i>
+                    <span class="text-center mr-auto">Login using Twitter</span>
+                  </span>
+                </a>
+              </p>
+            </form>
+            <form id="googleform" action="/signin/google" method="POST">
+              <input type="hidden" name="scope" value="profile email" />
+              <p class="google-plus">
+                <a class="btn btn-block">
+                  <span class="d-flex">
+                    <i class="fa fa-google-plus mr-auto"></i>
+                    <span class="text-center mr-auto">Login using Google Plus</span>
+                  </span>
+                </a>
+              </p>
+            </form>
           </div>
         </div>
         <div class="col-12 col-md-6 d-flex">
@@ -70,21 +82,21 @@
               <h2 class="text-center">Or</h2>
             </div>
 
-            <form class="my-auto">
+            <form id="loginform" name='f' action="login" method='POST' class="my-auto">
               <div class="md-form">
                 <i class="fa fa-envelope prefix grey-text"></i>
-                <input type="text" id="orangeForm-email" class="form-control"/>
+                <input type="email" name="username" id="orangeForm-email" class="form-control"/>
                 <label for="email">Your email</label>
               </div>
 
               <div class="md-form">
                 <i class="fa fa-lock prefix grey-text"></i>
-                <input type="password" id="orangeForm-pass" class="form-control"/>
+                <input type="password"  name="password" id="orangeForm-pass" class="form-control"/>
                 <label for="pass">Your password</label>
               </div>
 
               <div class="text-center">
-                <button class="btn btn-deep-orange waves-effect waves-light">Sign In</button>
+                <button id="login-submit" class="btn btn-deep-orange waves-effect waves-light">Sign In</button>
               </div>
             </form>
           </div>
@@ -92,6 +104,78 @@
       </div>
     </div>
   </main>
-</body>
 
+<th:block layout:fragment="script">
+  <script th:inline="javascript">
+    /*<![CDATA[*/
+      var serverContext = /*[[@{/login}]]*/;
+      serverContext = "http://localhost:8080/";
+      //serverContext = "http://fantank.bcinnovationsonline.com/";
+
+      $(document).ready(function () {
+        document.f.username.focus();
+        $.urlParam = function(name){
+          var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+          if(results) {
+            return results[1] || 0;
+          }
+          return null;
+        }
+        if($.urlParam('message')) {
+          var message = /*[[${param.message}]]*/
+          if(message != null) {
+            $.notify(message, "success");
+          }
+        }
+        if($.urlParam('error')) {
+          var error = /*[[${session[SPRING_SECURITY_LAST_EXCEPTION]}]]*/
+          $.notify(error, "error");
+        }
+        $('.facebook').click(function(event) {        
+          $('#facebookform').submit();
+        });
+        $('.twitter').click(function(event) {
+          $('#twitterform').submit();
+        });
+        $('.linkedin').click(function(event) {
+          $('#linkedinform').submit();
+        });
+        $('.google-plus').click(function(event) {
+          $('#googleform').submit();
+        });
+        $('#login-submit').click(function(event) {
+          if(validate()) {
+            $('#loginform').submit();
+          }
+        });
+      });
+
+      function validate() {
+          if (document.f.username.value == "" && document.f.password.value == "") {
+              var error = /*[[#{message.username} + #{message.password}]]*/
+              $.notify(error, "error");
+              document.f.username.focus();
+              return false;
+          }
+          if (document.f.username.value == "") {
+              var error = /*[[#{message.username}]]*/
+              $.notify(error, "error");
+              document.f.username.focus();
+              return false;
+          }
+          if (document.f.password.value == "") {
+              alert(/*[[#{message.password}]]*/);
+              var error = /*[[#{message.password}]]*/
+              $.notify(error, "error");
+              document.f.password.focus();
+              return false;
+          }
+          return true;
+      }
+
+    /*]]>*/ 
+  </script>
+</th:block>
+
+</body>
 </html>
