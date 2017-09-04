@@ -1,24 +1,23 @@
 
-var serverContext = "http://localhost:8080/";
-//serverContext = "http://fantank.bcinnovationsonline.com/";
+var serverContext = window.location.protocol + "//" + window.location.host + "/";
 
 $(document).ready(function () {
-  $("#user").hide();
-  $("#nouser").hide();
+  $(".user").hide();
+  $(".nouser").hide();
   loadUser();
 });
 
 function loadUser(){
   $.get(serverContext + "/user/data", function(user) {
     if(user) {
-      $("#user").show()
-      $("#userName").html(user.firstName);
+      $(".user").show()
+      $(".userName").html(user.firstName);
     }
     else {
-      $("#nouser").show();
+      $(".nouser").show();
     }
   })
   .fail(function(data) {
-    $("#nouser").show();
+    $(".nouser").show();
   });
 }

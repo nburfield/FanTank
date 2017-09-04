@@ -31,7 +31,6 @@ public class MainController {
 	
 	@GetMapping("/")
 	public String welcome(Model model) {
-
 		User user = userService.findByEmail(securityService.findLoggedInUsername());
 		model.addAttribute("user", user);
 		
@@ -73,6 +72,7 @@ public class MainController {
 	@GetMapping("/user/data")
 	@ResponseBody
 	public UserDto getLoggedUser() {
+
 		User userData = userService.findByEmail(securityService.findLoggedInUsername());
 		if(userData == null) {
 			return null;

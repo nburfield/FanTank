@@ -1,6 +1,5 @@
 
-var serverContext = "http://localhost:8080/";
-//serverContext = "http://fantank.bcinnovationsonline.com/";
+var serverContext = window.location.protocol + "//" + window.location.host + "/";
 
 var userLogged = null;
 var daysLeft = 0
