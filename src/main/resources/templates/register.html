@@ -79,7 +79,7 @@
               <h2 class="text-center">Or</h2>
             </div>
 
-            <form id="registerform" action="/" method="post" enctype="utf8" class="my-auto">
+            <form id="registerform" method="POST" enctype="utf8" class="my-auto">
               <div class="row">
               <div class="col-12 col-md-6 md-form">
                 <input type="text" id="firstname" class="form-control" name="firstName" required="required"/>
@@ -87,27 +87,36 @@
                 <label for="firstname">First name</label>
               </div>
               <div class="col-12 col-md-6 md-form">
-                <input type="text" id="lastname" class="form-control " />
+                <input type="text" id="lastname" class="form-control" name="lastName" required="required"/>
+                <p id="lastNameError" class="alert alert-danger" style="display:none"></p>
                 <label for="lastname">Last name</label>
               </div>
             </div>
 
               <div class="md-form">
                 <i class="fa fa-envelope prefix grey-text"></i>
-                <input type="text" id="email" class="form-control " />
+                <input type="email" id="email" class="form-control" name="email" required="required"/>
+                <p id="emailError" class="alert alert-danger" style="display:none"></p>
                 <label for="email">Your email</label>
               </div>
 
               <div class="md-form">
                 <i class="fa fa-lock prefix grey-text"></i>
-                <input type="password" id="pass" class="form-control" />
+                <input type="password" id="password" class="form-control" name="password" required="required"/>
+                <p id="passwordError" class="alert alert-danger" style="display:none"></p>
                 <label for="pass">Your password</label>
               </div>
 
               <div class="md-form">
                 <i class="fa fa-lock prefix grey-text"></i>
-                <input type="password" id="confirmpass" class="form-control" />
+                <input type="password" id="passwordConfirm" class="form-control" name="passwordConfirm" required="required"/>
+                <p id="matchError" class="alert alert-danger" style="display:none"></p>
                 <label for="pass">Confirm your password</label>
+              </div>
+
+              <div class="md-form">
+                <div class="g-recaptcha" th:attr="data-sitekey=${@captchaService.getReCaptchaSite()}" data-callback="onReCaptchaSuccess" data-expired-callback="onReCaptchaExpired"></div>
+                <p id="captchaError" class="alert alert-danger" style="display:none"></p>
               </div>
 
               <div class="text-center">
@@ -125,7 +134,7 @@
   <script th:inline="javascript">
     /*<![CDATA[*/
     var serverContext = /*[[@{/register}]]*/;
-    serverContext = "http://localhost:3000/";
+    serverContext = "http://localhost:8080/";
     //serverContext = "http://fantank.bcinnovationsonline.com/";
 
     $(document).ready(function () {
@@ -142,18 +151,10 @@
         $('#googleform').submit();
       });
       $('#register-submit').click(function(event) {
-        //register(event);
+        register(event);
       });
 
       $('#register-submit').html('Register');
-      
-      $(":password").keyup(function(){
-        if($("#password").val() != $("#passwordConfirm").val()){
-              $("#matchError").show().html(/*[[#{PasswordMatches.user}]]*/);
-          }else{
-            $("#matchError").html("").hide();
-          }
-      });
       
       options = {
         common: {minChar:8},
@@ -161,7 +162,7 @@
           activated: {
             wordNotEmail: true,
             wordMinLength: true,
-            wordMaxLength: false,
+            wordMaxLength: true,
             wordInvalidChar: true,
             wordSimilarToUsername: true,
             wordSequences: true,
@@ -180,9 +181,9 @@
         },
         ui: {
           showVerdictsInsideProgressBar:true,
-          showErrors:true,
+          showErrors:false,
           errorMessages:{
-            wordLength: /*[[#{error.wordLength}]]*/,
+            
             wordNotEmail: /*[[#{error.wordNotEmail}]]*/,
             wordSequences: /*[[#{error.wordSequences}]]*/,
             wordLowercase: /*[[#{error.wordLowercase}]]*/,
@@ -193,24 +194,57 @@
         }
       };
       $('#password').pwstrength(options);
+      $("#password").pwstrength("ruleActive", "wordUppercase", true);
     });
+
     function register(event) {
 
       event.preventDefault();
-      $('#register-submit').html('<i class="fa fa-spinner fa-spin" style="font-size:24px"></i>');
+      $("#matchError").hide();
 
       if($("#password").val() != $("#passwordConfirm").val()){
         $("#matchError").show().html(/*[[#{PasswordMatches.user}]]*/);
         return;
       }
 
-      if (typeof grecaptcha !== 'undefined') {
-          var resp = grecaptcha.getResponse();
-          if (resp.length == 0) {
-              $("#captchaError").show().html("Please verify that you are not a robot.");
-              return;
-          }
+      if(!$("#password").pwstrength("ruleIsMet", "wordUppercase")) {
+        $("#matchError").show().html(/*[[#{error.wordUppercase}]]*/);
+        return;
       }
+      // if(!$("#password").pwstrength("ruleIsMet", "wordLength")) {
+      //   $("#matchError").show().html(/*[[#{error.wordLength}]]*/);
+      //   return;
+      // }
+      // if(!$("#password").pwstrength("ruleIsMet", "wordNotEmail")) {
+      //   $("#matchError").show().html(/*[[#{error.wordNotEmail}]]*/);
+      //   return;
+      // }
+      // if(!$("#password").pwstrength("ruleIsMet", "wordSequences")) {
+      //   $("#matchError").show().html(/*[[#{error.wordSequences}]]*/);
+      //   return;
+      // }
+      if(!$("#password").pwstrength("ruleIsMet", "wordLowercase")) {
+        $("#matchError").show().html(/*[[#{error.wordLowercase}]]*/);
+        return;
+      }
+      if(!$("#password").pwstrength("ruleIsMet", "wordOneNumber")) {
+        $("#matchError").show().html(/*[[#{error.wordOneNumber}]]*/);
+        return;
+      }
+      if(!$("#password").pwstrength("ruleIsMet", "wordOneSpecialChar")) {
+        $("#matchError").show().html(/*[[#{error.wordOneSpecialChar}]]*/);
+        return;
+      }
+
+      if (typeof grecaptcha !== 'undefined') {
+        var resp = grecaptcha.getResponse();
+        if (resp.length == 0) {
+          $("#captchaError").show().html("Please verify that you are not a robot.");
+          return;
+        }
+      }
+
+      $('#register-submit').html('<i class="fa fa-spinner fa-spin" style="font-size:24px"></i>');
 
       var formData = $('form').serialize();
       $.post(serverContext + "/register",formData ,function(data){
@@ -227,23 +261,20 @@
             $.notify(data.responseJSON.message, "error");
           }
           else if(data.responseJSON.error == "InvalidReCaptcha"){
-              $("#captchaError").show().html(data.responseJSON.message);
+            $("#captchaError").show().html(data.responseJSON.message);
           }
           else if(data.responseJSON.error == "UserAlreadyExist"){
-              $("#emailError").show().html(data.responseJSON.message);
+            $("#emailError").show().html(data.responseJSON.message);
           }
           else if(data.responseJSON.error.indexOf("InternalError") > -1){
-            $("#globalError").show().html(data.responseJSON.message);
+            $.notify(data.responseJSON.message, "error");
           }
           else{
             var errors = $.parseJSON(data.responseJSON.message);
-              $.each( errors, function( index,item ){
-                  $("#"+item.field+"Error").show().html(item.defaultMessage);
-              });
-              errors = $.parseJSON(data.responseJSON.error);
-              $.each( errors, function( index,item ){
-                  $("#globalError").show().append(item.defaultMessage+"<br/>");
-              });
+            //$.notify(data.responseJSON.message, "error");
+            $.each( errors, function( index,item ){
+                $("#"+item.field+"Error").show().html(item.defaultMessage);
+            });
           }
       });
     }
