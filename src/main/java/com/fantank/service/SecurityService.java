@@ -51,6 +51,10 @@ public class SecurityService implements ISecurityService {
 	public String findLoggedInUsername() {
 		Object userDetails = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		
+		if(userDetails.toString() == "anonymous") {
+			return null;
+		}
+		
 		if(userDetails instanceof UserDetails) {
 			return ((UserDetails)userDetails).getUsername();
 		}

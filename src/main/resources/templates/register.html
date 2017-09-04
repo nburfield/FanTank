@@ -27,38 +27,50 @@
             <div class="divider-new">
               <h2 class="text-center">Register using Social Login</h2>
             </div>
-            <p class="facebook">
-              <a href="" class="btn btn-block">
-                <span class="d-flex">
-                  <i class="fa fa-facebook mr-auto"></i>
-                  <span class="text-center mr-auto">Login using Facebook</span>
-                </span>
-              </a>
-            </p>
-            <p class="linkedin">
-              <a href="" class="btn btn-block">
-                <span class="d-flex">
-                  <i class="fa fa-linkedin mr-auto"></i>
-                  <span class="text-center mr-auto">Login using LinkedIn</span>
-                </span>
-              </a>
-            </p>
-            <p class="twitter">
-              <a href="" class="btn btn-block">
-                <span class="d-flex">
-                  <i class="fa fa-twitter mr-auto"></i>
-                  <span class="text-center mr-auto">Login using Twitter</span>
-                </span>
-              </a>
-            </p>
-            <p class="google-plus">
-              <a href="" class="btn btn-block">
-                <span class="d-flex">
-                  <i class="fa fa-google-plus mr-auto"></i>
-                  <span class="text-center mr-auto">Login using Google Plus</span>
-                </span>
-              </a>
-            </p>
+            <form id="facebookform" action="/signin/facebook" method="POST">
+              <input type="hidden" name="scope" value="public_profile,email" />
+              <p class="facebook">
+                <a class="btn btn-block">
+                  <span class="d-flex">
+                    <i class="fa fa-facebook mr-auto"></i>
+                    <span class="text-center mr-auto">Login using Facebook</span>
+                  </span>
+                </a>
+              </p>
+            </form>
+            <form id="linkedinform" action="/signin/linkedin" method="POST">
+              <input type="hidden" name="scope" value="r_basicprofile,r_emailaddress" />
+              <p class="linkedin">
+                <a class="btn btn-block">
+                  <span class="d-flex">
+                    <i class="fa fa-linkedin mr-auto"></i>
+                    <span class="text-center mr-auto">Login using LinkedIn</span>
+                  </span>
+                </a>
+              </p>
+            </form>
+            <form id="twitterform" action="/signin/twitter" method="POST">
+              <input type="hidden" name="scope" value="include_email" />
+              <p class="twitter">
+                <a class="btn btn-block">
+                  <span class="d-flex">
+                    <i class="fa fa-twitter mr-auto"></i>
+                    <span class="text-center mr-auto">Login using Twitter</span>
+                  </span>
+                </a>
+              </p>
+            </form>
+            <form id="googleform" action="/signin/google" method="POST">
+              <input type="hidden" name="scope" value="profile email" />
+              <p class="google-plus">
+                <a class="btn btn-block">
+                  <span class="d-flex">
+                    <i class="fa fa-google-plus mr-auto"></i>
+                    <span class="text-center mr-auto">Login using Google Plus</span>
+                  </span>
+                </a>
+              </p>
+            </form>
           </div>
         </div>
         <div class="col-12 col-md-6 d-flex">
@@ -67,38 +79,48 @@
               <h2 class="text-center">Or</h2>
             </div>
 
-            <form class="my-auto">
+            <form id="registerform" method="POST" enctype="utf8" class="my-auto">
               <div class="row">
               <div class="col-12 col-md-6 md-form">
-                <input type="text" id="firstname" class="form-control " />
+                <input type="text" id="firstname" class="form-control" name="firstName" required="required"/>
+                <p id="firstNameError" class="alert alert-danger" style="display:none"></p>
                 <label for="firstname">First name</label>
               </div>
               <div class="col-12 col-md-6 md-form">
-                <input type="text" id="lastname" class="form-control " />
+                <input type="text" id="lastname" class="form-control" name="lastName" required="required"/>
+                <p id="lastNameError" class="alert alert-danger" style="display:none"></p>
                 <label for="lastname">Last name</label>
               </div>
             </div>
 
               <div class="md-form">
                 <i class="fa fa-envelope prefix grey-text"></i>
-                <input type="text" id="email" class="form-control " />
+                <input type="email" id="email" class="form-control" name="email" required="required"/>
+                <p id="emailError" class="alert alert-danger" style="display:none"></p>
                 <label for="email">Your email</label>
               </div>
 
               <div class="md-form">
                 <i class="fa fa-lock prefix grey-text"></i>
-                <input type="password" id="pass" class="form-control" />
+                <input type="password" id="password" class="form-control" name="password" required="required"/>
+                <p id="passwordError" class="alert alert-danger" style="display:none"></p>
                 <label for="pass">Your password</label>
               </div>
 
               <div class="md-form">
                 <i class="fa fa-lock prefix grey-text"></i>
-                <input type="password" id="confirmpass" class="form-control" />
+                <input type="password" id="passwordConfirm" class="form-control" name="passwordConfirm" required="required"/>
+                <p id="matchError" class="alert alert-danger" style="display:none"></p>
                 <label for="pass">Confirm your password</label>
               </div>
 
+              <div class="md-form">
+                <div class="g-recaptcha" th:attr="data-sitekey=${@captchaService.getReCaptchaSite()}" data-callback="onReCaptchaSuccess" data-expired-callback="onReCaptchaExpired"></div>
+                <p id="captchaError" class="alert alert-danger" style="display:none"></p>
+              </div>
+
               <div class="text-center">
-                <button class="btn btn-deep-orange waves-effect waves-light">Register</button>
+                <button id="register-submit" class="btn btn-deep-orange waves-effect waves-light">Register</button>
               </div>
 
             </form>
@@ -107,6 +129,168 @@
       </div>
     </div>
   </main>
-</body>
 
+<th:block layout:fragment="script">
+  <script th:inline="javascript">
+    /*<![CDATA[*/
+    var serverContext = /*[[@{/register}]]*/;
+    serverContext = "http://localhost:8080/";
+    //serverContext = "http://fantank.bcinnovationsonline.com/";
+
+    $(document).ready(function () {
+      $('.facebook').click(function(event) {        
+        $('#facebookform').submit();
+      });
+      $('.twitter').click(function(event) {
+        $('#twitterform').submit();
+      });
+      $('.linkedin').click(function(event) {
+        $('#linkedinform').submit();
+      });
+      $('.google-plus').click(function(event) {
+        $('#googleform').submit();
+      });
+      $('#register-submit').click(function(event) {
+        register(event);
+      });
+
+      $('#register-submit').html('Register');
+      
+      options = {
+        common: {minChar:8},
+        rules: {
+          activated: {
+            wordNotEmail: true,
+            wordMinLength: true,
+            wordMaxLength: true,
+            wordInvalidChar: true,
+            wordSimilarToUsername: true,
+            wordSequences: true,
+            wordTwoCharacterClasses: false,
+            wordRepetitions: false,
+            wordLowercase: true,
+            wordUppercase: true,
+            wordOneNumber: true,
+            wordThreeNumbers: true,
+            wordOneSpecialChar: true,
+            wordTwoSpecialChar: true,
+            wordUpperLowerCombo: true,
+            wordLetterNumberCombo: true,
+            wordLetterNumberCharCombo: true
+          }
+        },
+        ui: {
+          showVerdictsInsideProgressBar:true,
+          showErrors:false,
+          errorMessages:{
+            
+            wordNotEmail: /*[[#{error.wordNotEmail}]]*/,
+            wordSequences: /*[[#{error.wordSequences}]]*/,
+            wordLowercase: /*[[#{error.wordLowercase}]]*/,
+            wordUppercase: /*[[#{error.wordUppercase}]]*/,
+            wordOneNumber: /*[[#{error.wordOneNumber}]]*/,
+            wordOneSpecialChar: /*[[#{error.wordOneSpecialChar}]]*/
+          }
+        }
+      };
+      $('#password').pwstrength(options);
+      $("#password").pwstrength("ruleActive", "wordUppercase", true);
+    });
+
+    function register(event) {
+
+      event.preventDefault();
+      $("#matchError").hide();
+
+      if($("#password").val() != $("#passwordConfirm").val()){
+        $("#matchError").show().html(/*[[#{PasswordMatches.user}]]*/);
+        return;
+      }
+
+      if(!$("#password").pwstrength("ruleIsMet", "wordUppercase")) {
+        $("#matchError").show().html(/*[[#{error.wordUppercase}]]*/);
+        return;
+      }
+      // if(!$("#password").pwstrength("ruleIsMet", "wordLength")) {
+      //   $("#matchError").show().html(/*[[#{error.wordLength}]]*/);
+      //   return;
+      // }
+      // if(!$("#password").pwstrength("ruleIsMet", "wordNotEmail")) {
+      //   $("#matchError").show().html(/*[[#{error.wordNotEmail}]]*/);
+      //   return;
+      // }
+      // if(!$("#password").pwstrength("ruleIsMet", "wordSequences")) {
+      //   $("#matchError").show().html(/*[[#{error.wordSequences}]]*/);
+      //   return;
+      // }
+      if(!$("#password").pwstrength("ruleIsMet", "wordLowercase")) {
+        $("#matchError").show().html(/*[[#{error.wordLowercase}]]*/);
+        return;
+      }
+      if(!$("#password").pwstrength("ruleIsMet", "wordOneNumber")) {
+        $("#matchError").show().html(/*[[#{error.wordOneNumber}]]*/);
+        return;
+      }
+      if(!$("#password").pwstrength("ruleIsMet", "wordOneSpecialChar")) {
+        $("#matchError").show().html(/*[[#{error.wordOneSpecialChar}]]*/);
+        return;
+      }
+
+      if (typeof grecaptcha !== 'undefined') {
+        var resp = grecaptcha.getResponse();
+        if (resp.length == 0) {
+          $("#captchaError").show().html("Please verify that you are not a robot.");
+          return;
+        }
+      }
+
+      $('#register-submit').html('<i class="fa fa-spinner fa-spin" style="font-size:24px"></i>');
+
+      var formData = $('form').serialize();
+      $.post(serverContext + "/register",formData ,function(data){
+        $('#register-submit').html('Register');
+        if(data.message == "success"){
+            window.location.href = serverContext + "login?message=Check email to validate account";
+        }
+      })
+      .fail(function(data) {
+          grecaptcha.reset();
+          $('#register-submit').html('Register');
+          if(data.responseJSON.error.indexOf("MailError") > -1)
+          {
+            $.notify(data.responseJSON.message, "error");
+          }
+          else if(data.responseJSON.error == "InvalidReCaptcha"){
+            $("#captchaError").show().html(data.responseJSON.message);
+          }
+          else if(data.responseJSON.error == "UserAlreadyExist"){
+            $("#emailError").show().html(data.responseJSON.message);
+          }
+          else if(data.responseJSON.error.indexOf("InternalError") > -1){
+            $.notify(data.responseJSON.message, "error");
+          }
+          else{
+            var errors = $.parseJSON(data.responseJSON.message);
+            //$.notify(data.responseJSON.message, "error");
+            $.each( errors, function( index,item ){
+                $("#"+item.field+"Error").show().html(item.defaultMessage);
+            });
+          }
+      });
+    }
+    /*]]>*/
+    
+    var onReCaptchaSuccess = function(response) {
+        $("#captchaError").html("").hide();
+    };
+    
+    var onReCaptchaExpired = function(response) {
+        $("#captchaError").html("reCaptcha has expired.  Please solve a new reCaptcha").show();
+        grecaptcha.reset();
+    };
+    
+  </script>
+</th:block>
+
+</body>
 </html>
