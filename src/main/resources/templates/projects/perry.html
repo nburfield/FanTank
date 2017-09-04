@@ -4,56 +4,845 @@
 <head>
   <title>About Us</title>
   <style>
+    .projects h2 {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .projects h3 {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .projects .row h2 {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .projects .row h3 {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .img-circle {
+      border-radius: 50%;
+    }
+
+    .projects .perks-list h3 {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
   </style>
 </head>
 
 <body>
 
   <main layout:fragment="content">
-      <div class="jumbotron jumbotron-fantank px-0 py-0">
-        <img src="/projects/perry/perry1.jpg" class="img-responsive" />
-      </div>
-      <div class="container projects my-0 px-0">
-        <ul class="nav nav-tabs flex-column flex-md-row nav-justified black">
-          <li class="nav-item">
-            <a class="nav-link h-100 active" data-toggle="tab" href="#panel1" role="tab"><h4>Summary</h4></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link  h-100 " data-toggle="tab" href="#panel2" role="tab"><h4>Team</h4></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link h-100" data-toggle="tab" href="#panel3" role="tab"><h4>Perks</h4></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link h-100" data-toggle="tab" href="#panel3" role="tab"><h4>Q &amp; A</h4></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link h-100" data-toggle="tab" href="#panel3" role="tab"><h4>Offering Documents</h4></a>
-          </li>
-        </ul>
-        <!-- Tab panels -->
-        <div class="tab-content card elegant-color">
-          <!--Panel 1-->
-          <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
-            <br/>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
+    <div class="jumbotron jumbotron-fantank px-0 py-0">
+      <img src="/projects/perry/perry1.jpg" class="img-responsive" />
+    </div>
+    <div class="container projects my-0 px-0">
+      <ul class="nav nav-tabs flex-column flex-md-row nav-justified black">
+        <li class="nav-item">
+          <a class="nav-link h-100 active" data-toggle="tab" href="#panel1" role="tab"><h4>Summary</h4></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  h-100 " data-toggle="tab" href="#panel2" role="tab"><h4>Team</h4></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link h-100" data-toggle="tab" href="#panel3" role="tab"><h4>Perks</h4></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link h-100" data-toggle="tab" href="#panel4" role="tab"><h4>Q &amp; A</h4></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link h-100" data-toggle="tab" href="#panel5" role="tab"><h4>Offering Documents</h4></a>
+        </li>
+      </ul>
+      <!-- Tab panels -->
+      <div class="tab-content elegant-color">
+        <!--Panel 1-->
+        <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
+          <div class="px-2 py-2 mx-2 my-2">
+            <h2>The Story</h2>
+
+            <p><img src="/projects/perry/perry-text-around.jpg" width="160" style="float: left; margin: 5px 10px 5px 0;" />Lincoln Perry, widely known as the controversial character "Stepin Fetchit," was Hollywood’s first black movie star during the 20’s
+              and 30’s. His character was a distorted comedic image of what some white folks thought of African Americans at the time. What they didn’t know, and what most people don’t know today, is that he was a devout Catholic, and activist and writer
+              for the Chicago Defender standing up against crooked booking agents and theaters owners, as well as fighting with the major studio heads for equal pay for black actors. Though his life of fame and fortune brought career challenges and personal
+              tragedies, Lincoln starred in films with Hollywood’s elite, from Mae West and Will Rogers to name a few and hobnobbed with boxers Jack Johnson and Cassius Clay.</p>
+
+            <!--
+            	Suresh- Use this Bootsrap code for responsive embeds. Removed this particular video per Mike Mathews - Jon
+
+            							<div class="embed-responsive embed-responsive-16by9">
+            							  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/2ZJ6cQU4AOA?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen>
+            							  </iframe>
+            							</div>
+            -->
+
+            <img src="/projects/perry/perry-banner.jpg" class="img-responsive" />
+
+            <hr/>
+
+            <h3>Investment Overview</h3>
+            <strong>Raised To Date:</strong> $0<br/>
+            <strong>% Funded To Date:</strong> 0%<br/>
+            <strong>Industry:</strong> Entertainment - Film<br/>
+            <strong>Product:</strong> A feature film for worldwide distribution<br/>
+            <strong>Days Left:</strong> 90
+
+            <hr/>
+
+            <h3>Investment Terms</h3>
+            <strong>Offering Amount:</strong> $6,000,000<br/>
+            <strong>Price Per Share:</strong> $2.00 / share<br/>
+            <strong>Minimum Investment:</strong> $100.00 (50 shares)<br/>
+            <strong>Stock Type:</strong> Common / Non-Voting<br/>
+            <strong># of Total Shares:</strong> 10,000,000<br/>
+            <strong># of Shares For Sale:</strong> 3,000,000<br/>
+            <strong>Ownership Percentage For Sale:</strong> 30%
+
+            <hr/>
+
+            <h3>Profit Split Eligibility</h3>
+            <strong>Net Profit Split Exclusions:</strong> None<br/><br/>
+            <strong>Net Profit Activation &amp; Term:</strong>
+            <ul>
+              <li><strong>Start Date:</strong> when executive producers fees are paid and film is 100% complete</li>
+              <li><strong>Term of Profit Sharing:</strong> perpetuity.</li>
+              <li><strong>Amount:</strong> in proportion to each shareholder's equity ownership</li>
+              <li><strong>Net profits =</strong> total gross revenues minus 25% paid to third party distributors, talent agents / agencies, investor fees, general operating expenses, legal &amp; accounting fees, and fund raising fees.</li>
+            </ul>
+
+            <hr/>
+
+            <h3>Use of Proceeds: </h3>
+            <strong>Capital Raise Fees &amp; Expenses:</strong> $1,000,000<br/>
+            <strong>Production &amp; Editing:</strong> $3,500,000<br/>
+            <strong>Music Licensing:</strong> $100,000<br/>
+            <strong>Marketing / Design / Collateral:</strong> $1,300,000<br/>
+            <strong>General Overhead / Legal / Accounting:</strong> $100,000
+
           </div>
-          <!--/.Panel 1-->
-          <!--Panel 2-->
-          <div class="tab-pane fade elegant-color" id="panel2" role="tabpanel">
-            <br/>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-          </div>
-          <!--/.Panel 2-->
-          <!--Panel 3-->
-          <div class="tab-pane fade elegant-color" id="panel3" role="tabpanel">
-            <br/>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-          </div>
-          <!--/.Panel 3-->
         </div>
-      </div>
+        <!-- / Summary Panel -->
+
+        <!--/.Panel 1-->
+        <!--Panel 2-->
+        <div class="tab-pane fade elegant-color" id="panel2" role="tabpanel">
+          <div class="px-2 py-2 mx-2 my-2">
+
+            <h2 class="text-center">Creative Team</h2>
+            <hr/>
+            <div class="row">
+              <div class="col-12 col-md-6 d-flex align-items-center">
+                <img class="col img-circle img-reponsive" src="/projects/perry/antwone-fisher2.jpg" />
+              </div>
+              <div class="col-12 col-md-6">
+                <h2>Antwone Fisher</h2>
+                <h3>Director</h3>
+                <p>Antwone Fisher is an American screenwriter, Director, poet, lecturer, and bestselling author. Antwone is the writer, co-producer and subject of the Fox Searchlight Pictures classic film, ANTWONE FISHER. His autobiographical book Finding
+                  Fish: A memoir is a New York Times and national bestseller.</p>
+
+                <p>Antwone has worked in Hollywood for 25 years as a screenwriter and producer, with an impressive fifteen writing projects or assignments with the major studios. Among those projects is the feature classic, ANTWONE FISHER, directed by and
+                  staring Oscar-winning actor Denzel Washington, written by Antwone based on his own life. Antwone received numerous nominations and awards including the renowned Humanitas Prize, Screenwriter of the year award from the National Association
+                  Of Theater Owners, and was listed in Variety’s Fifty People to Watch. ”He was also listed among Fade In Magazine’s “100 People in Hollywood you need to know” in 2005.</p>
+
+                <p>Antwone’s present screenwriting project is with Columbia Pictures and is presently titled, "the Untitled Antwone Fisher Project”. Antwone made his film-directing debut with the award-winning short film, “My Summer Friend.” He produced
+                  wrote and directed the 2013 documentary, This Life of Mine The Incredible Life of Leon Garr. </p>
+
+              </div>
+            </div>
+
+            <hr/>
+
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <h2>Elijah Rock</h2>
+                <h3>Producer</h3>
+                <p>An Executive Vice President (EVP) of Artistic Services with FanTank Inc., Elijah Rock is merging Arts &amp; Entertainment and internet technology. In content production, he was a founding partner of Decipher Entertainment, a production
+                  company that produces film content that uniquely reflects our diverse humanity. He is the winner of the 2014 NAACP Theatre Award and was Nominated for a 2016 Ovation Award. Rock is also a national recording artist of the Great American
+                  Songbook.
+                </p>
+
+              </div>
+              <div class="col-12 col-md-6 d-flex align-items-center">
+                <img class="d-flex ml-3 img-circle img-fluid" src="/projects/perry/elijah-rock-bio.jpg" />
+              </div>
+            </div>
+
+            <hr/>
+
+            <div class="row">
+              <div class="col-12 col-md-6 d-flex align-items-center">
+                <img class="d-flex mr-3 img-circle img-fluid" src="/projects/perry/brad-wilson.jpg" />
+              </div>
+              <div class="col-12 col-md-6">
+                <h2>Brad Wilson</h2>
+                <h3>Producer</h3>
+                <p>Legendary Producer, Brad Wilson has worked with Academy Award winning actor Robert Duvall, operating ROBERT DUVALL PRODUCTIONS , producing over eighteen feature films, among them: COLORS with Sean Penn, DAYS OF THUNDER with Tom Cruise
+                  and Nicole Kidman, FALLING DOWN with Michael Douglas and the critically acclaimed WRESTLING ERNEST HEMINGWAY with Richard Harris and Shirley MacLaine. Latest films include, MY MANY SONS, based on the life of the most winning basketball
+                  coach, Don Meyer, released in 2016 and MEANEST MAN IN TEXAS based on the book, that has completed principal photography and will be released in 2018. This film has been nominated for 26 Film festival Awards and won 16 to date. Wilson's
+                  films have also won awards at the Berlin Film Festival, The America Cinema Foundation, The Chicago Film Critics Association, Emden International Film Festival, Nederlands Film Festival, Westchester New York International Film Festival,
+                  Stony Brook Film Festival and The Santa Clarita International Film Festival. He is a member of the Academy of Television Arts &amp; Sciences and a charter member of the National Radio Hall of Fame of Texas.</p>
+
+              </div>
+            </div>
+
+            <hr/>
+
+            <h2 class="text-center">Cast</h2>
+            <hr/>
+            <div class="row">
+              <div class="col-12 col-md-3 d-flex align-items-center">
+                <img class="d-flex mr-3 img-fluid img-circle" src="http://via.placeholder.com/175x175" />
+              </div>
+              <div class="col-12 col-md-9">
+                <h2>Firstname Lastname</h2>
+                <h3>Role</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas iaculis erat, quis ullamcorper risus volutpat a. Donec aliquet massa a mi malesuada fringilla. Vestibulum eget fringilla libero, a auctor turpis. Lorem ipsum dolor
+                  sit amet, consectetur adipiscing elit. Donec accumsan vehicula metus, eu feugiat velit viverra et. Phasellus sit amet feugiat elit. Nam luctus quis libero nec molestie. Aliquam dapibus suscipit augue, quis vestibulum dolor sodales a.
+                  Maecenas cursus sed nisi sit amet interdum. Etiam rutrum laoreet elementum. Curabitur elementum dui eu ex pulvinar, eu vestibulum orci consequat. Mauris bibendum sagittis faucibus.</p>
+              </div>
+            </div>
+
+
+
+
+            <hr/>
+
+            <div class="row">
+              <div class="col-12 col-md-3 d-flex align-items-center">
+                <img class="d-flex mr-3 img-fluid img-circle" src="http://via.placeholder.com/175x175" />
+              </div>
+              <div class="col-12 col-md-9">
+                <h2>Firstname Lastname</h2>
+                <h3>Role</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas iaculis erat, quis ullamcorper risus volutpat a. Donec aliquet massa a mi malesuada fringilla. Vestibulum eget fringilla libero, a auctor turpis. Lorem ipsum dolor
+                  sit amet, consectetur adipiscing elit. Donec accumsan vehicula metus, eu feugiat velit viverra et. Phasellus sit amet feugiat elit. Nam luctus quis libero nec molestie. Aliquam dapibus suscipit augue, quis vestibulum dolor sodales a.
+                  Maecenas cursus sed nisi sit amet interdum. Etiam rutrum laoreet elementum. Curabitur elementum dui eu ex pulvinar, eu vestibulum orci consequat. Mauris bibendum sagittis faucibus.</p>
+              </div>
+            </div>
+
+            <hr/>
+
+            <div class="row">
+              <div class="col-12 col-md-3 d-flex align-items-center">
+                <img class="d-flex mr-3 img-fluid img-circle" src="http://via.placeholder.com/175x175" />
+              </div>
+              <div class="col-12 col-md-9">
+                <h2>Firstname Lastname</h2>
+                <h3>Role</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas iaculis erat, quis ullamcorper risus volutpat a. Donec aliquet massa a mi malesuada fringilla. Vestibulum eget fringilla libero, a auctor turpis. Lorem ipsum dolor
+                  sit amet, consectetur adipiscing elit. Donec accumsan vehicula metus, eu feugiat velit viverra et. Phasellus sit amet feugiat elit. Nam luctus quis libero nec molestie. Aliquam dapibus suscipit augue, quis vestibulum dolor sodales a.
+                  Maecenas cursus sed nisi sit amet interdum. Etiam rutrum laoreet elementum. Curabitur elementum dui eu ex pulvinar, eu vestibulum orci consequat. Mauris bibendum sagittis faucibus.</p>
+              </div>
+            </div>
+
+            <hr/>
+
+            <div class="row">
+              <div class="col-12 col-md-3 d-flex align-items-center">
+                <img class="d-flex mr-3 img-fluid img-circle" src="http://via.placeholder.com/175x175" />
+              </div>
+              <div class="col-12 col-md-9">
+                <h2>Firstname Lastname</h2>
+                <h3>Role</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas iaculis erat, quis ullamcorper risus volutpat a. Donec aliquet massa a mi malesuada fringilla. Vestibulum eget fringilla libero, a auctor turpis. Lorem ipsum dolor
+                  sit amet, consectetur adipiscing elit. Donec accumsan vehicula metus, eu feugiat velit viverra et. Phasellus sit amet feugiat elit. Nam luctus quis libero nec molestie. Aliquam dapibus suscipit augue, quis vestibulum dolor sodales a.
+                  Maecenas cursus sed nisi sit amet interdum. Etiam rutrum laoreet elementum. Curabitur elementum dui eu ex pulvinar, eu vestibulum orci consequat. Mauris bibendum sagittis faucibus.</p>
+              </div>
+            </div>
+
+            <hr/>
+
+            <div class="row">
+              <div class="col-12 col-md-3 d-flex align-items-center">
+                <img class="d-flex mr-3 img-fluid img-circle" src="http://via.placeholder.com/175x175" />
+              </div>
+              <div class="col-12 col-md-9">
+                <h2>Firstname Lastname</h2>
+                <h3>Role</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas iaculis erat, quis ullamcorper risus volutpat a. Donec aliquet massa a mi malesuada fringilla. Vestibulum eget fringilla libero, a auctor turpis. Lorem ipsum dolor
+                  sit amet, consectetur adipiscing elit. Donec accumsan vehicula metus, eu feugiat velit viverra et. Phasellus sit amet feugiat elit. Nam luctus quis libero nec molestie. Aliquam dapibus suscipit augue, quis vestibulum dolor sodales a.
+                  Maecenas cursus sed nisi sit amet interdum. Etiam rutrum laoreet elementum. Curabitur elementum dui eu ex pulvinar, eu vestibulum orci consequat. Mauris bibendum sagittis faucibus.</p>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+        <!--/.Panel 2-->
+        <!--Panel 3-->
+        <div class="tab-pane fade elegant-color" id="panel3" role="tabpanel">
+          <div class="px-2 py-2 mx-2 my-2">
+
+            <h2 class="text-center">Perks</h2>
+
+            <hr/>
+
+            <div class="row perks-list">
+              <div class="col-12">
+                <h3>Perk A - $500 Investment</h3>
+              </div>
+              <div class="col-12 col-md-3">
+                <img src="/projects/perry/tshirt.png" class="img-responsive perk-image" />
+              </div>
+              <div class="col-12 col-md-9 px-md-5">
+                <h4><i class="fa fa-gift">&nbsp;</i> Apparel and Merchandise</h4>
+                <ul>
+                  <li>Lincoln Perry The Movie T-shirt</li>
+                  <li>Lincoln Perry The Movie Hat</li>
+                  <li>Lincoln Perry The Movie Mug</li>
+                  <li>Lincoln Perry The Movie Keychain</li>
+                </ul>
+              </div>
+            </div>
+            <!-- / Row -->
+
+            <hr/>
+
+            <div class="row perks-list">
+              <div class="col-12">
+                <h3>Perk B - $1,000 Investment</h3>
+              </div>
+              <div class="col-12 col-md-3">
+                <img src="/projects/perry/movie-premiere.jpg" class="img-responsive perk-image" />
+              </div>
+              <div class="col-12 col-md-9 px-md-5">
+                <h4><i class="fa fa-plane">&nbsp;</i>Trip to Los Angeles</h4>
+                <p><strong>Includes everything from Perk A.</strong></p>
+                <p>Entry in drawing to win an all expenses paid trip to Los Angeles, CA. for two (2) to attend premier. VIP access to movie premier showing and meet &amp; great with director and lead actor(s).</p>
+              </div>
+            </div>
+            <!-- / Row -->
+
+            <hr/>
+
+            <div class="row perks-list">
+              <div class="col-12">
+                <h3>Perk C - $2,500 Investment</h3>
+              </div>
+              <div class="col-12 col-md-3">
+                <img src="/projects/perry/stock-cert.jpg" class="img-responsive perk-image" />
+              </div>
+              <div class="col-12 col-md-9 px-md-5">
+                <h4><i class="fa fa-file-text">&nbsp;</i>Stock Certificate</h4>
+                <p><strong>Includes everything from Perks A &amp; B.</strong></p>
+                <p>Investor gets a specially designed stock certificate (a collector's item) signed by the producers, director, and leading actors.</p>
+              </div>
+            </div>
+            <!-- / Row -->
+
+            <hr/>
+
+
+            <div class="row perks-list">
+              <div class="col-12">
+                <h3>Perk D - $5,000 Investment</h3>
+              </div>
+              <div class="col-12 col-md-3">
+                <img src="/projects/perry/film-camera.jpg" class="img-responsive perk-image" />
+              </div>
+              <div class="col-12 col-md-9 px-md-5">
+                <h4><i class="fa fa-video-camera">&nbsp;</i>Spend a Day on Set</h4>
+                <p><strong>Includes everything from Perks A, B, &amp; C.</strong></p>
+                <p>Entry in a drawing to win an all expenses paid trip for two (2) to spend a day on the production set with the director and actors.</p>
+              </div>
+            </div>
+            <!-- / Row -->
+
+            <hr/>
+
+            <div class="row perks-list">
+              <div class="col-12">
+                <h3>Perk E - $7,500 Investment</h3>
+              </div>
+              <div class="col-12 col-md-3">
+                <img src="/projects/perry/film-festivals.jpg" class="img-responsive perk-image" />
+              </div>
+              <div class="col-12 col-md-9 px-md-5">
+                <h4><i class="fa fa-plane">&nbsp;</i>Screening at a Film Festival</h4>
+                <p><strong>Includes everything from Perks A, B, C, &amp; D.</strong></p>
+                <p>Entry in a drawing to win an all expenses paid trip for two (2) to a film festival where the Lincoln Perry Movie is screening.</p>
+              </div>
+            </div>
+            <!-- / Row -->
+
+            <hr/>
+
+
+            <div class="row perks-list">
+              <div class="col-12">
+                <h3>Perk F - $10,000 Investment</h3>
+              </div>
+              <div class="col-12 col-md-3">
+                <img src="/projects/perry/filmcrew.jpg" class="img-responsive perk-image" />
+              </div>
+              <div class="col-12 col-md-9 px-md-5">
+                <h4><i class="fa fa-ticket">&nbsp;</i>Associate Producer Credit</h4>
+                <p><strong>Includes everything from Perks A, B, C, D, &amp; E.</strong></p>
+                <p>Associate Producer Credit listed in film credits, with the Guarantee of 2 VIP access tickets to the movie premier. Walk the Red Carpet, get VIP passes to the after party and a photo with the star of the movie.</p>
+              </div>
+            </div>
+            <!-- / Row -->
+
+
+
+          </div>
+        </div>
+        <!--/.Panel 3-->
+
+        <div class="tab-pane fade elegant-color" id="panel4" role="tabpanel">
+          <div class="px-2 py-2 mx-2 my-2">
+            <h2>Questions &amp; Answers</h2>
+
+            <div class="panel-group" id="accordion" role="tablist">
+
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-01">
+							         Who is Lincoln Perry and why is his story relevant?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-01" class="panel-collapse collapse in" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-02">
+							          What does non-fixed funding mean?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-02" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-03">
+							          What if the goal of $6 million is not met?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-03" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-04">
+							          What if the goal of $ 6 million is exceeded?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-04" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-05">
+							         Cool? Any other benefits to investing? How do I get my perks?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-05" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-06">
+							          How do I get my investment proceeds / dividends?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-06" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-07">
+							         Can I sell my stock?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-07" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-08">
+							          What will the investment proceeds be spent on?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-08" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-09">
+							          What system of checks &amp; balances, transparency, and controls are in place to assure the funds are spent on the production of the film?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-09" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-10">
+							          How do I get access to financial reports and audits?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-10" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-11">
+							          Will free movie tickets or invites to the premier be given out to investors?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-11" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-12">
+							          How do I buy shares and how much do they cost?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-12" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-13">
+							           I live outside the USA! Can I invest?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-13" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-14">
+							          I am already a shareholder, can I buy more?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-14" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-15">
+							          Can I buy the shares as a gift for someone?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-15" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-16">
+							          How is the value of the company calculated?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-16" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-17">
+							          How is Lincoln Perry the Movie, Inc. regulated?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-17" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-18">
+							          Why crowdfunding, and what’s with this Regulation A+ word salad?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-18" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-19">
+							         Can anyone invest?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-19" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-20">
+							          How long will people be able to buy the stock?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-20" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-21">
+							          Will the stock be listed on an exchange like NASDAQ or NYSE?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-21" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-22">
+							          How many shares of stock are available? What happens when they run out?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-22" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+              <!-- collapse panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+							        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#qa-23">
+							          I have another question – who can I talk to?
+							        </a>
+							      </h4>
+                </div>
+                <div id="qa-23" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum. Suspendisse varius purus
+                      at elit volutpat cursus. Aliquam non lorem ex. Nullam ornare risus erat, luctus consequat orci condimentum nec. Etiam tristique erat lobortis aliquet ullamcorper. Vivamus porttitor dui vitae metus placerat sodales. In hac habitasse
+                      platea dictumst. Morbi mattis dignissim urna eu auctor. Pellentesque iaculis id elit ut egestas.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- end collapse panel -->
+
+
+
+
+
+
+            </div>
+            <!-- / Tab Content Wrapper -->
+
+          </div>
+
+
+
+        </div>
+
+        <!-- start panel5 -->
+        <div class="tab-pane fade elegant-color" id="panel5" role="tabpanel">
+          <div class="px-2 py-2 mx-2 my-2">
+            <div class="col-12 text-center my-2">
+              <a class="btn btn-lg btn-deep-orange mx-2" href="/projects/perry/Lincon-Perry-Movie-Poster-Mock.jpg" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>Download Movie Poster</a>
+              <a class="btn btn-lg btn-deep-orange mx-2" href="/projects/perry/sampledoc.pdf" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>Download Offering Documents</a>
+            </div>
+            <div class="col-12">
+              <img src="/projects/perry/Lincon-Perry-Movie-Poster-Mock.jpg" class="img-fluid"/>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- tab stuff-->
+
+    </div> <!--container-->
   </main>
 </body>
 
