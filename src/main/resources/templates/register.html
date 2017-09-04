@@ -155,7 +155,10 @@
       $('#register-submit').html('Register');
       
       options = {
-        common: {minChar:8},
+        common: {
+          minChar: 8,
+          usernameField: "email",
+        },
         rules: {
           activated: {
             wordNotEmail: true,
@@ -178,8 +181,8 @@
           }
         },
         ui: {
-          showVerdictsInsideProgressBar:false,
-          showErrors:false,
+          showVerdictsInsideProgressBar:true,
+          showErrors:true,
           errorMessages:{
             
             wordNotEmail: /*[[#{error.wordNotEmail}]]*/,

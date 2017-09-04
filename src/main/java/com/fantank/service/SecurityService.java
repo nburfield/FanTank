@@ -50,7 +50,7 @@ public class SecurityService implements ISecurityService {
 	@Override
 	public String findLoggedInUsername() {
 		Object userDetails = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		System.out.println("SecurityService " + userDetails);
+
 		if(userDetails.toString() == "anonymousUser") {
 			return null;
 		}

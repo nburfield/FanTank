@@ -31,7 +31,6 @@ public class MainController {
 	
 	@GetMapping("/")
 	public String welcome(Model model) {
-		System.out.println("main " + securityService.findLoggedInUsername());
 		User user = userService.findByEmail(securityService.findLoggedInUsername());
 		model.addAttribute("user", user);
 		
@@ -73,7 +72,7 @@ public class MainController {
 	@GetMapping("/user/data")
 	@ResponseBody
 	public UserDto getLoggedUser() {
-		System.out.println("UserData " + securityService.findLoggedInUsername());
+
 		User userData = userService.findByEmail(securityService.findLoggedInUsername());
 		if(userData == null) {
 			return null;
