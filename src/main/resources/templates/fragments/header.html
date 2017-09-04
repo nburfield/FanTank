@@ -41,12 +41,21 @@
           <li class="nav-item">
             <a class="nav-link" href="/about">About Us</a>
           </li>
-          <li class="nav-item">
+          <li class="nouser nav-item">
             <a class="nav-link" href="/login">
             Login<i class="fa fa-sign-in ml-1"></i>
           </a>
           </li>
-          <a class="btn btn-primary ml-md-3 my-md-0 register" href="/register" role="button">Register</a>
+          <a class="nouser btn btn-primary ml-md-3 my-md-0 register" href="/register" role="button">Register</a>
+          <li class="user main-btn">
+            <a data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-login" href="#" target="_self"><i class="fa fa-user pull-left" aria-hidden="true"></i> <span class="userName"></span> <i class="fa fa-caret-down pull-right" aria-hidden="true"></i></a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="/dashboard" target="_self">Dashboard <i class="fa fa-tachometer pull-right" aria-hidden="true"></i></a>
+              </li>
+              <li><a href="/logout" target="_self">Logout <i class="fa fa-sign-out pull-right" aria-hidden="true"></i></a></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </nav>
