@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -37,20 +38,20 @@ public class MainController {
 		return "index";
 	}
 	
-	@GetMapping("/explore")
+	@GetMapping("/invest")
 	public String explore(Model model) {
 		User user = userService.findByEmail(securityService.findLoggedInUsername());
 		model.addAttribute("user", user);
 		
-		return "explore";
+		return "invest";
 	}
 	
-	@GetMapping("/explore/{id}")
-	public String getFundingDetails(Model model) {
+	@GetMapping("/invest/{name}")
+	public String getFundingDetails(Model model, @PathVariable("name") final String project) {
 		User user = userService.findByEmail(securityService.findLoggedInUsername());
 		model.addAttribute("user", user);
 		
-		return "fundingDetails";
+		return "projects/" + project;
 	}
 	
 	@GetMapping("/login")

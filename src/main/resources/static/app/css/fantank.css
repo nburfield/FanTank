@@ -7,14 +7,22 @@
 /* Wrapper */
 /* Circle */
 /* Icons */
-html {
-  height: 100%;
+.projects .nav-item,
+.projects .nav-link,
+.projects .nav-link.active {
+  background-color: #000;
+  color: white;
+  text-align: center;
 }
-main {
-  height: 100%;
+.projects .nav-link.active,
+.projects .nav-link:hover {
+  color: white;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 3px solid #3990ce;
 }
 body {
-  height: 80%;
   font-size: 16px;
 }
 .invest-in-art {
@@ -43,7 +51,7 @@ body {
 .view:hover {
   cursor: pointer;
 }
-.jumbotron {
+.jumbotron-mainpages {
   height: 315px;
   width: 100%;
   position: absolute;
@@ -296,13 +304,6 @@ a.navbar-toggler:hover {
 }
 .form-control {
   color: #ffffff !important;
-}
-.checkbox-form label {
-  font-size: 1rem !important;
-}
-.checkbox-form input {
-  font-size: 2rem !important;
-  border-radius: 0;
 }
 .fantank_graydian_blue_color {
   background-color: #3c92cd;
