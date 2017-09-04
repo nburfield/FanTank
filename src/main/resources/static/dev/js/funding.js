@@ -37,30 +37,8 @@ document.addEventListener('fa.investnow.open', function(e) {
 // });
 
 $(document).ready(function () {
-  $(".user").hide();
-  $(".nouser").hide();
-  loadUser();
   loadOfferingData(window.location.pathname.split('/')[2]);
 });
-
-function loadUser() {
-  $.get(serverContext + "/user/data", function(user) {
-    if(user) {
-      $(".user").show()
-      $(".userName").html(user.firstName);
-      userLogged = user;
-      setInvestNowData(user);
-      autoFillData(user);
-      document.body.dispatchEvent(bindButtonsEvent);
-    }
-    else {
-      $(".nouser").show();
-    }
-  })
-  .fail(function(data) {
-    $(".nouser").show();
-  });
-}
 
 function loadOfferingData(offeringId) {
   $.get(serverContext + "/offerings/" + offeringId, function(offering) {
