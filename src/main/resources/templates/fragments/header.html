@@ -24,9 +24,11 @@
       <a class="navbar-brand hm-zoom" href="/" target="_self">
         <img src="/images/fan-tank-logo.png" height="45"/>
     </a>
-      <a class="navbar-toggler ml-auto show-login" href="login" target="_self">
+    <!--
+      <a class="navbar-toggler ml-auto show-login" href="/login" target="_self">
       Login<i class="fa fa-sign-in ml-1"></i>
     </a>
+  -->
       <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
     </button>
@@ -46,16 +48,23 @@
             Login<i class="fa fa-sign-in ml-1"></i>
           </a>
           </li>
-          <a class="nouser btn btn-primary ml-md-3 my-md-0 register" href="/register" target="_self" role="button">Register</a>
-          <li class="user main-btn">
-            <a data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-login" href="#" target="_self"><i class="fa fa-user pull-left" aria-hidden="true"></i> <span class="userName"></span> <i class="fa fa-caret-down pull-right" aria-hidden="true"></i></a>
-            <ul class="dropdown-menu">
-              <li>
-                <a href="/dashboard" target="_self">Dashboard <i class="fa fa-tachometer pull-right" aria-hidden="true"></i></a>
-              </li>
-              <li><a href="/logout" target="_self">Logout <i class="fa fa-sign-out pull-right" aria-hidden="true"></i></a></li>
-            </ul>
+          <li class="user nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <span class="userName"></span>
+            </a>
+            <div class="dropdown-menu dropdown-primary black white-text"
+            aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item white-text" href="/dashboard">
+                Dashboard <i class="fa fa-tachometer" aria-hidden="true"></i>
+              </a>
+              <a class="dropdown-item white-text" href="/logout">
+                Logout<i class="fa fa-sign-out" aria-hidden="true"></i>
+              </a>
+            </div>
           </li>
+          <a class="nouser btn btn-primary ml-md-3 my-md-0 register" href="/register" target="_self" role="button">Register</a>
         </ul>
       </div>
     </nav>
