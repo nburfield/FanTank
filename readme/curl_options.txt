@@ -31,3 +31,22 @@ curl http://localhost:8080/investments/webhook \
 -d action='update' \
 -d changes=["status"]
 
+curl https://sandbox.fundamerica.com/api/offerings \
+-u Bn9Zt7XwZADoUMLh_nFPxZ81bYR0aXpy: \
+-d amount="5000000" \
+-d description="The Lincoln Perry movie by Antwone Fisher" \
+-d max_amount="5500000" \
+-d min_amount="4500000" \
+-d name="Lincoln Perry Movie" \
+-d entity[city]='Reno' \
+-d entity[country]='US' \
+-d entity[email]='lincoln_perry@none.com' \
+-d entity[contact_name]='Lincoln Perry' \
+-d entity[name]='Lincoln Perry Movie, LLC' \
+-d entity[phone]='17757777777' \
+-d entity[postal_code]='89435' \
+-d entity[region]='NV' \
+-d entity[region_formed_in]='NV' \
+-d entity[street_address_1]='34 Reno St.' \
+-d entity[tax_id_number]='999999999' \
+-d entity[type]='company'

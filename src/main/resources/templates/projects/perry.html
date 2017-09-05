@@ -149,15 +149,20 @@
             </div>
             <div class="row white black-text px-2 pt-1 mx-0 my-0">
               <div class="col">
-                <p>Offering $6 million</p>
+                <p>Offering $<span class="offeringAsking">0</span></p>
                 <div class="progress my-1">
-                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style=" width: 30%; ">
-                    <span class="sr-only">0% Complete</span>
+                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style=" width: 0%; ">
+                    <span class="sr-only"><span class="offeringPercent">0</span>% Complete</span>
                   </div>
                 </div>
+                <p class="days-left green"><span class="offeringDaysLeft">90</span> <span class="offeringDayHour">Days</span> Left</p>
+
                 <p class="text-center">
                   <script src="https://my-sandbox.fundamerica.com/widgets/invest_now.js" id="fa-invest-now-launcher"></script>
-                  <a href="#" class="btn btn-deep-orange" data-fa-invest-now="qhLRygdbqoYXet6K3BwFtFxXQRkE8KeN:oti-7QMSSFyi2Q9Wt2w0nw" target="_blank">Invest Now</a>
+                  <a href="#" class="btn btn-deep-orange"
+                    data-fa-invest-now="qhLRygdbqoYXet6K3BwFtFxXQRkE8KeN:oti-7QMSSFyi2Q9Wt2w0nw"
+                    target="_blank"
+                    >Invest Now</a>
                 </p>
               </div>
             </div>
@@ -970,11 +975,15 @@
     <!--container-->
   </main>
 
-  <script layout:fragment="custom-scripts">
-    $("#invest_now_panel").stick_in_parent({
-      offset_top: 75
-    });
-  </script>
+<th:block layout:fragment="script">
+  <script src="/js/funding.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script src="/js/jquery.animateNumber.min.js" ></script>
+  $("#invest_now_panel").stick_in_parent({
+    offset_top: 75
+  });
+</th:block>
+
 </body>
 
 </html>

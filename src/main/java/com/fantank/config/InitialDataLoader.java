@@ -79,6 +79,13 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         	chance.setOfferingId("pi40LCw9QripXEowWqR2hA");
         	offeringRepository.save(chance);
         }
+        
+        if(offeringRepository.findByOfferingId("oti-7QMSSFyi2Q9Wt2w0nw") == null) {
+        	Offering perry = new Offering();
+        	perry.setId("perry");
+        	perry.setOfferingId("oti-7QMSSFyi2Q9Wt2w0nw");
+        	offeringRepository.save(perry);
+        }
        
         alreadySetup = true;
     }

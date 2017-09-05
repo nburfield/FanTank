@@ -64,7 +64,12 @@ public class MainController {
 		return "login";
 	}
 	
-	@GetMapping(value={"/dashboard", "/dashboard/*"})
+	@GetMapping("/dashboard/*")
+	public String getDashboardRedirect() {
+		return "redirect:/dashboard";
+	}
+	
+	@GetMapping("/dashboard")
 	public String getDashboard() {
 		return "dashboard";
 	}
@@ -87,6 +92,6 @@ public class MainController {
 	
 	@GetMapping("/account")
 	public String getAccount() {
-		return "account";
+		return "angular/account";
 	}
 }
