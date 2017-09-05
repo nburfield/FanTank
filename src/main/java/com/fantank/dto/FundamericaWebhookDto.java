@@ -4,6 +4,9 @@ import java.util.Set;
 
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class FundamericaWebhookDto {
 	
 	@Size(min = 1, max=255)

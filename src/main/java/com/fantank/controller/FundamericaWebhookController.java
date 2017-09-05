@@ -1,8 +1,16 @@
 package com.fantank.controller;
 
-import javax.validation.Valid;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
@@ -21,6 +29,7 @@ import com.fantank.repository.WebhookRepository;
 import com.fantank.service.GenericResponse;
 import com.fantank.service.IFundamericaApiService;
 import com.fantank.service.IUserService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 public class FundamericaWebhookController {
@@ -43,9 +52,59 @@ public class FundamericaWebhookController {
 	@Autowired
 	private WebhookRepository webhookRepository;
 	
+	// convert InputStream to String
+	private static String getStringFromInputStream(InputStream is) {
+
+		BufferedReader br = null;
+		StringBuilder sb = new StringBuilder();
+
+		String line;
+		try {
+
+			br = new BufferedReader(new InputStreamReader(is));
+			while ((line = br.readLine()) != null) {
+				sb.append(line);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (br != null) {
+				try {
+					br.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return sb.toString();
+
+	}
+	
 	@PostMapping("/investments/webhook")
 	@ResponseBody
-	private GenericResponse fundamericaWebhook(@Valid FundamericaWebhookDto fundamericaWebhook) {
+	private GenericResponse fundamericaWebhook(HttpServletRequest request) {
+		Logger logger = LoggerFactory.getLogger(FundamericaWebhookController.class);
+
+		
+		FundamericaWebhookDto fundamericaWebhook;
+		try {
+			String result = getStringFromInputStream(request.getInputStream());
+			String dataJson = StringUtils.substringAfter(result, "=");
+			ObjectMapper mapper = new ObjectMapper();
+			fundamericaWebhook = mapper.readValue(dataJson, FundamericaWebhookDto.class);
+			logger.error("What i got \n" + result);
+		} catch (IOException e) {
+			throw new RuntimeException(e.getMessage());
+		}
+		
+		System.out.println(fundamericaWebhook.getData());
+		logger.error(fundamericaWebhook.getSignature());
+		logger.error(fundamericaWebhook.getWebhook_id());
+		logger.error(fundamericaWebhook.getObject());
+		logger.error(environment.getProperty("fantank.webhook.key"));
+		
 		// Prevent duplicate webhook runs
 		if(webhookRepository.findById(fundamericaWebhook.getWebhook_id()) != null) {
 			throw new RuntimeException("Webhook ID already exists");
@@ -53,11 +112,8 @@ public class FundamericaWebhookController {
 		
 		// Validate webhook
 		String md5Hex = DigestUtils.md5Hex(fundamericaWebhook.getWebhook_id() + environment.getProperty("fantank.webhook.key"));
-		System.out.println(md5Hex);
-		System.out.println(fundamericaWebhook.getSignature());
-		System.out.println(fundamericaWebhook.getWebhook_id());
-		System.out.println(fundamericaWebhook.getObject());
-		System.out.println(environment.getProperty("fantank.webhook.key"));
+		logger.error(md5Hex);
+
 		if(!md5Hex.equals(fundamericaWebhook.getSignature())) {
 			throw new RuntimeException("Webhook Signature not correct");
 		}

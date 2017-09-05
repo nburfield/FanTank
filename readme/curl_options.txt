@@ -1,7 +1,7 @@
 
 curl https://sandbox.fundamerica.com/api/investments \
 -u Bn9Zt7XwZADoUMLh_nFPxZ81bYR0aXpy: \
--d amount="1000000" \
+-d amount="500" \
 -d entity[city]='Elko' \
 -d entity[country]='US' \
 -d entity[date_of_birth]='1980-01-01' \
@@ -20,16 +20,22 @@ curl https://sandbox.fundamerica.com/api/test_mode/investments/iPl9_QKzRQy-mpteW
 -X PATCH \
 -d status="received"
 
+http://crowdfunding-env-dev.khpjqzkh6p.us-east-2.elasticbeanstalk.com/login
 // Test Webhook
 curl http://localhost:8080/investments/webhook \
 -X POST \
 -d object='investment' \
+-d resource_type= 'investment' \
 -d id='0DbFmaB5SheaFUWeVlBM1Q' \
 -d url='https//apps.fundamerica.com/api/investments/0DbFmaB5SheaFUWeVlBM1Q' \
 -d webhook_id='VEmzZpnxRpuMuY4BOxo7UQ' \
 -d signature='b54611682c6fdc10363e1ae21a3a2053' \
 -d action='create' \
 -d changes=["clearing_failures"]
+
+curl http://localhost:8080/investments/webhook \
+-X POST \
+-d 'data=%7B%22object%22%3A%22investment%22%2C%22resource_type%22%3A%22investment%22%2C%22id%22%3A%22V7KTbbAOSmaae6tf9OStkg%22%2C%22url%22%3A%22https%3A%2F%2Fsandbox.fundamerica.com%2Fapi%2Finvestments%2FV7KTbbAOSmaae6tf9OStkg%22%2C%22webhook_id%22%3A%22uuQsIEi8RXS99Pvz3J3MFQ%22%2C%22signature%22%3A%220af2626280c2466abb8b7c8bcedc68ac%22%2C%22action%22%3A%22create%22%2C%22changes%22%3A%5B%22clearing_failures%22%5D%7D'
 
 curl https://sandbox.fundamerica.com/api/offerings \
 -u Bn9Zt7XwZADoUMLh_nFPxZ81bYR0aXpy: \
