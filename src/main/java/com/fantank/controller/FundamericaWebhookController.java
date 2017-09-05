@@ -53,6 +53,11 @@ public class FundamericaWebhookController {
 		
 		// Validate webhook
 		String md5Hex = DigestUtils.md5Hex(fundamericaWebhook.getWebhook_id() + environment.getProperty("fantank.webhook.key"));
+		System.out.println(md5Hex);
+		System.out.println(fundamericaWebhook.getSignature());
+		System.out.println(fundamericaWebhook.getWebhook_id());
+		System.out.println(fundamericaWebhook.getObject());
+		System.out.println(environment.getProperty("fantank.webhook.key"));
 		if(!md5Hex.equals(fundamericaWebhook.getSignature())) {
 			throw new RuntimeException("Webhook Signature not correct");
 		}
