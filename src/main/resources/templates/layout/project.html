@@ -6,6 +6,29 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" th:href="@{/images/icons/apple-touch-icon-57x57.png}" href="../static/images/icons/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" th:href="@{/images/icons/apple-touch-icon-114x114.png}" href="../static/icons/images/icons/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" th:href="@{/images/icons/apple-touch-icon-72x72.png}" href="../static/images/icons/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" th:href="@{/images/icons/apple-touch-icon-144x144.png}" href="../static/images/icons/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" th:href="@{/images/icons/apple-touch-icon-60x60.png}" href="../static/images/icons/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" th:href="@{/images/icons/apple-touch-icon-120x120.png}" href="../static/images/icons/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" th:href="@{/images/icons/apple-touch-icon-76x76.png}" href="../static/images/icons/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" th:href="@{/images/icons/apple-touch-icon-152x152.png}" href="../static/images/icons/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" th:href="@{/images/icons/favicon-196x196.png}" href="../static/images/icons/favicon-196x196.png" sizes="196x196" />
+  <link rel="icon" type="image/png" th:href="@{/images/icons/favicon-96x96.png}" href="../static/images/icons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" th:href="@{/images/icons/favicon-32x32.png}" href="../static/images/icons/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" th:href="@{/images/icons/favicon-16x16.png}" href="../static/images/icons/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" th:href="@{/images/icons/favicon-128.png}" href="../static/images/icons/favicon-128.png" sizes="128x128" />
+  <meta name="application-name" content="&nbsp;" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="/images/icons/mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="/images/icons/mstile-150x150.png" />
+  <meta name="msapplication-wide310x150logo" content="/images/icons/mstile-310x150.png" />
+  <meta name="msapplication-square310x310logo" content="/images/icons/mstile-310x310.png" />
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
   <!-- Bootstrap core CSS -->
@@ -56,10 +79,9 @@
   <div th:replace="fragments/scripts :: scripts"></div>
   <script>
     $(".projects .nav-item").removeClass("waves-effect waves-light");
-    $("#invest_now_panel").stick_in_parent({
-      offset_top: 75
-    });
   </script>
+  <div layout:fragment="custom-scripts">
+  </div>
 </body>
 
 </html>
