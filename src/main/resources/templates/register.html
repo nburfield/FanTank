@@ -269,7 +269,7 @@
           $('#register-submit').html('Register');
           if(data.responseJSON.error.indexOf("MailError") > -1)
           {
-            $.notify(data.responseJSON.message, "error");
+            $.notify(data.responseJSON.message, { position:"right bottom", className: "error" });
           }
           else if(data.responseJSON.error == "InvalidReCaptcha"){
             $("#captchaError").show().html(data.responseJSON.message);
@@ -278,11 +278,11 @@
             $("#emailError").show().html(data.responseJSON.message);
           }
           else if(data.responseJSON.error.indexOf("InternalError") > -1){
-            $.notify(data.responseJSON.message, "error");
+            $.notify(data.responseJSON.message, { position:"right bottom", className: "error" });
           }
           else{
             var errors = $.parseJSON(data.responseJSON.message);
-            //$.notify(data.responseJSON.message, "error");
+            //$.notify(data.responseJSON.message, { position:"right bottom", className: "error" });
             $.each( errors, function( index,item ){
                 $("#"+item.field+"Error").show().html(item.defaultMessage);
             });

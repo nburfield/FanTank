@@ -37,8 +37,30 @@ document.addEventListener('fa.investnow.open', function(e) {
 // });
 
 $(document).ready(function () {
+  $(".user").hide();
+  $(".nouser").hide();
+  loadUser();
   loadOfferingData(window.location.pathname.split('/')[2]);
 });
+
+function loadUser() {
+  $.get(serverContext + "/user/data", function(user) {
+    if(user) {
+      $(".user").show()
+      $(".userName").html(user.firstName);
+      userLogged = user;
+      setInvestNowData(user);
+      autoFillData(user);
+      document.body.dispatchEvent(bindButtonsEvent);
+    }
+    else {
+      $(".nouser").show();
+    }
+  })
+  .fail(function(data) {
+    $(".nouser").show();
+  });
+}
 
 function loadOfferingData(offeringId) {
   $.get(serverContext + "/offerings/" + offeringId, function(offering) {
@@ -60,7 +82,7 @@ function loadOfferingData(offeringId) {
     // Set the HTML attributes
     if(minutesLeft < 2) {
       minutesLeft = 3000;
-      $.notify("Escrow closed on Offering", "error");
+      $.notify("Escrow closed on Offering", { position:"right bottom", className: "error" });
     }
 
 
@@ -149,10 +171,10 @@ function loadOfferingData(offeringId) {
 
 function sendUserInvestment(userInvestment) {
   $.post(serverContext + "/user/investment", userInvestment, function(data) {
-    $.notify("Investment Connection Success", "success");
+    $.notify("Investment Connection Success", { position:"right bottom", className: "success" });
   })
   .fail(function(data) {
-    $.notify(data.responseJSON.message, "error");
+    $.notify(data.responseJSON.message, { position:"right bottom", className: "error" });
   });
 }
 

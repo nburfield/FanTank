@@ -122,12 +122,12 @@
         if($.urlParam('message')) {
           var message = /*[[${param.message}]]*/
           if(message != null) {
-            $.notify(message, "success");
+            $.notify(message, { position:"right bottom", className: "success" });
           }
         }
         if($.urlParam('error')) {
           var error = /*[[${session[SPRING_SECURITY_LAST_EXCEPTION]}]]*/
-          $.notify(error, "error");
+          $.notify(error, { position:"right bottom", className: "error" });
         }
         $('.facebook').click(function(event) {
           $('#facebookform').submit();
@@ -151,20 +151,20 @@
       function validate() {
           if (document.f.username.value == "" && document.f.password.value == "") {
               var error = /*[[#{message.username} + #{message.password}]]*/
-              $.notify(error, "error");
+              $.notify(error, { position:"right bottom", className: "error" });
               document.f.username.focus();
               return false;
           }
           if (document.f.username.value == "") {
               var error = /*[[#{message.username}]]*/
-              $.notify(error, "error");
+              $.notify(error, { position:"right bottom", className: "error" });
               document.f.username.focus();
               return false;
           }
           if (document.f.password.value == "") {
               alert(/*[[#{message.password}]]*/);
               var error = /*[[#{message.password}]]*/
-              $.notify(error, "error");
+              $.notify(error, { position:"right bottom", className: "error" });
               document.f.password.focus();
               return false;
           }

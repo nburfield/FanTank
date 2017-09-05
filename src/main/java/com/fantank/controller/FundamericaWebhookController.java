@@ -47,7 +47,7 @@ public class FundamericaWebhookController {
 	@ResponseBody
 	private GenericResponse fundamericaWebhook(@Valid FundamericaWebhookDto fundamericaWebhook) {
 		// Prevent duplicate webhook runs
-		if(webhookRepository.findById(fundamericaWebhook.getId()) != null) {
+		if(webhookRepository.findById(fundamericaWebhook.getWebhook_id()) != null) {
 			throw new RuntimeException("Webhook ID already exists");
 		}
 		
@@ -57,8 +57,13 @@ public class FundamericaWebhookController {
 			throw new RuntimeException("Webhook Signature not correct");
 		}
 
-		if(fundamericaWebhook.getObject() == "investment" && fundamericaWebhook.getAction() == "create") {
+		if(fundamericaWebhook.getObject().equals("investment") && fundamericaWebhook.getAction().equals("create")) {
 			InvestmentDto investmentData = fundamericaApiService.getInvestmentData(fundamericaWebhook.getId());
+
+			if(investmentData.getData().getClientData() == null) {
+				throw new RuntimeException("No investment Data on user is available.");
+			}
+			
 			User userLoggedIn = userService.findByEmail(investmentData.getData().getClientData().getEmail());
 			Offering offering = offeringRepository.findByOfferingId(
 					fundamericaApiService.getOfferingDataByUrl(investmentData.getOffering_url()).getId());
@@ -66,7 +71,7 @@ public class FundamericaWebhookController {
 			userInvestmentsRepository.save(userInvestments);
 		}
 		
-		Webhook webhook = new Webhook(fundamericaWebhook.getId());
+		Webhook webhook = new Webhook(fundamericaWebhook.getWebhook_id());
 		webhookRepository.save(webhook);
 		return new GenericResponse("success");
 	}

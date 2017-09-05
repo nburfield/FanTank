@@ -76,7 +76,7 @@
       })
       .fail(function(data) {
         $('#resend-submit').html("Resend")
-        $.notify(data.responseJSON.message, "error");
+        $.notify(data.responseJSON.message, { position:"right bottom", className: "success" });
       });
     }
     /*]]>*/

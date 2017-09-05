@@ -12,10 +12,10 @@ curl https://sandbox.fundamerica.com/api/investments \
 -d entity[region]='NV' \
 -d entity[street_address_1]='555 Some St' \
 -d entity[tax_id_number]='000000000' \
--d offering_id="pi40LCw9QripXEowWqR2hA" \
+-d offering_id="oti-7QMSSFyi2Q9Wt2w0nw" \
 -d payment_method="wire"
 
-curl https://sandbox.fundamerica.com/api/test_mode/investments/0BeE7WzIQQeYDQRo5KCpTQ \
+curl https://sandbox.fundamerica.com/api/test_mode/investments/0DbFmaB5SheaFUWeVlBM1Q \
 -u Bn9Zt7XwZADoUMLh_nFPxZ81bYR0aXpy: \
 -X PATCH \
 -d status="received"
@@ -24,12 +24,12 @@ curl https://sandbox.fundamerica.com/api/test_mode/investments/0BeE7WzIQQeYDQRo5
 curl http://localhost:8080/investments/webhook \
 -X POST \
 -d object='investment' \
--d id='0BeE7WzIQQeYDQRo5KCpTQ' \
--d url='https//apps.fundamerica.com/api/investments/0BeE7WzIQQeYDQRo5KCpTQ' \
--d webhook_id='4ozqZlvpTLCbZxGstnqU2Q' \
--d signature='ea17648df2666aef21822882bb1a9abc' \
--d action='update' \
--d changes=["status"]
+-d id='0DbFmaB5SheaFUWeVlBM1Q' \
+-d url='https//apps.fundamerica.com/api/investments/0DbFmaB5SheaFUWeVlBM1Q' \
+-d webhook_id='VEmzZpnxRpuMuY4BOxo7UQ' \
+-d signature='b54611682c6fdc10363e1ae21a3a2053' \
+-d action='create' \
+-d changes=["clearing_failures"]
 
 curl https://sandbox.fundamerica.com/api/offerings \
 -u Bn9Zt7XwZADoUMLh_nFPxZ81bYR0aXpy: \
@@ -50,3 +50,8 @@ curl https://sandbox.fundamerica.com/api/offerings \
 -d entity[street_address_1]='34 Reno St.' \
 -d entity[tax_id_number]='999999999' \
 -d entity[type]='company'
+
+curl https://sandbox.fundamerica.com/api/test_mode/offerings/oti-7QMSSFyi2Q9Wt2w0nw \
+-u Bn9Zt7XwZADoUMLh_nFPxZ81bYR0aXpy: \
+-X PATCH \
+-d accept_investments="true"
