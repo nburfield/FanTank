@@ -87,7 +87,10 @@
       font-weight: 400;
     }
 
-    #fa-invest-now-modal input, #fa-invest-now-modal select,  #fa-invest-now-modal select, #fa-invest-now-modal .form-control-feedback {
+    #fa-invest-now-modal input,
+    #fa-invest-now-modal select,
+    #fa-invest-now-modal select,
+    #fa-invest-now-modal .form-control-feedback {
       color: black !important;
     }
 
@@ -98,6 +101,7 @@
       margin: 0 0 0 0;
       border: 0 0 0 0;
     }
+
     #fa-invest-now-modal .modal-header i {
       color: white;
     }
@@ -105,6 +109,7 @@
     #fa-invest-now-modal .btn {
       width: 100px;
     }
+
     #fa-invest-now-modal .btn-default {
       width: 100px;
       color: black !important;
@@ -118,11 +123,11 @@
       color: black !important;
     }
 
-    #fa__subscriber_signature, #fa__issuer_signature {
+    #fa__subscriber_signature,
+    #fa__issuer_signature {
 
-        color: black !important;
+      color: black !important;
     }
-
   </style>
 </head>
 
@@ -134,13 +139,21 @@
     </div>
     <div class="fixed-bottom d-md-none" style="font-size: 1.5rem">
       <div class="text-left">
-        <a href="" target="_blank">
-        <span class="fa-stack fa-lg z-index-5">
-          <i class="fa fa-circle fa-stack-2x dollar_background"></i>
-          <i class="fa fa-circle-thin fa-stack-2x dollar_background2"></i>
-          <i class="fa fa-usd fa-stack-1x" style="color: black;"></i>
-        </span>
-      </a>
+        <a style="display:none" href="/login?redirect=true" class="nouser animated fadeInLeft" target="_blank">
+          <span class="fa-stack fa-lg z-index-5">
+            <i class="fa fa-circle fa-stack-2x dollar_background"></i>
+            <i class="fa fa-circle-thin fa-stack-2x dollar_background2"></i>
+            <i class="fa fa-usd fa-stack-1x" style="color: black;"></i>
+          </span>
+        </a>
+        <a style="display:none" class="user animated fadeInLeft"
+        data-fa-invest-now="qhLRygdbqoYXet6K3BwFtFxXQRkE8KeN:oti-7QMSSFyi2Q9Wt2w0nw" target="_blank">
+          <span class="fa-stack fa-lg z-index-5">
+            <i class="fa fa-circle fa-stack-2x dollar_background"></i>
+            <i class="fa fa-circle-thin fa-stack-2x dollar_background2"></i>
+            <i class="fa fa-usd fa-stack-1x" style="color: black;"></i>
+          </span>
+        </a>
       </div>
     </div>
     <div class="container projects my-1 px-0">
@@ -168,11 +181,8 @@
 
                 <p class="text-center">
                   <script src="https://my-sandbox.fundamerica.com/widgets/invest_now.js" id="fa-invest-now-launcher"></script>
-                  <a href="#" class="user btn btn-deep-orange"
-                    data-fa-invest-now="qhLRygdbqoYXet6K3BwFtFxXQRkE8KeN:oti-7QMSSFyi2Q9Wt2w0nw"
-                    target="_blank"
-                    >Invest Now</a>
-                  <a href="/login?redirect=true" class="nouser btn btn-indigo">Login to Invest</a>
+                  <a style="display:none" href="#" class="user animated fadeInUp btn btn-deep-orange" data-fa-invest-now="qhLRygdbqoYXet6K3BwFtFxXQRkE8KeN:oti-7QMSSFyi2Q9Wt2w0nw" target="_blank">Invest Now</a>
+                  <a style="display:none" href="/login?redirect=true" class="nouser animated fadeInUp btn btn-indigo">Login to Invest</a>
                 </p>
               </div>
             </div>
@@ -985,17 +995,17 @@
     <!--container-->
   </main>
 
-<th:block layout:fragment="script">
-  <script src="/js/fundingDetails.min.js" ></script>
-  <script src="/js/funding.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-  <script src="/js/jquery.animateNumber.min.js" ></script>
-  <script>
-    $("#invest_now_panel").stick_in_parent({
-      offset_top: 75
-    });
-  </script>
-</th:block>
+  <th:block layout:fragment="script">
+    <script src="/js/fundingDetails.min.js"></script>
+    <script src="/js/funding.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="/js/jquery.animateNumber.min.js"></script>
+    <script>
+      $("#invest_now_panel").stick_in_parent({
+        offset_top: 75
+      });
+    </script>
+  </th:block>
 
 </body>
 
