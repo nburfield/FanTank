@@ -22,13 +22,6 @@
     }
   ]);
 
-  app.controller('Navbar', function($scope, $http) {
-    $http.get('/user/data').
-      then(function(response) {
-        $scope.user = response.data;
-      });
-  });
-
   app.controller('Dashboard', ['$route', '$routeParams', '$location',
     function($route, $routeParams, $location) {
       this.$route = $route;
@@ -37,9 +30,13 @@
     }
   ]);
 
-  app.controller('AccountCtrl', ['$routeParams', function($routeParams) {
+  app.controller('AccountCtrl', ['$routeParams', '$scope', '$http', function($routeParams, $scope, $http) {
     this.name = 'AccountCtrl';
     this.params = $routeParams;
+    $http.get('/user/data').
+    then(function(response) {
+      $scope.user = response.data;
+    });
   }])
 
   app.controller('InvestmentsCtrl', ['$routeParams', '$scope', '$http', function($routeParams, $scope, $http) {

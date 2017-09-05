@@ -15,7 +15,7 @@ curl https://sandbox.fundamerica.com/api/investments \
 -d offering_id="oti-7QMSSFyi2Q9Wt2w0nw" \
 -d payment_method="wire"
 
-curl https://sandbox.fundamerica.com/api/test_mode/investments/0DbFmaB5SheaFUWeVlBM1Q \
+curl https://sandbox.fundamerica.com/api/test_mode/investments/iPl9_QKzRQy-mpteWkEshQ \
 -u Bn9Zt7XwZADoUMLh_nFPxZ81bYR0aXpy: \
 -X PATCH \
 -d status="received"

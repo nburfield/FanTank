@@ -78,7 +78,11 @@ public class FundamericaController {
 	@GetMapping("/offerings/{offeringId}")
 	@ResponseBody
 	private Object getOfferingData(@PathVariable("offeringId") String offeringId) {
-		Offering offering = offeringRepository.findById(offeringId.replace("-", ""));
+		Offering offering = offeringRepository.findByOfferingId(offeringId);
+		if(offering == null) {
+			offering = offeringRepository.findById(offeringId.replace("-", ""));
+		}
+		
 		if(offering == null) {
 			throw new RuntimeException("No offering found");
 		}
