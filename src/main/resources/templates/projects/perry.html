@@ -99,6 +99,7 @@
 
     #fa-invest-now-modal .btn-primary {
       border-radius: 0px;
+      background: #d73d0e;
       background-color: #d73d0e !important;
       background-image: linear-gradient(to bottom, #d73d0e 100%, #d73d0e 100%) !important;
       border-radius: 0px !important;
@@ -155,7 +156,7 @@
                     <span class="sr-only"><span class="offeringPercent">0</span>% Complete</span>
                   </div>
                 </div>
-                <p class="days-left green"><span class="offeringDaysLeft">90</span> <span class="offeringDayHour">Days</span> Left</p>
+                <p class="days-left"><span class="offeringDaysLeft">90</span> <span class="offeringDayHour">Days</span> Left</p>
 
                 <p class="text-center">
                   <script src="https://my-sandbox.fundamerica.com/widgets/invest_now.js" id="fa-invest-now-launcher"></script>
@@ -980,9 +981,11 @@
   <script src="/js/funding.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
   <script src="/js/jquery.animateNumber.min.js" ></script>
-  $("#invest_now_panel").stick_in_parent({
-    offset_top: 75
-  });
+  <script>
+    $("#invest_now_panel").stick_in_parent({
+      offset_top: 75
+    });
+  </script>
 </th:block>
 
 </body>
