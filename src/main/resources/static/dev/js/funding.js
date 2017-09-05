@@ -60,7 +60,7 @@ function loadOfferingData(offeringId) {
     // Set the HTML attributes
     if(minutesLeft < 2) {
       minutesLeft = 3000;
-      $("#globalError").show().html("Escrow closed on Offering");
+      $.notify("Escrow closed on Offering", "error");
     }
 
 
@@ -149,10 +149,10 @@ function loadOfferingData(offeringId) {
 
 function sendUserInvestment(userInvestment) {
   $.post(serverContext + "/user/investment", userInvestment, function(data) {
-    $("#globalAlert").show().html("Investment Connection Success");
+    $.notify("Investment Connection Success", "success");
   })
   .fail(function(data) {
-    $("#globalError").show().html(data.responseJSON.message);
+    $.notify(data.responseJSON.message, "error");
   });
 }
 
