@@ -19,10 +19,9 @@
 
     .img-responsive {
       width: 100%;
-      max-width: 100% ;
+      max-width: 100%;
       height: auto;
     }
-
   </style>
 </head>
 
@@ -37,29 +36,41 @@
     </div>
 
     <!-- ng-controller="Dashboard" -->
-    <div class="container main-container">
-      <ul class="nav nav-tabs flex-column flex-md-row nav-justified black" ng-controller="Dashboard">
-        <li class="nav-item" ng-class="tabClass(tab)" ng-repeat="tab in tabs" tab="tab">
-          <a class="nav-link h-100" href="{{tab.link}}" ng-click="setSelectedTab(tab)">{{tab.label}}</a>
-        </li>
-      </ul>
-      <div class="view-animate-container tab-content elegant-color">
-        <div ng-view="" class="view-animate"></div>
+    <div class="container mt-5 mb-3 dashboard">
+      <div class="row">
+        <div class="col">
+        <ul class="nav nav-tabs flex-column flex-md-row nav-justified black" ng-controller="Dashboard">
+          <li class="nav-item" ng-class="tabClass(tab)" ng-repeat="tab in tabs" tab="tab">
+            <a class="nav-link h-100" href="{{tab.link}}" ng-click="setSelectedTab(tab)">{{tab.label}}</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col">
+        <div class="px-5 py-2 view-animate-container tab-content elegant-color">
+          <div ng-view="" class="view-animate"></div>
+        </div>
+      </div>
       </div>
     </div>
 
   </main>
 
 
-<th:block layout:fragment="script">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
-  <script src="/js/dashboard.js"></script>
-  <script type="text/javascript">
-    angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
-  </script>
-</th:block>
+  <th:block layout:fragment="script">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+    <script src="/js/dashboard.js"></script>
+    <script type="text/javascript">
+      angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
+    </script>
+    <script>
+      $(".dashboard .nav-item").removeClass("waves-effect waves-light");
+    </script>
+  </th:block>
 
 </body>
+
 </html>
