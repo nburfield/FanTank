@@ -43,8 +43,7 @@ public class FundamericaApiService implements IFundamericaApiService {
 	
 	private RestTemplate callRestApi() {	    
 	    //1. Set credentials
-	    Credentials credentials = new UsernamePasswordCredentials(environment.getProperty("fantank.api.key"), "");
-
+	    Credentials credentials = new UsernamePasswordCredentials(environment.getProperty("fantank.api.key"), "");	    
 	    CredentialsProvider credsProvider = new BasicCredentialsProvider();
 	    credsProvider.setCredentials(AuthScope.ANY, credentials);
 

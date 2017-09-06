@@ -16,6 +16,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.util.UriUtils;
 
 import com.fantank.dto.FundamericaWebhookDto;
 import com.fantank.dto.InvestmentDto;
@@ -87,23 +88,17 @@ public class FundamericaWebhookController {
 	private GenericResponse fundamericaWebhook(HttpServletRequest request) {
 		Logger logger = LoggerFactory.getLogger(FundamericaWebhookController.class);
 
-		
 		FundamericaWebhookDto fundamericaWebhook;
 		try {
-			String result = getStringFromInputStream(request.getInputStream());
+			String hookData = getStringFromInputStream(request.getInputStream());
+			logger.error("Recieved Webhook: " + hookData);
+			String result = UriUtils.decode(hookData, "UTF-8");
 			String dataJson = StringUtils.substringAfter(result, "=");
 			ObjectMapper mapper = new ObjectMapper();
 			fundamericaWebhook = mapper.readValue(dataJson, FundamericaWebhookDto.class);
-			logger.error("What i got \n" + result);
 		} catch (IOException e) {
 			throw new RuntimeException(e.getMessage());
 		}
-		
-		System.out.println(fundamericaWebhook.getData());
-		logger.error(fundamericaWebhook.getSignature());
-		logger.error(fundamericaWebhook.getWebhook_id());
-		logger.error(fundamericaWebhook.getObject());
-		logger.error(environment.getProperty("fantank.webhook.key"));
 		
 		// Prevent duplicate webhook runs
 		if(webhookRepository.findById(fundamericaWebhook.getWebhook_id()) != null) {
@@ -112,20 +107,18 @@ public class FundamericaWebhookController {
 		
 		// Validate webhook
 		String md5Hex = DigestUtils.md5Hex(fundamericaWebhook.getWebhook_id() + environment.getProperty("fantank.webhook.key"));
-		logger.error(md5Hex);
-
 		if(!md5Hex.equals(fundamericaWebhook.getSignature())) {
 			throw new RuntimeException("Webhook Signature not correct");
 		}
 
 		if(fundamericaWebhook.getObject().equals("investment") && fundamericaWebhook.getAction().equals("create")) {
 			InvestmentDto investmentData = fundamericaApiService.getInvestmentData(fundamericaWebhook.getId());
-
-			if(investmentData.getData().getClientData() == null) {
+			
+			if(investmentData.getData().getClient_data() == null) {
 				throw new RuntimeException("No investment Data on user is available.");
 			}
 			
-			User userLoggedIn = userService.findByEmail(investmentData.getData().getClientData().getEmail());
+			User userLoggedIn = userService.findByEmail(investmentData.getData().getClient_data().getEmail());
 			Offering offering = offeringRepository.findByOfferingId(
 					fundamericaApiService.getOfferingDataByUrl(investmentData.getOffering_url()).getId());
 			Investment userInvestments = new Investment(investmentData.getId(), userLoggedIn, offering);

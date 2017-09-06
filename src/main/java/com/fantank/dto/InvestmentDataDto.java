@@ -3,7 +3,7 @@ package com.fantank.dto;
 public class InvestmentDataDto {
 
 	private String url;
-	private ClientData clientData;
+	private ClientDataDto client_data;
 	
 	public String getUrl() {
 		return url;
@@ -13,32 +13,11 @@ public class InvestmentDataDto {
 		this.url = url;
 	}
 
-	public ClientData getClientData() {
-		return clientData;
+	public ClientDataDto getClient_data() {
+		return client_data;
 	}
 
-	public void setClientData(ClientData clientData) {
-		this.clientData = clientData;
-	}
-
-	public class ClientData {
-		private String email;
-		private Long id;
-		
-		public String getEmail() {
-			return email;
-		}
-		
-		public void setEmail(String email) {
-			this.email = email;
-		}
-		
-		public Long getId() {
-			return id;
-		}
-		
-		public void setId(Long id) {
-			this.id = id;
-		}
+	public void setClient_data(ClientDataDto client_data) {
+		this.client_data = client_data;
 	}
 }

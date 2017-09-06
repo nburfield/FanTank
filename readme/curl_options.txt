@@ -61,3 +61,6 @@ curl https://sandbox.fundamerica.com/api/test_mode/offerings/oti-7QMSSFyi2Q9Wt2w
 -u Bn9Zt7XwZADoUMLh_nFPxZ81bYR0aXpy: \
 -X PATCH \
 -d accept_investments="true"
+
+
+data={"object":"investment","resource_type":"investment","id":"ftr7h-opQ-q-aHqq8RQRiw","url":"https://sandbox.fundamerica.com/api/investments/ftr7h-opQ-q-aHqq8RQRiw","webhook_id":"tv5biSFKS2CzMqAllc_O_Q","signature":"1b2e112b30958778521d834cd5d15343","action":"create","changes":["clearing_failures"]}

@@ -15,18 +15,36 @@
           controller: 'InvestmentsCtrl',
         })
         .otherwise({
-          controller: 'ExternalCtrl',
+          redirectTo: '/dashboard',
         });
 
       $locationProvider.html5Mode(true);
     }
   ]);
 
-  app.controller('Dashboard', ['$route', '$routeParams', '$location',
-    function($route, $routeParams, $location) {
+  app.controller('Dashboard', ['$scope', '$route', '$routeParams', '$location',
+    function($scope, $route, $routeParams, $location) {
       this.$route = $route;
       this.$location = $location;
       this.$routeParams = $routeParams;
+
+      $scope.tabs = [
+          { link : 'dashboard', label : 'Account' },
+          { link : 'dashboard/investments', label : 'Investments' },
+        ]; 
+        
+      $scope.selectedTab = $scope.tabs[0];    
+      $scope.setSelectedTab = function(tab) {
+        $scope.selectedTab = tab;
+      }
+      
+      $scope.tabClass = function(tab) {
+        if ($scope.selectedTab == tab) {
+          return "active";
+        } else {
+          return "";
+        }
+      }
     }
   ]);
 
