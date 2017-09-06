@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fantank.dto.InvestmentDto;
 import com.fantank.dto.UserInvestmentsDto;
+import com.fantank.error.UserNotFoundException;
 import com.fantank.model.User;
 import com.fantank.model.Investment;
 import com.fantank.model.Offering;
@@ -51,28 +53,16 @@ public class FundamericaController {
 	@ResponseBody
 	public Collection<InvestmentDto> getFunding() {
 		User userLoggedIn = userService.findByEmail(securityService.findLoggedInUsername());
+		if(userLoggedIn == null) {
+			throw new UserNotFoundException("User not logged in to access data");
+		}
 		Collection<InvestmentDto> investments = new ArrayList<InvestmentDto>();
 		for(Investment investment : userLoggedIn.getInvestments()) {
-			investments.add(fundamericaApiService.getInvestmentData(investment.getInvestmentId()));
+			InvestmentDto userInvestmentData = fundamericaApiService.getInvestmentData(investment.getInvestmentId());
+			userInvestmentData.setOffering_name(fundamericaApiService.getOfferingDataByUrl(userInvestmentData.getOffering_url()).getName());
+			investments.add(userInvestmentData);
 		}
 		return investments;
-	}
-	
-	@PostMapping("/user/investment")
-	@ResponseBody
-	private GenericResponse setInvestmentOnUser(@Valid UserInvestmentsDto userInvestmentDto) {
-		User userLoggedIn = userService.findByEmail(securityService.findLoggedInUsername());
-		
-		System.out.println(userInvestmentDto.getInvestmentId() + " " + userInvestmentDto.getUserId());
-		
-		if(userLoggedIn.getId() != userInvestmentDto.getUserId()) {
-			throw new RuntimeException("User data not equal");
-		}
-		
-		Investment userInvestments = new Investment(userInvestmentDto.getInvestmentId(), userLoggedIn);
-		userInvestmentsRepository.save(userInvestments);
-		
-		return new GenericResponse("success");
 	}
 	
 	@GetMapping("/offerings/{offeringId}")

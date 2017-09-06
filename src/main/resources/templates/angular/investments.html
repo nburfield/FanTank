@@ -1,14 +1,16 @@
 <div>
   <table class="table table-hover">
     <thead>
+      <td>Offering</td>
       <td>Amount</td>
       <td>Unit Size</td>
       <td>Status</td>
     </thead>
     <tbody ng-repeat="invest in investments">
       <tr>
-        <td>{{invest.amount}}</td>
-        <td>{{invest.unit_count}}</td>
+        <td>{{invest.offering_name}}</td>
+        <td>{{invest.amount | currency}}</td>
+        <td>{{invest.unit_count | number:0}}</td>
         <td>{{invest.status}}</td>
       </tr>
     </tbody>

@@ -56,18 +56,30 @@
   app.controller('AccountCtrl', ['$routeParams', '$scope', '$http', function($routeParams, $scope, $http) {
     this.name = 'AccountCtrl';
     this.params = $routeParams;
+    $scope.readonly = true;
     $http.get('/user/data').
-    then(function(response) {
-      $scope.user = response.data;
-    });
+      then(function(response) {
+        $scope.user = response.data;
+      },
+      function(data) {
+        if(data.data.error == "UserNotFound") {
+          $window.location.href = "/login?redirect=true";
+        }
+      });
   }])
 
-  app.controller('InvestmentsCtrl', ['$routeParams', '$scope', '$http', function($routeParams, $scope, $http) {
+  app.controller('InvestmentsCtrl', ['$routeParams', '$scope', '$http', '$window', function($routeParams, $scope, $http, $window) {
     this.name = 'InvestmentsCtrl';
     this.params = $routeParams;
+    $scope.investments = [{offering_name:"-", amount: "-", unit_count: "-", status: "-"}];
     $http.get('/user/funding').
       then(function(response) {
         $scope.investments = response.data;
+      },
+      function(data) {
+        if(data.data.error == "UserNotFound") {
+          $window.location.href = "/login?redirect=true";
+        }
       });
   }])
 

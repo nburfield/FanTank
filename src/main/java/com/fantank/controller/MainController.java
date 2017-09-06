@@ -1,12 +1,7 @@
 package com.fantank.controller;
 
-
-import java.io.InputStream;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fantank.dto.UserDto;
+import com.fantank.error.UserNotFoundException;
 import com.fantank.model.User;
 import com.fantank.service.ISecurityService;
 import com.fantank.service.IUserService;
@@ -80,7 +76,7 @@ public class MainController {
 
 		User userData = userService.findByEmail(securityService.findLoggedInUsername());
 		if(userData == null) {
-			return null;
+			throw new UserNotFoundException("User not logged in to access data");
 		}
 		UserDto user = new UserDto();
 		user.setId(userData.getId());
