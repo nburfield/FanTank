@@ -4,6 +4,7 @@ public class InvestmentDto {
 	private String id;
 	private String url;
 	private String offering_url;
+	private String offering_name;
 	private String administration_fee;
 	private Boolean aml_check_investor;
 	private Boolean aml_exception;
@@ -63,6 +64,12 @@ public class InvestmentDto {
 	}
 	public void setOffering_url(String offering_url) {
 		this.offering_url = offering_url;
+	}
+	public String getOffering_name() {
+		return offering_name;
+	}
+	public void setOffering_name(String offering_name) {
+		this.offering_name = offering_name;
 	}
 	public String getAdministration_fee() {
 		return administration_fee;
