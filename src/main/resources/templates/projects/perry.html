@@ -4,16 +4,6 @@
 <head>
   <title>Lincoln Perry Funding</title>
   <style>
-    .projects h2 {
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-    }
-
-    .projects h3 {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-    }
-
     .projects .row h2 {
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
@@ -26,6 +16,9 @@
 
     .img-circle {
       border-radius: 50%;
+      border: 3px solid #fff;
+      width: 175px;
+      height: auto;
     }
 
     .projects .perks-list h3 {
@@ -48,6 +41,20 @@
       color: #337ab7;
       font-weight: 500;
       content: "\f00c";
+      /* FontAwesome Unicode */
+      font-family: FontAwesome;
+      display: inline-block;
+      width: 1.3em;
+      /* same as padding-left set on li */
+    }
+
+    .overview li:before{
+      /*Using a Bootstrap glyphicon as the bullet point*/
+      font-size: 1rem;
+      padding-right: 1rem;
+      color: #ff5722;
+      font-weight: 500;
+      content: "\f111";
       /* FontAwesome Unicode */
       font-family: FontAwesome;
       display: inline-block;
@@ -127,6 +134,18 @@
     #fa__issuer_signature {
 
       color: black !important;
+    }
+
+    .projects .tab-content strong {
+      color: #337ab7;
+    }
+
+    .projects .perks-list h3 {
+      color: #337ab7;
+    }
+
+    .projects .perks-list strong {
+      color: white;
     }
   </style>
 </head>
@@ -209,12 +228,12 @@
           <!-- Tab panels -->
           <div class="tab-content elegant-color">
             <!--Panel 1-->
-            <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
+            <div class="overview tab-pane fade in show active" id="panel1" role="tabpanel">
               <div class="px-2 py-2 mx-2 mb-2">
                 <h2>The Story</h2>
 
                 <p><img src="/projects/perry/perry-text-around.jpg" width="160" style="float: left; margin: 5px 10px 5px 0;" />Lincoln Perry, widely known as the controversial character "Stepin Fetchit," was Hollywood’s first black movie star during the
-                  20’s and 30’s. His character was a distorted comedic image of what some white folks thought of African Americans at the time. What they didn’t know, and what most people don’t know today, is that he was a devout Catholic, and activist
+                  20’s and 30’s. His character was a distorted comedic image of what some people thought of African Americans at the time. What they didn’t know, and what most people don’t know today, is that he was a devout Catholic, and activist
                   and writer for the Chicago Defender standing up against crooked booking agents and theaters owners, as well as fighting with the major studio heads for equal pay for black actors. Though his life of fame and fortune brought career challenges
                   and personal tragedies, Lincoln starred in films with Hollywood’s elite, from Mae West and Will Rogers to name a few and hobnobbed with boxers Jack Johnson and Cassius Clay.</p>
 
@@ -282,10 +301,10 @@
                 <h2 class="text-center">Creative Team</h2>
                 <hr/>
                 <div class="row">
-                  <div class="col-12 col-md-6">
-                    <img class="col img-circle img-reponsive" src="/projects/perry/antwone-fisher2.jpg" />
+                  <div class="col-12 col-md-3">
+                    <img class="d-flex img-circle img-fluid" src="/projects/perry/antwone-fisher2.jpg"/>
                   </div>
-                  <div class="col-12 col-md-6">
+                  <div class="col-12 col-md-9">
                     <h2>Antwone Fisher</h2>
                     <h3>Director</h3>
                     <p>Antwone Fisher is an American screenwriter, Director, poet, lecturer, and bestselling author. Antwone is the writer, co-producer and subject of the Fox Searchlight Pictures classic film, ANTWONE FISHER. His autobiographical book Finding
@@ -303,11 +322,11 @@
 
                 <hr/>
 
-                <div class="row d-flex flex-md-row-reverse">
-                  <div class="col-12 col-md-6 d-flex align-items-center">
+                <div class="row d-flex">
+                  <div class="col-12 col-md-3 d-flex align-items-center">
                     <img class="d-flex img-circle img-fluid" src="/projects/perry/elijah-rock-bio.jpg" />
                   </div>
-                  <div class="col-12 col-md-6">
+                  <div class="col-12 col-md-9">
                     <h2>Elijah Rock</h2>
                     <h3>Producer</h3>
                     <p>An Executive Vice President (EVP) of Artistic Services with FanTank Inc., Elijah Rock is merging Arts &amp; Entertainment and internet technology. In content production, he was a founding partner of Decipher Entertainment, a production
@@ -321,10 +340,10 @@
                 <hr/>
 
                 <div class="row">
-                  <div class="col-12 col-md-6 d-flex align-items-center">
+                  <div class="col-12 col-md-3 d-flex align-items-center">
                     <img class="d-flex img-circle img-fluid" src="/projects/perry/brad-wilson.jpg" />
                   </div>
-                  <div class="col-12 col-md-6">
+                  <div class="col-12 col-md-9">
                     <h2>Brad Wilson</h2>
                     <h3>Producer</h3>
                     <p>Legendary Producer, Brad Wilson has worked with Academy Award winning actor Robert Duvall, operating ROBERT DUVALL PRODUCTIONS , producing over eighteen feature films, among them: COLORS with Sean Penn, DAYS OF THUNDER with Tom Cruise

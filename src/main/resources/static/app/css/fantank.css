@@ -43,7 +43,7 @@ body {
 }
 .invest-in-art {
   background-color: black;
-  background-image: linear-gradient(rgba(20, 20, 20, 0.5), rgba(20, 20, 20, 0.5)), url("../images/invest-in-art.jpg");
+  background-image: url("../images/crowd-hands-dark-quality.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -55,11 +55,52 @@ body {
 #invest-in-art {
   height: 100%;
 }
-.btn-primary {
-  background-color: #3e5e93 !important;
+.btn {
+  border-radius: 0px !important;
+}
+.btn-register {
+  background-color: #33b5e5;
+  text-transform: uppercase;
+  color: #ffffff !important;
+  font-size: 1rem !important;
+  font-weight: 500;
+}
+.btn-register:hover {
+  background-color: #4fc3f7;
+}
+.btn-fantank-main {
+  background-color: #33b5e5;
+  text-transform: capitalize;
+  color: #ffffff !important;
+  font-size: 0.95rem !important;
+  font-weight: 500;
+}
+.btn-fantank-main:hover {
+  background-color: #4fc3f7;
+}
+.btn-fantank-main-outline {
+  background-color: tranparent;
+  text-transform: capitalize;
+  border: 3px solid #ffffff !important;
+  color: #ffffff;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  display: inline-block !important;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.btn-fantank-main-outline:hover {
+  background-color: #ffffff !important;
+  color: #000;
 }
 .invest-in-art-text-elegant {
-  background: rgba(46, 46, 46, 0.7);
+  background-color: transparent;
 }
 .invest-in-art-text-elegant-dark {
   background: rgba(33, 33, 33, 0.7);

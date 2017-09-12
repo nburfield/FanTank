@@ -78,6 +78,12 @@ gulp.task('html-copy', function() {
 
 });
 
+// Copy HTML to target
+gulp.task('images-copy', function() {
+    gulp.src('src/main/resources/static/app/images')
+        .pipe(gulp.dest('target/classes/resources/static/app/images'))
+
+});
 
 // Copy vendor libraries from /node_modules into /vendor
 gulp.task('copy', function() {
@@ -126,7 +132,7 @@ gulp.task('serve', ['less', 'minify-css', 'minify-js'], function() {
     gulp.watch('src/main/resources/static/dev/js/*.js', ['minify-js']);
     gulp.watch('src/main/resources/static/dev/js/dashboard.js', ['dashboard-js']);
     gulp.watch('src/main/resources/templates/**/*.html', ['html-copy']);
-
+    gulp.watch('src/main/resources/static/app/images', ['images-copy']);
     // Reloads the browser whenever HTML or JS files change
     //gulp.watch('src/main/resources/templates/*.html', browserSync.reload);
     //gulp.watch('src/main/resources/templates/**/*.html', browserSync.reload);
