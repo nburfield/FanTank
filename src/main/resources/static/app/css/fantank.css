@@ -72,23 +72,21 @@ body {
 #invest-in-art {
   height: 100%;
 }
-.btn-register {
-  font-size: 1rem !important;
-  font-weight: 500;
-  background-color: #33b5e5;
+.btn-info {
+  color: #33b5e5;
   text-transform: uppercase;
-  color: #ffffff !important;
-  padding: 8px 16px;
-  text-align: center;
-  display: inline-block;
-  margin: 4px 2px;
-  -webkit-transition-duration: 0.4s;
-  /* Safari */
-  transition-duration: 0.4s;
-  cursor: pointer;
+  font-weight: 500;
 }
-.btn-register:hover {
-  background-color: #4fc3f7;
+.btn-info:hover {
+  color: #0099CC;
+}
+.footer .menu-item a,
+.footer .legal-item a {
+  color: #33b5e5;
+}
+.footer .menu-item a:hover,
+.footer .legal-item a:hover {
+  color: #0099CC;
 }
 .btn-fantank-main {
   background-color: #33b5e5;

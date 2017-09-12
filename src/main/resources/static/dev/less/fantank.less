@@ -19,6 +19,7 @@
 @fantank_dark_blue: #3e5e93;
 @fantank_light_blue: #33b5e5; //#78bfe7;
 @fantank_light_blue_dark: #4fc3f7;
+@fantank_light_blue_super_dark: #0099CC;
 @fantank_elegant_color: #2E2E2E;
 @fantank_graydian_blue: #3c92cd;
 @fantank_gradian_active_link: #3990ce;
@@ -101,23 +102,23 @@ body {
   height: 100%;
 }
 
-.btn-register {
-  font-size: 1rem !important;
-  font-weight: 500;
-  background-color: @fantank_light_blue;
+.btn-info {
+  color: @fantank_light_blue;
   text-transform: uppercase;
-  color: @white_color !important;
-  padding: 8px 16px;
-  text-align: center;
-  display: inline-block;
-  margin: 4px 2px;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  cursor: pointer;
+  font-weight: 500;
   &:hover {
-    background-color: @fantank_light_blue_dark ;
+    color: @fantank_light_blue_super_dark;
   }
+}
 
+.footer .menu-item , .footer .legal-item {
+  a {
+    color: @fantank_light_blue;
+
+    &:hover {
+      color: @fantank_light_blue_super_dark;
+    }
+  }
 }
 
 .btn-fantank-main {

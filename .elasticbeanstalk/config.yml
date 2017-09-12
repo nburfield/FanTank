@@ -1,6 +1,6 @@
 branch-defaults:
   master:
-    environment: crowdfunding-dev
+    environment: null
     group_suffix: null
 deploy:
   artifact: target/fantank-0.0.1-SNAPSHOT.jar
