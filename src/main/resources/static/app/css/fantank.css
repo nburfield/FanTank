@@ -55,6 +55,9 @@ body {
 #invest-in-art {
   height: 100%;
 }
+.btn {
+  border-radius: 0px !important;
+}
 .btn-register {
   background-color: #33b5e5;
   text-transform: uppercase;
