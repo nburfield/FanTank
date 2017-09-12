@@ -59,14 +59,24 @@ body {
   border-radius: 0px !important;
 }
 .btn-register {
-  background-color: #33b5e5;
-  text-transform: uppercase;
-  color: #ffffff !important;
   font-size: 1rem !important;
   font-weight: 500;
+  background-color: tranparent;
+  text-transform: uppercase;
+  border: 3px solid #ffffff !important;
+  color: #ffffff !important;
+  padding: 8px 16px;
+  text-align: center;
+  display: inline-block !important;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
 .btn-register:hover {
   background-color: #4fc3f7;
+  color: #000;
 }
 .btn-fantank-main {
   background-color: #33b5e5;
@@ -83,11 +93,10 @@ body {
   text-transform: capitalize;
   border: 3px solid #ffffff !important;
   color: #ffffff;
-  border: none;
   color: white;
   padding: 8px 16px;
   text-align: center;
-  display: inline-block !important;
+  display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
   -webkit-transition-duration: 0.4s;
