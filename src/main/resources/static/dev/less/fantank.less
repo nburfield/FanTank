@@ -36,6 +36,7 @@
     background-color: @black_color;
     color: white;
     text-align: center;
+    overflow: visible !important;
   }
   .nav-link.active, .nav-link:hover {
     color: white;
@@ -43,6 +44,12 @@
     border-left: 0;
     border-right: 0;
     border-bottom: 3px solid @fantank_gradian_active_link;
+  }
+
+  .nav {
+    @media screen and (max-width: 767px) {
+      display: block;
+    }
   }
 }
 
@@ -52,6 +59,7 @@
     color: white;
     text-align: center;
     border-width: 0px;
+    overflow: visible !important;
   }
   .nav-item.active, .nav-item:hover {
     background-color: @black_color;
@@ -61,11 +69,18 @@
     border-right: 0;
     border-bottom: 3px solid @fantank_gradian_active_link;
   }
+
+  .nav {
+    @media screen and (max-width: 767px) {
+      display: block;
+    }
+  }
 }
 
 body {
   font-size: 16px;
 }
+
 .invest-in-art {
   background-color: black;
   background-image: url("../images/crowd-hands-dark-quality.jpg");
@@ -76,32 +91,31 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+
+  @media screen and (max-width: 767px) {
+    background-image: url("../images/crowd-hands-dark-quality-small-screen-scale.jpg");
+  }
+
 }
 #invest-in-art {
   height: 100%;
 }
 
-.btn {
-  border-radius: 0px !important;
-}
-
 .btn-register {
   font-size: 1rem !important;
   font-weight: 500;
-  background-color: tranparent;
+  background-color: @fantank_light_blue;
   text-transform: uppercase;
-  border: 3px solid @white_color !important;
   color: @white_color !important;
   padding: 8px 16px;
   text-align: center;
-  display: inline-block !important;
+  display: inline-block;
   margin: 4px 2px;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   cursor: pointer;
   &:hover {
     background-color: @fantank_light_blue_dark ;
-    color: @black_color ;
   }
 
 }
@@ -120,9 +134,8 @@ body {
 .btn-fantank-main-outline {
   background-color: tranparent;
   text-transform: capitalize;
-  border: 3px solid @white_color !important;
+  border: 2px solid @white_color !important;
   color: @white_color ;
-  color: white;
   padding: 8px 16px;
   text-align: center;
   display: inline-block;
@@ -132,8 +145,8 @@ body {
   transition-duration: 0.4s;
   cursor: pointer;
   &:hover {
-    background-color: @white_color !important;
-    color: @black_color ;
+    background-color: @fantank_light_blue !important;
+    color: @white_color ;
   }
 }
 

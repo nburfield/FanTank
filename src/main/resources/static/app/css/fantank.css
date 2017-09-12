@@ -13,6 +13,7 @@
   background-color: #000;
   color: white;
   text-align: center;
+  overflow: visible !important;
 }
 .projects .nav-link.active,
 .projects .nav-link:hover {
@@ -22,12 +23,18 @@
   border-right: 0;
   border-bottom: 3px solid #3990ce;
 }
+@media screen and (max-width: 767px) {
+  .projects .nav {
+    display: block;
+  }
+}
 .dashboard .nav-item,
 .dashboard .nav-link {
   background-color: #000;
   color: white;
   text-align: center;
   border-width: 0px;
+  overflow: visible !important;
 }
 .dashboard .nav-item.active,
 .dashboard .nav-item:hover {
@@ -37,6 +44,11 @@
   border-left: 0;
   border-right: 0;
   border-bottom: 3px solid #3990ce;
+}
+@media screen and (max-width: 767px) {
+  .dashboard .nav {
+    display: block;
+  }
 }
 body {
   font-size: 16px;
@@ -52,22 +64,23 @@ body {
   -o-background-size: cover;
   background-size: cover;
 }
+@media screen and (max-width: 767px) {
+  .invest-in-art {
+    background-image: url("../images/crowd-hands-dark-quality-small-screen-scale.jpg");
+  }
+}
 #invest-in-art {
   height: 100%;
-}
-.btn {
-  border-radius: 0px !important;
 }
 .btn-register {
   font-size: 1rem !important;
   font-weight: 500;
-  background-color: tranparent;
+  background-color: #33b5e5;
   text-transform: uppercase;
-  border: 3px solid #ffffff !important;
   color: #ffffff !important;
   padding: 8px 16px;
   text-align: center;
-  display: inline-block !important;
+  display: inline-block;
   margin: 4px 2px;
   -webkit-transition-duration: 0.4s;
   /* Safari */
@@ -76,7 +89,6 @@ body {
 }
 .btn-register:hover {
   background-color: #4fc3f7;
-  color: #000;
 }
 .btn-fantank-main {
   background-color: #33b5e5;
@@ -91,9 +103,8 @@ body {
 .btn-fantank-main-outline {
   background-color: tranparent;
   text-transform: capitalize;
-  border: 3px solid #ffffff !important;
+  border: 2px solid #ffffff !important;
   color: #ffffff;
-  color: white;
   padding: 8px 16px;
   text-align: center;
   display: inline-block;
@@ -105,8 +116,8 @@ body {
   cursor: pointer;
 }
 .btn-fantank-main-outline:hover {
-  background-color: #ffffff !important;
-  color: #000;
+  background-color: #33b5e5 !important;
+  color: #ffffff;
 }
 .invest-in-art-text-elegant {
   background-color: transparent;
