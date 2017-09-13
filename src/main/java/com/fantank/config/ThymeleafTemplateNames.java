@@ -1,10 +1,10 @@
 package com.fantank.config;
 
 public class ThymeleafTemplateNames {
-	
+
 	public static final String INDEX ="index";
 	public static final String REGISTER ="register";
-	public static final String INVEST = "invest";
+	public static final String INVEST = "invest2";
 	public static final String CONTACT = "contact";
 	public static final String DISCLAIMER = "disclaimer";
 	public static final String LOGIN = "login";

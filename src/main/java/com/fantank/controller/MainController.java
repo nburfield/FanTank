@@ -18,37 +18,37 @@ import com.fantank.service.IUserService;
 
 @Controller
 public class MainController {
-	
+
 	@Autowired
 	private IUserService userService;
-	
+
 	@Autowired
 	private ISecurityService securityService;
-	
+
 	@GetMapping("/")
 	public String welcome(Model model) {
 		User user = userService.findByEmail(securityService.findLoggedInUsername());
 		model.addAttribute("user", user);
-		
+
 		return "index";
 	}
-	
+
 	@GetMapping("/invest")
 	public String explore(Model model) {
 		User user = userService.findByEmail(securityService.findLoggedInUsername());
 		model.addAttribute("user", user);
-		
+
 		return "invest";
 	}
-	
+
 	@GetMapping("/invest/{name}")
 	public String getFundingDetails(Model model, @PathVariable("name") final String project) {
 		User user = userService.findByEmail(securityService.findLoggedInUsername());
 		model.addAttribute("user", user);
-		
+
 		return "projects/" + project;
 	}
-	
+
 	@GetMapping("/login")
 	public String getLogin(HttpServletRequest request, @RequestParam(value = "redirect", required = false, 	defaultValue = "false") Boolean redirect) {
 		if(redirect) {
@@ -56,20 +56,20 @@ public class MainController {
 			String referrer = request.getHeader("Referer");
 			request.getSession().setAttribute("url_prior_login", referrer);
 		}
-		
+
 		return "login";
 	}
-	
+
 	@GetMapping("/dashboard/*")
 	public String getDashboardRedirect() {
 		return "redirect:/dashboard";
 	}
-	
+
 	@GetMapping("/dashboard")
 	public String getDashboard() {
 		return "dashboard";
 	}
-	
+
 	@GetMapping("/user/data")
 	@ResponseBody
 	public UserDto getLoggedUser() {
@@ -85,7 +85,7 @@ public class MainController {
 		user.setLastName(userData.getLastName());
 		return user;
 	}
-	
+
 	@GetMapping("/account")
 	public String getAccount() {
 		return "angular/account";

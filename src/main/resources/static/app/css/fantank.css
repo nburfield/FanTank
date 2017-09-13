@@ -55,7 +55,7 @@ body {
 }
 .invest-in-art {
   background-color: black;
-  background-image: url("../images/crowd-hands-dark-quality.jpg");
+  background-image: url("../images/crowd-hands-dark-quality-small-screen-scale.png");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -64,20 +64,21 @@ body {
   -o-background-size: cover;
   background-size: cover;
 }
-@media screen and (max-width: 767px) {
+@media (min-width: 768px) {
   .invest-in-art {
-    background-image: url("../images/crowd-hands-dark-quality-small-screen-scale.jpg");
+    background-image: url("../images/crowd-hands-dark-quality.jpg");
   }
 }
 #invest-in-art {
   height: 100%;
 }
-.btn-info {
+.header .register {
   color: #33b5e5;
   text-transform: uppercase;
   font-weight: 500;
+  font-size: 0.9rem;
 }
-.btn-info:hover {
+.header .register:hover {
   color: #0099CC;
 }
 .footer .menu-item a,
@@ -87,6 +88,15 @@ body {
 .footer .menu-item a:hover,
 .footer .legal-item a:hover {
   color: #0099CC;
+}
+.borderless td,
+.borderless th {
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 1px solid #9e9e9e;
+  padding-right: 0;
+  padding-left: 0;
 }
 .btn-fantank-main {
   background-color: #33b5e5;
@@ -132,9 +142,6 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-filter: blur(5px);
-  /* Safari */
-  filter: blur(5px);
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -194,9 +201,6 @@ a.navbar-toggler {
 }
 a.navbar-toggler:hover {
   color: #78bfe7 !important;
-}
-.register {
-  font-size: 0.9rem;
 }
 .icon-button {
   background-color: #2E2E2E;
