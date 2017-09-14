@@ -9,12 +9,15 @@
       background-image: url('../images/invest.jpg');
     }
 
-    .outline {
-
+    .invest .card-body .details ul li {
+      margin-top: 1rem;
+      padding-top: 2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 2rem;
     }
 
-    .progress {
-      height: 0.25rem !important;
+    .invest .sortby .dropdown-item:hover {
+      background-color: #33b5e5 !important;
     }
   </style>
 </head>
@@ -31,9 +34,43 @@
     </div>
     <div class="invest container mt-5 mb-3">
       <div class="row">
-        <div class="col">
-          <h1 class="my-2 text-center">Featured Projects</h1>
+        <div class="col-12 col-md-6">
+          <h2 class="my-2">Featured Projects</h2>
         </div>
+        <div class="col-12 col-md-6 text-right">
+          <div class="row my-2 sortby">
+            <div class="col text-right mt-auto mb-auto">Sort by</div>
+            <div class="col btn-group">
+              <button id="selected" class="btn btn-fantank-main-outline dropdown-toggle" style="background: transparent;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Trending</button>
+              <div class="dropdown-menu elegant-color">
+                <a class="dropdown-item elegant-color white-text" href="#">Trending</a>
+                <a class="dropdown-item elegant-color white-text" href="#">Offering Amount</a>
+                <a class="dropdown-item elegant-color white-text" href="#">Days Left</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-fantank-main-outline active">
+            <input type="radio" autocomplete="off" />All
+          </label>
+          <label class="btn btn-fantank-main-outline">
+            <input type="radio" autocomplete="off" />Film
+          </label>
+          <label class="btn btn-fantank-main-outline">
+            <input type="radio" autocomplete="off" />Music
+          </label>
+          <label class="btn btn-fantank-main-outline">
+            <input type="radio" autocomplete="off" />Publishing
+          </label>
+          <label class="btn btn-fantank-main-outline">
+            <input type="radio" autocomplete="off" />Clothing
+          </label>
+        </div>
+      </div>
       </div>
       <div class="row">
         <div class="col-12 col-md-4 d-flex">
@@ -47,12 +84,21 @@
               </a>
             </div>
             <div class="card-body">
-              <h4 class="card-title text-center">Prince</h4>
-              <h5 class="text-center">Catalog Buy In</h5>
+              <h4 class="card-title font-weight-bold">Prince</h4>
+              <h5 class="">Catalog Buy In</h5>
               <div class="progress rounded-0 my-1">
-                <div class="progress-bar  progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style=" width: 100%; ">
+                <div class="progress-bar invest-progress " role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style=" width: 100%; ">
                 </div>
               </div>
+              <p class="details">
+                <ul>
+                  <li class="my-2"><span class="pr-3">Category</span><i class="fa fa-music fa-lg" aria-hidden="true" font-size="1rem;"></i></li>
+                  <li class="my-2"><span class="pr-3">Offering</span><span class="fantank_font_weight_500">$50 million</span></li>
+                  <li class="my-2"><span class="pr-3">Raised</span><span class="fantank_font_weight_500">$50,000,000.00</span></li>
+                  <li class="my-2"><span class="pr-3">Days Left</span><span class="fantank_blue_text">45 days</span></li>
+                </ul>
+              </p>
+              <!--
               <table class="table table-reponsive borderless">
                 <thead>
                 </thead>
@@ -77,6 +123,7 @@
                   </tr>
                 </tbody>
               </table>
+            -->
             </div>
           </div>
         </div>
@@ -92,10 +139,10 @@
               </a>
             </div>
             <div class="card-body">
-              <h4 class="card-title text-center">Lincoln Perry The Movie</h4>
-              <h5 class="text-center">A Antwone Fisher Film</h5>
+              <h4 class="card-title ">Lincoln Perry The Movie</h4>
+              <h5 class="">A Antwone Fisher Film</h5>
               <div class="progress rounded-0 my-1">
-                <div class="progress-bar  progress-bar-info" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style=" width: 30%; ">
+                <div class="progress-bar invest-progress  " role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style=" width: 30%; ">
 
                 </div>
               </div>
@@ -138,10 +185,10 @@
               </a>
             </div>
             <div class="card-body">
-              <h5 class="card-title text-center">Chazz Palminteri &amp; Dave Rodriguez</h5>
-              <h5 class="text-center">Film</h5>
+              <h5 class="card-title ">Chazz Palminteri &amp; Dave Rodriguez</h5>
+              <h5 class="">Film</h5>
               <div class="progress rounded-0 my-1">
-                <div class="progress-bar  progress-bar-info" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style=" width: 30%; ">
+                <div class="progress-bar invest-progress  " role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style=" width: 30%; ">
 
                 </div>
               </div>
@@ -185,10 +232,10 @@
               </a>
             </div>
             <div class="card-body">
-              <h4 class="card-title text-center">Chance The Rapper</h4>
-              <h5 class="text-center">Album Release/Music Tour(2018)</h5>
+              <h4 class="card-title ">Chance The Rapper</h4>
+              <h5 class="">Album Release/Music Tour(2018)</h5>
               <div class="progress rounded-0 my-1">
-                <div class="progress-bar  progress-bar-info" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style=" width: 30%; ">
+                <div class="progress-bar invest-progress  " role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style=" width: 30%; ">
 
                 </div>
               </div>
@@ -232,10 +279,10 @@
               </a>
             </div>
             <div class="card-body">
-              <h5 class="card-title text-center">Cash Money Records The Movie</h5>
-              <h5 class="text-center">Development Deal</h5>
+              <h5 class="card-title ">Cash Money Records The Movie</h5>
+              <h5 class="">Development Deal</h5>
               <div class="progress rounded-0 my-1">
-                <div class="progress-bar  progress-bar-info" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style=" width: 30%; ">
+                <div class="progress-bar invest-progress  " role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style=" width: 30%; ">
 
                 </div>
               </div>
@@ -280,10 +327,10 @@
               </a>
             </div>
             <div class="card-body">
-              <h4 class="card-title text-center">Frank Ocean</h4>
-              <h5 class="text-center">Development Deal</h5>
+              <h4 class="card-title ">Frank Ocean</h4>
+              <h5 class="">Development Deal</h5>
               <div class="progress rounded-0 my-1">
-                <div class="progress-bar  progress-bar-info" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style=" width: 30%; ">
+                <div class="progress-bar invest-progress  " role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style=" width: 30%; ">
 
                 </div>
               </div>
@@ -320,6 +367,11 @@
 
 
       </div>
+      <div class="row my-2">
+        <div class="col text-center">
+          <a href="./about" class="btn btn-fantank-main btn-lg" style="text-transform: uppercase;">Show More</a>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -329,6 +381,9 @@
     <script src="/js/fundingDetails.min.js"></script>
     <script src="/js/invest.min.js"></script>
     <script>
+      $('.invest .sortby .dropdown-menu a').click(function() {
+        $('#selected').text($(this).text());
+      });
     </script>
   </th:block>
 
