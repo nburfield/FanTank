@@ -5,7 +5,7 @@
   <title>Login</title>
   <style>
     .jumbotron {
-      background-image: url('../images/reglog.png');
+      background-image: url('../images/aboutus.jpg');
     }
   </style>
 </head>
@@ -21,7 +21,7 @@
     </div>
 
     <div class="container mt-5 mb-3">
-      <div class="row d-flex">
+      <div class="row d-flex justify-content-center">
 
         <div class="col-12 col-md-6 d-flex">
           <div class="card card-body elegant-color">
@@ -51,35 +51,31 @@
 
 <th:block layout:fragment="script">
   <script th:inline="javascript">
-    /*<![CDATA[*/
+
     var serverContext = window.location.protocol + "//" + window.location.host + "/";
 
     $(document).ready(function () {
-
       $('#resend-submit').html("Resend")
-
       $('#resend-submit').click(function(event) {
         reset(event);
       });
-
     });
 
-    function reset(event){
+    function reset(event) {
 
       event.preventDefault();
       var email = $("#email").val();
       $('#resend-submit').html('<i class="fa fa-spinner fa-spin" style="font-size:24px"></i>')
-      $.post(serverContext + "user/token",{email: email} ,function(data){
-        $('#resend-submit').html("Resend")
 
+      $.post(serverContext + "user/token", {email: email}, function(data) {
+        $('#resend-submit').html("Resend")
         window.location.href = serverContext + "login?message=" + data.message;
       })
       .fail(function(data) {
         $('#resend-submit').html("Resend")
-        $.notify(data.responseJSON.message, { position:"right bottom", className: "success" });
+        $.notify(data.responseJSON.message, {position:"right bottom", className: "success"});
       });
     }
-    /*]]>*/
 
   </script>
 </th:block>
