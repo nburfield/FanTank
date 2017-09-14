@@ -5,7 +5,7 @@ branch-defaults:
 deploy:
   artifact: target/fantank-0.0.1-SNAPSHOT.jar
 global:
-  application_name: crowdfunding
+  application_name: crowdfunding-env
   branch: null
   default_ec2_keyname: aws-eb
   default_platform: Java 8
