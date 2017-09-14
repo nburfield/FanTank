@@ -1,15 +1,15 @@
 branch-defaults:
   master:
-    environment: crowdfunding-dev
+    environment: crowdfunding-env-dev
     group_suffix: null
 deploy:
   artifact: target/fantank-0.0.1-SNAPSHOT.jar
 global:
-  application_name: crowdfunding
+  application_name: crowdfunding-env
   branch: null
   default_ec2_keyname: aws-eb
   default_platform: Java 8
-  default_region: us-west-2
+  default_region: us-east-2
   include_git_submodules: true
   instance_profile: null
   platform_name: null

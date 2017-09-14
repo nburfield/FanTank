@@ -21,4 +21,3 @@ function loadUser(){
     $(".nouser").show();
   });
 }
-

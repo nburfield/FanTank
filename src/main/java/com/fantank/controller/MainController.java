@@ -75,15 +75,15 @@ public class MainController {
 	public UserDto getLoggedUser() {
 
 		User userData = userService.findByEmail(securityService.findLoggedInUsername());
-		if(userData == null) {
-			throw new UserNotFoundException("User not logged in to access data");
+		if(userData != null) {
+			UserDto user = new UserDto();
+			user.setId(userData.getId());
+			user.setEmail(userData.getEmail());
+			user.setFirstName(userData.getFirstName());
+			user.setLastName(userData.getLastName());
+			return user;
 		}
-		UserDto user = new UserDto();
-		user.setId(userData.getId());
-		user.setEmail(userData.getEmail());
-		user.setFirstName(userData.getFirstName());
-		user.setLastName(userData.getLastName());
-		return user;
+		return null;
 	}
 	
 	@GetMapping("/account")
