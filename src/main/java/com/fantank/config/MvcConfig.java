@@ -21,43 +21,42 @@ import com.fantank.security.ActiveUserStore;
 @EnableWebMvc
 @EnableScheduling
 public class MvcConfig extends WebMvcConfigurerAdapter {
-	
+
 	public MvcConfig() {
         super();
     }
-	
+
     @Bean
     public ActiveUserStore activeUserStore() {
         return new ActiveUserStore();
     }
-    
+
     @Bean
     public LocaleResolver localeResolver() {
         final CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
         cookieLocaleResolver.setDefaultLocale(Locale.ENGLISH);
         return cookieLocaleResolver;
     }
-    
+
     @Bean
     @ConditionalOnMissingBean(RequestContextListener.class)
     public RequestContextListener requestContextListener() {
         return new RequestContextListener();
     }
-    
+
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         if (!registry.hasMappingForPattern("/**")) {
             registry.addResourceHandler("/**").addResourceLocations("classpath:/static/app/");
          }
     }
-    
+
     @Override
     public void addViewControllers(final ViewControllerRegistry registry) {
         super.addViewControllers(registry);
         registry.addViewController(Routes.ROOT).setViewName(ThymeleafTemplateNames.INDEX);
         registry.addViewController(Routes.LOGIN).setViewName(ThymeleafTemplateNames.LOGIN);
         registry.addViewController(Routes.ABOUT).setViewName(ThymeleafTemplateNames.ABOUT);
-        registry.addViewController(Routes.INVEST).setViewName(ThymeleafTemplateNames.INVEST);
         registry.addViewController(Routes.HOWITWORKS).setViewName(ThymeleafTemplateNames.HOWITWORKS);
         registry.addViewController(Routes.JOBS).setViewName(ThymeleafTemplateNames.JOBS);
         registry.addViewController(Routes.CONTACT).setViewName(ThymeleafTemplateNames.CONTACT);
@@ -65,9 +64,9 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         registry.addViewController(Routes.PRIVACY).setViewName(ThymeleafTemplateNames.PRIVACY);
         registry.addViewController(Routes.DISCLAIMER).setViewName(ThymeleafTemplateNames.DISCLAIMER);
 
-        
+
     }
-    
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new AuthInterceptor()).addPathPatterns("/login*", "/register*", "/user/reset*");

@@ -132,7 +132,7 @@ gulp.task('serve', ['less', 'minify-css', 'minify-js'], function() {
     gulp.watch('src/main/resources/static/dev/js/*.js', ['minify-js']);
     gulp.watch('src/main/resources/static/dev/js/dashboard.js', ['dashboard-js']);
     gulp.watch('src/main/resources/templates/**/*.html', ['html-copy']);
-    gulp.watch('src/main/resources/static/app/images', ['images-copy']);
+    gulp.watch('src/main/resources/static/app/images/*.*', ['images-copy']);
     // Reloads the browser whenever HTML or JS files change
     //gulp.watch('src/main/resources/templates/*.html', browserSync.reload);
     //gulp.watch('src/main/resources/templates/**/*.html', browserSync.reload);

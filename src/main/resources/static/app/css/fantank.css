@@ -13,6 +13,7 @@
   background-color: #000;
   color: white;
   text-align: center;
+  overflow: visible !important;
 }
 .projects .nav-link.active,
 .projects .nav-link:hover {
@@ -22,12 +23,18 @@
   border-right: 0;
   border-bottom: 3px solid #3990ce;
 }
+@media screen and (max-width: 767px) {
+  .projects .nav {
+    display: block;
+  }
+}
 .dashboard .nav-item,
 .dashboard .nav-link {
   background-color: #000;
   color: white;
   text-align: center;
   border-width: 0px;
+  overflow: visible !important;
 }
 .dashboard .nav-item.active,
 .dashboard .nav-item:hover {
@@ -38,12 +45,17 @@
   border-right: 0;
   border-bottom: 3px solid #3990ce;
 }
+@media screen and (max-width: 767px) {
+  .dashboard .nav {
+    display: block;
+  }
+}
 body {
   font-size: 16px;
 }
 .invest-in-art {
   background-color: black;
-  background-image: url("../images/crowd-hands-dark-quality.jpg");
+  background-image: url("../images/crowd-hands-dark-quality-small-screen-scale.png");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -52,31 +64,39 @@ body {
   -o-background-size: cover;
   background-size: cover;
 }
+@media (min-width: 768px) {
+  .invest-in-art {
+    background-image: url("../images/crowd-hands-dark-quality.jpg");
+  }
+}
 #invest-in-art {
   height: 100%;
 }
-.btn {
-  border-radius: 0px !important;
-}
-.btn-register {
-  font-size: 1rem !important;
-  font-weight: 500;
-  background-color: tranparent;
+.header .register {
+  color: #33b5e5;
   text-transform: uppercase;
-  border: 3px solid #ffffff !important;
-  color: #ffffff !important;
-  padding: 8px 16px;
-  text-align: center;
-  display: inline-block !important;
-  margin: 4px 2px;
-  -webkit-transition-duration: 0.4s;
-  /* Safari */
-  transition-duration: 0.4s;
-  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
 }
-.btn-register:hover {
-  background-color: #4fc3f7;
-  color: #000;
+.header .register:hover {
+  color: #0099CC;
+}
+.footer .menu-item a,
+.footer .legal-item a {
+  color: #33b5e5;
+}
+.footer .menu-item a:hover,
+.footer .legal-item a:hover {
+  color: #0099CC;
+}
+.borderless td,
+.borderless th {
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 1px solid #9e9e9e;
+  padding-right: 0;
+  padding-left: 0;
 }
 .btn-fantank-main {
   background-color: #33b5e5;
@@ -91,9 +111,8 @@ body {
 .btn-fantank-main-outline {
   background-color: tranparent;
   text-transform: capitalize;
-  border: 3px solid #ffffff !important;
+  border: 2px solid #ffffff !important;
   color: #ffffff;
-  color: white;
   padding: 8px 16px;
   text-align: center;
   display: inline-block;
@@ -105,8 +124,8 @@ body {
   cursor: pointer;
 }
 .btn-fantank-main-outline:hover {
-  background-color: #ffffff !important;
-  color: #000;
+  background-color: #33b5e5 !important;
+  color: #ffffff;
 }
 .invest-in-art-text-elegant {
   background-color: transparent;
@@ -123,9 +142,6 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-filter: blur(5px);
-  /* Safari */
-  filter: blur(5px);
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -185,9 +201,6 @@ a.navbar-toggler {
 }
 a.navbar-toggler:hover {
   color: #78bfe7 !important;
-}
-.register {
-  font-size: 0.9rem;
 }
 .icon-button {
   background-color: #2E2E2E;

@@ -5,7 +5,7 @@
   <title>Login</title>
   <style>
     .jumbotron {
-      background-image: url('../images/register-music.jpg');
+      background-image: url('../images/reglog.png');
     }
   </style>
 </head>
@@ -22,7 +22,7 @@
 
     <div class="container mt-5 mb-3">
       <div class="row d-flex">
-        
+
         <div class="col-12 col-md-6 d-flex">
           <div class="card card-body elegant-color">
             <div class="divider-new">
@@ -66,7 +66,7 @@
 
     function reset(event){
 
-      event.preventDefault(); 
+      event.preventDefault();
       var email = $("#email").val();
       $('#resend-submit').html('<i class="fa fa-spinner fa-spin" style="font-size:24px"></i>')
       $.post(serverContext + "user/token",{email: email} ,function(data){
