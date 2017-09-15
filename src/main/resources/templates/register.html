@@ -167,16 +167,16 @@
       options = {
         common: {
           minChar: 8,
-          usernameField: "email",
+          maxChar: 16
         },
         rules: {
           activated: {
-            wordNotEmail: true,
+            wordNotEmail: false,
             wordMinLength: true,
             wordMaxLength: true,
             wordInvalidChar: true,
             wordSimilarToUsername: true,
-            wordSequences: true,
+            wordSequences: false,
             wordTwoCharacterClasses: false,
             wordRepetitions: false,
             wordLowercase: true,
@@ -191,10 +191,11 @@
           }
         },
         ui: {
-          showVerdictsInsideProgressBar:true,
-          showErrors:true,
-          errorMessages:{
-
+          showVerdictsInsideProgressBar: false,
+          bootstrap4: true,
+          showVerdicts: false,
+          showProgressBar: false,
+          errorMessages: {
             wordNotEmail: /*[[#{error.wordNotEmail}]]*/,
             wordSequences: /*[[#{error.wordSequences}]]*/,
             wordLowercase: /*[[#{error.wordLowercase}]]*/,
@@ -205,7 +206,6 @@
         }
       };
       $('#password').pwstrength(options);
-      $("#password").pwstrength("ruleActive", "wordUppercase", true);
     });
 
     function register(event) {
@@ -218,22 +218,18 @@
         return;
       }
 
+      if(!$("#password").pwstrength("ruleIsMet", "wordMinLength")) {
+        $("#matchError").show().html("Password is too short");
+        return;
+      }
+      if(!$("#password").pwstrength("ruleIsMet", "wordMaxLength")) {
+        $("#matchError").show().html("Password is too long");
+        return;
+      }
       if(!$("#password").pwstrength("ruleIsMet", "wordUppercase")) {
         $("#matchError").show().html(/*[[#{error.wordUppercase}]]*/);
         return;
       }
-      // if(!$("#password").pwstrength("ruleIsMet", "wordLength")) {
-      //   $("#matchError").show().html(/*[[#{error.wordLength}]]*/);
-      //   return;
-      // }
-      // if(!$("#password").pwstrength("ruleIsMet", "wordNotEmail")) {
-      //   $("#matchError").show().html(/*[[#{error.wordNotEmail}]]*/);
-      //   return;
-      // }
-      // if(!$("#password").pwstrength("ruleIsMet", "wordSequences")) {
-      //   $("#matchError").show().html(/*[[#{error.wordSequences}]]*/);
-      //   return;
-      // }
       if(!$("#password").pwstrength("ruleIsMet", "wordLowercase")) {
         $("#matchError").show().html(/*[[#{error.wordLowercase}]]*/);
         return;
