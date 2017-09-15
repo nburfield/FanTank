@@ -143,7 +143,7 @@ public class RegistrationController {
         }
         return "updatePassword";
     }
-    
+   
     @PostMapping("/user/changePassword")
     @ResponseBody
     public GenericResponse savePassword(final Locale locale, @Valid PasswordDto passwordDto) {
