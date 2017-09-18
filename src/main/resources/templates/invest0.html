@@ -1,0 +1,373 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org" layout:decorator="layout/mainpages">
+
+<head>
+  <title>Invest</title>
+
+  <style>
+    .jumbotron {
+      background-image: url('../images/invest.jpg');
+    }
+
+    .invest .card-body .details ul li {
+      margin-top: 1rem;
+      padding-top: 2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 2rem;
+    }
+
+    .invest .sortby .dropdown-item:hover {
+      background-color: #33b5e5 !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main layout:fragment="content">
+    <div class="start_location">
+      <div class="jumbotron jumbotron-mainpages jumbotron-fluid mt-3">
+      </div>
+      <div class="infoi mt-5 pt-5 text-white text-center">
+        <h1><strong>Explore Investment Opportunities</strong></h1>
+      </div>
+    </div>
+    <div class="invest container mt-5 mb-3">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <h2 class="my-2">Featured Projects</h2>
+        </div>
+        <div class="col-12 col-md-6 text-right">
+          <div class="row my-2 sortby">
+            <div class="col text-right mt-auto mb-auto">Sort by</div>
+            <div class="col btn-group">
+              <button id="selected" class="btn btn-fantank-main-outline dropdown-toggle" style="background: transparent;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Trending</button>
+              <div class="dropdown-menu elegant-color">
+                <a class="dropdown-item elegant-color white-text" href="#">Trending</a>
+                <a class="dropdown-item elegant-color white-text" href="#">Offering Amount</a>
+                <a class="dropdown-item elegant-color white-text" href="#">Days Left</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--
+      <div class="row">
+        <div class="col">
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-fantank-main-outline active">
+            <input type="radio" autocomplete="off" />All
+          </label>
+          <label class="btn btn-fantank-main-outline">
+            <input type="radio" autocomplete="off" />Film
+          </label>
+          <label class="btn btn-fantank-main-outline">
+            <input type="radio" autocomplete="off" />Music
+          </label>
+          <label class="btn btn-fantank-main-outline">
+            <input type="radio" autocomplete="off" />Publishing
+          </label>
+          <label class="btn btn-fantank-main-outline">
+            <input type="radio" autocomplete="off" />Clothing
+          </label>
+        </div>
+      </div>
+      </div>
+    -->
+      <div class="row">
+        <div class="col-12 col-md-4 d-flex">
+
+          <!-- card start-->
+          <div class="card elegant-color my-2 outline">
+            <div class="view overlay hm-white-slight">
+              <img src="images/prince.jpg" class="img-fluid" alt="" />
+              <a href="/invest/prince">
+                <div class="mask"></div>
+              </a>
+            </div>
+            <div class="card-body py-1 my-0">
+              <div class="row">
+                <div class="col-12">
+                  <a class="category"> <i class="fa fa-music" aria-hidden="true" font-size="1rem;"></i></a>
+                </div>
+                <div class="col-12">
+                  <h5 class="card-title font-weight-bold">Prince</h5>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <p class="about">Catalog buy in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum.
+                  </p>
+                </div>
+                <div class="col-12">
+                  <div class="progress rounded-0 my-1">
+                    <div class="progress-bar invest-progress " role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style=" width: 100%; ">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 my-0 py-0">
+                  <p class="font-weight-bold my-0 py-0">$50 million</p>
+                </div>
+                <div class="col-6 mt-0 pyt-0">
+                  <span class="small text-muted">Raised: $50 million</span>
+                </div>
+                <div class="col-6 fantank_blue_text mt-0 pt-0 text-right">
+                  <span class="small fantank_blue_text">45 days left</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- card end-->
+
+        <!-- card start-->
+        <div class="col-12 col-md-4 d-flex">
+          <div class="card elegant-color my-2 outline">
+            <div class="view overlay hm-white-slight">
+              <img src="images/perry.jpg" class="img-fluid" alt="" />
+              <a href="/invest/perry">
+                <div class="mask"></div>
+              </a>
+            </div>
+            <div class="card-body py-1 my-0">
+              <div class="row">
+                <div class="col-12">
+                  <a class="category"> <i class="fa fa-film" aria-hidden="true" font-size="1rem;"></i></a>
+                </div>
+                <div class="col-12">
+                  <h5 class="card-title font-weight-bold">Lincoln Perry The Movie</h5>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <p class="about">An Antwone Fisher film lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum.
+                  </p>
+                </div>
+                <div class="col-12">
+                  <div class="progress rounded-0 my-1">
+                    <div class="progress-bar invest-progress " role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style=" width: 5%; ">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 my-0 py-0">
+                  <p class="font-weight-bold my-0 py-0">$6 million</p>
+                </div>
+                <div class="col-6 mt-0 pyt-0">
+                  <span class="small text-muted">Raised: $300,000</span>
+                </div>
+                <div class="col-6 fantank_blue_text mt-0 pt-0 text-right">
+                  <span class="small fantank_blue_text">90 days left</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- card end-->
+
+        <!-- card start-->
+        <div class="col-12 col-md-4  d-flex">
+          <div class="card elegant-color my-2 outline">
+            <div class="view overlay hm-white-slight">
+              <img src="images/chazz.jpg" class="img-fluid" alt="" />
+              <a href="/invest/chazz">
+                <div class="mask"></div>
+              </a>
+            </div>
+            <div class="card-body py-1 my-0">
+              <div class="row">
+                <div class="col-12">
+                  <a class="category"> <i class="fa fa-film" aria-hidden="true" font-size="1rem;"></i></a>
+                </div>
+                <div class="col-12">
+                  <h5 class="card-title font-weight-bold">Chazz Palminteri &amp; Dave Rodriguez</h5>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <p class="about">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum.
+                  </p>
+                </div>
+                <div class="col-12">
+                  <div class="progress rounded-0 my-1">
+                    <div class="progress-bar invest-progress " role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style=" width: 30%; ">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 my-0 py-0">
+                  <p class="font-weight-bold my-0 py-0">$7 million</p>
+                </div>
+                <div class="col-6 mt-0 pyt-0">
+                  <span class="small text-muted">Raised: $2 million</span>
+                </div>
+                <div class="col-6 fantank_blue_text mt-0 pt-0 text-right">
+                  <span class="small fantank_blue_text">35 days left</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- card end-->
+
+
+        <!-- card start-->
+        <div class="col-12 col-md-4  d-flex">
+          <div class="card elegant-color my-2 outline">
+            <div class="view overlay hm-white-slight">
+              <img src="images/chance.jpg" class="img-fluid" alt="" />
+              <a href="/invest/chance">
+                <div class="mask"></div>
+              </a>
+            </div>
+            <div class="card-body py-1 my-0">
+              <div class="row">
+                <div class="col-12">
+                  <a class="category"> <i class="fa fa-music" aria-hidden="true" font-size="1rem;"></i></a>
+                </div>
+                <div class="col-12">
+                  <h5 class="card-title font-weight-bold">Chance The Rapper</h5>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <p class="about">Album release and music tour, lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum.
+                  </p>
+                </div>
+                <div class="col-12">
+                  <div class="progress rounded-0 my-1">
+                    <div class="progress-bar invest-progress " role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style=" width: 70%; ">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 my-0 py-0">
+                  <p class="font-weight-bold my-0 py-0">$6 million</p>
+                </div>
+                <div class="col-6 mt-0 pyt-0">
+                  <span class="small text-muted">Raised: $5.5 million</span>
+                </div>
+                <div class="col-6 fantank_blue_text mt-0 pt-0 text-right">
+                  <span class="small fantank_blue_text">25 days left</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- card end-->
+
+
+        <!-- card start-->
+        <div class="col-12 col-md-4  d-flex">
+          <div class="card elegant-color my-2 outline">
+            <div class="view overlay hm-white-slight">
+              <img src="images/cash-money.jpg" class="img-fluid" alt="" />
+              <a href="/invest/cash">
+                <div class="mask"></div>
+              </a>
+            </div>
+            <div class="card-body py-1 my-0">
+              <div class="row">
+                <div class="col-12">
+                  <a class="category"> <i class="fa fa-film" aria-hidden="true" font-size="1rem;"></i></a>
+                </div>
+                <div class="col-12">
+                  <h5 class="card-title font-weight-bold">Cash Money Records The Movie</h5>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <p class="about">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum.
+                  </p>
+                </div>
+                <div class="col-12">
+                  <div class="progress rounded-0 my-1">
+                    <div class="progress-bar invest-progress " role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style=" width: 70%; ">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 my-0 py-0">
+                  <p class="font-weight-bold my-0 py-0">$7 million</p>
+                </div>
+                <div class="col-6 mt-0 pyt-0">
+                  <span class="small text-muted">Raised: $5 million</span>
+                </div>
+                <div class="col-6 fantank_blue_text mt-0 pt-0 text-right">
+                  <span class="small fantank_blue_text">15 days left</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- card end-->
+
+
+
+        <!-- card start-->
+        <div class="col-12 col-md-4  d-flex">
+          <div class="card elegant-color my-2 outline">
+            <div class="view overlay hm-white-slight">
+              <img src="images/frank-ocean.jpg" class="img-fluid" alt="" />
+              <a href="/invest/frank">
+                <div class="mask"></div>
+              </a>
+            </div>
+            <div class="card-body py-1 my-0">
+              <div class="row">
+                <div class="col-12">
+                  <a class="category"> <i class="fa fa-film" aria-hidden="true" font-size="1rem;"></i></a>
+                </div>
+                <div class="col-12">
+                  <h5 class="card-title font-weight-bold">Frank Ocean</h5>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <p class="about">Development Deal sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec odio nulla. Nulla ut scelerisque tortor. Pellentesque eu cursus mauris, nec facilisis est. Pellentesque non quam at leo pulvinar bibendum.
+                  </p>
+                </div>
+                <div class="col-12">
+                  <div class="progress rounded-0 my-1">
+                    <div class="progress-bar invest-progress " role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style=" width: 30%; ">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 my-0 py-0">
+                  <p class="font-weight-bold my-0 py-0">$7 million</p>
+                </div>
+                <div class="col-6 mt-0 pyt-0">
+                  <span class="small text-muted">Raised: $2 million</span>
+                </div>
+                <div class="col-6 fantank_blue_text mt-0 pt-0 text-right">
+                  <span class="small fantank_blue_text">35 days left</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- card end-->
+
+
+
+
+      </div>
+      <div class="row my-2">
+        <div class="col text-center">
+          <a href="./about" class="btn btn-fantank-main btn-lg" style="text-transform: uppercase;">Show More</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <th:block layout:fragment="script">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="/js/jquery.animateNumber.min.js"></script>
+    <script src="/js/fundingDetails.min.js"></script>
+    <script src="/js/invest.min.js"></script>
+    <script>
+      $('.invest .sortby .dropdown-menu a').click(function() {
+        $('#selected').text($(this).text());
+      });
+    </script>
+  </th:block>
+
+</body>
+
+</html>

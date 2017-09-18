@@ -1,14 +1,46 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    xmlns:th="http://www.thymeleaf.org"
-    layout:decorator="layout/mainpages">
+    xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <title>How It Works</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css" />
+
+
+  <link rel="stylesheet" href="/css/fantank.css" />
+
+
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" th:href="@{/images/icons/apple-touch-icon-57x57.png}" href="../static/images/icons/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" th:href="@{/images/icons/apple-touch-icon-114x114.png}" href="../static/icons/images/icons/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" th:href="@{/images/icons/apple-touch-icon-72x72.png}" href="../static/images/icons/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" th:href="@{/images/icons/apple-touch-icon-144x144.png}" href="../static/images/icons/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" th:href="@{/images/icons/apple-touch-icon-60x60.png}" href="../static/images/icons/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" th:href="@{/images/icons/apple-touch-icon-120x120.png}" href="../static/images/icons/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" th:href="@{/images/icons/apple-touch-icon-76x76.png}" href="../static/images/icons/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" th:href="@{/images/icons/apple-touch-icon-152x152.png}" href="../static/images/icons/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" th:href="@{/images/icons/favicon-196x196.png}" href="../static/images/icons/favicon-196x196.png" sizes="196x196" />
+  <link rel="icon" type="image/png" th:href="@{/images/icons/favicon-96x96.png}" href="../static/images/icons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" th:href="@{/images/icons/favicon-32x32.png}" href="../static/images/icons/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" th:href="@{/images/icons/favicon-16x16.png}" href="../static/images/icons/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" th:href="@{/images/icons/favicon-128.png}" href="../static/images/icons/favicon-128.png" sizes="128x128" />
+  <meta name="application-name" content="&nbsp;" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="/images/icons/mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="/images/icons/mstile-150x150.png" />
+  <meta name="msapplication-wide310x150logo" content="/images/icons/mstile-310x150.png" />
+  <meta name="msapplication-square310x310logo" content="/images/icons/mstile-310x310.png" />
   <style>
     .jumbotron {
-      background-image: url('../images/howitworks.jpg');
+      background-image: url('../images/howitworks-street.jpg');
     }
 
     .faq h4 {
@@ -19,32 +51,64 @@
     .faq h1 {
       color: #337ab7;
     }
+
+    .hero-image {
+      background-image: url("../images/howitworks-street-walk.jpg");
+      height: 315px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      padding-top: 2rem;
+    }
+
+    .hero-text {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    main {
+      height: 100%;
+    }
+
+    body {
+      height: 100%;
+    }
   </style>
 </head>
 
-<body>
+<body class="elegant-color-dark text-white">
+  <!--Main Navigation-->
+  <div th:replace="fragments/header :: header">
+  </div>
 
-  <main layout:fragment="content">
-    <div class="start_location">
-      <div class="jumbotron jumbotron-mainpages jumbotron-fluid mt-3">
-      </div>
-      <div class="infoi mt-5 pt-5 text-white text-center">
-        <h1><strong>How it works</strong></h1>
-        <h3>Turn Your Talent Into Investment From The Crowd</h3>
+  <main>
+    <div class="hero-image mt-3">
+      <div class="hero-text black-text">
+        <h1><strong>How It Works</strong></h1>
+        <h3><strong>Turn Your Talent Into Investment From The Crowd</strong></h3>
       </div>
     </div>
 
-    <div class="container mt-5 mb-3">
+    <div class="container">
       <div class="row z-depth-1 py-2 my-2 elegant-color">
-        <div class="col text-center">
+        <div class="col-12 col-md-4 text-center py-2">
           <div>
             <img src="/images/get-exposed.png"/>
             <h2 class="pt-1">Get Exposed To More Investors Globally</h2>
-            <p>Our technologies enable potential investors, distributors, agents, fans, brand managers, and other artists to locate you more efficiently.</p>
+            <p>Our technologies enable potential investors, distributors, agents, fans, brand managers, and other artists to find you more efficiently.</p>
           </div>
         </div>
 
-        <div class="col text-center">
+        <div class="col-12 col-md-4 text-center py-2">
           <div class="feature-point-block">
             <img src="/images/unleash.png" />
             <h2 class="pt-1">Unleash Your Artistic Vision</h2>
@@ -52,7 +116,7 @@
           </div>
         </div>
 
-        <div class="col text-center">
+        <div class="col-12 col-md-4 text-center py-2">
           <div class="feature-point-block">
             <img src="/images/team-up.png" />
             <h2 class="pt-1">Team Up With Experts And Innovators</h2>
@@ -73,7 +137,7 @@
           <div class="mx-1 my-1 py-1 z-depth-2 grey darken-3 w-100">
             <h2>INVESTORS</h2>
             <p>Get Started</p>
-            <a href="/register" class="btn btn-lg btn-primary">Sign Up</a>
+            <a href="/register" class="btn btn-lg btn-fantank-main ">Sign Up</a>
           </div>
         </div>
 
@@ -81,7 +145,7 @@
           <div class="mx-1 my-1 py-1 z-depth-2 grey darken-3 w-100">
             <h2>ARTISTS</h2>
             <p>Want to raise money via equity crowdfunding?</p>
-            <a href="/contact" class="btn btn-lg btn-primary">Inform Us</a>
+            <a href="/contact" class="btn btn-lg btn-fantank-main ">Inform Us</a>
           </div>
         </div>
 
@@ -147,7 +211,11 @@
 
       </div>
     </div>
+    <div th:replace="fragments/footer :: footer"></div>
   </main>
+
+  <!--Main Layout-->
+  <div th:replace="fragments/scripts :: scripts"></div>
 </body>
 
 </html>

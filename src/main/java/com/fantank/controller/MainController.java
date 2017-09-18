@@ -38,7 +38,7 @@ public class MainController {
 		User user = userService.findByEmail(securityService.findLoggedInUsername());
 		model.addAttribute("user", user);
 
-		return "invest";
+		return "invest0";
 	}
 
 	@GetMapping("/invest/{name}")

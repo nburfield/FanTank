@@ -44,6 +44,16 @@
     display: block;
   }
 }
+.invest .card .category {
+  color: #868e96 !important;
+}
+.invest .card .category:hover {
+  color: #ffffff !important;
+}
+.invest .card .about {
+  overflow: hidden;
+  height: 120px;
+}
 .dashboard .nav-item,
 .dashboard .nav-link {
   background-color: #000;
