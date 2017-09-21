@@ -34,12 +34,25 @@
 .fantank_blue_text {
   color: @fantank_light_blue;
 }
+
+a.fantank_blue_text {
+  color: @fantank_light_blue;
+  &:hover {
+    color: @fantank_light_blue_super_dark;
+  }
+}
+
 .fantank_font_weight_500 {
   font-weight: 600;
 }
 .fantank_blue_background {
   background-color: @fantank_light_blue;
 }
+
+.fantank_blue_background_transparent {
+  background-color: rgba(51,181,229,0.7);
+}
+
 .invest-progress {
   height: 0.25rem !important;
   background-color: @fantank_light_blue;
@@ -116,7 +129,7 @@ body {
 
 .invest-in-art {
   background-color: black;
-  background-image: url("../images/crowd-hands-dark-quality-small-screen-scale.png");
+  background-image: url('../images/homepage-dark.jpg') ; //url("../images/crowd-hands-dark-quality-small-screen-scale.png");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -126,7 +139,7 @@ body {
   background-size: cover;
 
   @media (min-width: 768px) {
-    background-image: url("../images/crowd-hands-dark-quality.jpg");
+    background-image: url('../images/homepage-dark.jpg'); //url("../images/crowd-hands-dark-quality.jpg");
   }
 
 }
