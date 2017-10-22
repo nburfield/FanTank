@@ -16,11 +16,10 @@ function loadOfferingData(element, offeringId) {
     // Set the HTML attributes
     if(minutesLeft < 2) {
       minutesLeft = 3000;
+      daysLeft = 0;
       $.notify("Escrow closed on Offering", { position:"right bottom", className: "error" });
     }
 
-
-    element.find('.offeringDaysLeft').html(hoursLeft);
     $('.offeringDayHour').html("Days");
     $('.offeringDaysLeft')
       .prop('number', 90)

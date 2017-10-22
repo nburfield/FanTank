@@ -10,7 +10,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
-
   <link rel="apple-touch-icon-precomposed" sizes="57x57" th:href="@{/images/icons/apple-touch-icon-57x57.png}" href="../static/images/icons/apple-touch-icon-57x57.png" />
   <link rel="apple-touch-icon-precomposed" sizes="114x114" th:href="@{/images/icons/apple-touch-icon-114x114.png}" href="../static/icons/images/icons/apple-touch-icon-114x114.png" />
   <link rel="apple-touch-icon-precomposed" sizes="72x72" th:href="@{/images/icons/apple-touch-icon-72x72.png}" href="../static/images/icons/apple-touch-icon-72x72.png" />
@@ -61,6 +60,7 @@
 </head>
 
 <body class="elegant-color-dark text-white">
+  <th:block layout:fragment="share"></th:block>
   <div th:replace="fragments/header :: header">
   </div>
   <main layout:fragment="content">

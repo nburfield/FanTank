@@ -3,6 +3,14 @@
 
 <head>
   <title>Lincoln Perry Funding</title>
+
+  <meta property="og:url"           content="http://investor-a2468.fantank.com/invest/perry" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="Lincoln Perry Funding" />
+  <meta property="og:description"   content="Invest in the Lincoln Perry Movie" />
+  <meta property="og:image"         content="http://investor-a2468.fantank.com/projects/perry/perry-text-around.jpg" />
+  <meta property="fb:app_id"        content="1483899388335503" />
+
   <style>
     .projects .row h2 {
       padding-top: 0.5rem;
@@ -151,6 +159,20 @@
 </head>
 
 <body>
+  <th:block layout:fragment="share">
+    <div id="fb-root"></div>
+    <script>
+      /*<![CDATA[*/
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1483899388335503';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+      /*]]>*/
+    </script>
+  </th:block>
 
   <main layout:fragment="content">
     <!--
@@ -205,6 +227,14 @@
                   <a style="display:none" href="#" class="user animated fadeInUp btn btn-deep-orange" data-fa-invest-now="qhLRygdbqoYXet6K3BwFtFxXQRkE8KeN:oti-7QMSSFyi2Q9Wt2w0nw" target="_blank">Invest Now</a>
                   <a style="display:none" href="/login?redirect=true" class="nouser animated fadeInUp btn btn-fantank-main">Login to Invest</a>
                 </p>
+
+                <div class="social-share text-center">
+                  <div class="fb-share-button" data-href="http://investor-a2468.fantank.com/invest/perry" data-layout="button" data-size="large" data-mobile-iframe="false">
+                    <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Finvestor-a2468.fantank.com%2Finvest%2Fperry&amp;src=sdkpreparse">Share</a>
+                  </div>
+
+                  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Invest in the Lincoln Perry Movie" data-show-count="false">Tweet</a>
+                </div>
               </div>
             </div>
           </div>
@@ -980,17 +1010,10 @@
                   </div>
                   <!-- end collapse panel -->
 
-
-
-
-
-
                 </div>
                 <!-- / Tab Content Wrapper -->
 
               </div>
-
-
 
             </div>
 
@@ -1020,10 +1043,13 @@
     <script src="/js/funding.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="/js/jquery.animateNumber.min.js"></script>
-    <script>
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script th:inline="javascript">
+      /*<![CDATA[*/
       $("#invest_now_panel").stick_in_parent({
         offset_top: 75
       });
+      /*]]>*/
     </script>
   </th:block>
 

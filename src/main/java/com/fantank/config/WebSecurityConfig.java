@@ -75,12 +75,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 		Routes.DISCLAIMER,
                 		Routes.HOWITWORKS,
                 		Routes.INVEST,
+                		Routes.INVESTMENTS,
                 		Routes.JOBS,
                 		Routes.LOGIN,
                 		Routes.PRIVACY,
                 		Routes.REGISTER,
-                		Routes.TERMS
+                		Routes.TERMS,
+                		Routes.PROJECTS
                 		).permitAll()
+                .anyRequest().authenticated()
                 .and()
             .formLogin()
                 .loginPage("/login")
@@ -90,11 +93,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureHandler(authenticationFailureHandler)
             .permitAll()
             .and()
-//            .sessionManagement()
-//                .invalidSessionUrl("/login")
-//                .maximumSessions(1).sessionRegistry(sessionRegistry()).and()
-//                .sessionFixation().none()
-//            .and()
+            .sessionManagement()
+                .invalidSessionUrl("/login")
+                .maximumSessions(1).sessionRegistry(sessionRegistry()).and()
+                .sessionFixation().none()
+            .and()
             .logout()
                 .logoutSuccessHandler(myLogoutSuccessHandler)
                 .invalidateHttpSession(false)
@@ -112,6 +115,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public PasswordEncoder encoder() {
         return new BCryptPasswordEncoder(11);
+    }
+    
+    @Bean
+    public SessionRegistry sessionRegistry() {
+        return new SessionRegistryImpl();
     }
     
     @Bean

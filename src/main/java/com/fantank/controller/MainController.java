@@ -1,5 +1,8 @@
 package com.fantank.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fantank.dto.UserDto;
 import com.fantank.error.UserNotFoundException;
+import com.fantank.model.Role;
 import com.fantank.model.User;
+import com.fantank.repository.RoleRepository;
+import com.fantank.repository.UserRepository;
 import com.fantank.service.ISecurityService;
 import com.fantank.service.IUserService;
 
@@ -24,6 +30,12 @@ public class MainController {
 
 	@Autowired
 	private ISecurityService securityService;
+	
+    @Autowired
+    private RoleRepository roleRepository;
+    
+    @Autowired
+    private UserRepository userRepository;
 
 	@GetMapping("/")
 	public String welcome(Model model) {
@@ -67,6 +79,12 @@ public class MainController {
 
 	@GetMapping("/dashboard")
 	public String getDashboard() {
+		User userData = userService.findByEmail(securityService.findLoggedInUsername());
+		final Role adminRole = roleRepository.findByName("ROLE_ADMIN");
+		if(userData.getRoles().contains(adminRole)) {
+			return "adminDashboard";
+		}
+		
 		return "dashboard";
 	}
 
@@ -85,9 +103,35 @@ public class MainController {
 		}
 		return null;
 	}
+	
+	@GetMapping("/user/all")
+	@ResponseBody
+	public List<UserDto> getAllUsers() {		
+		User userData = userService.findByEmail(securityService.findLoggedInUsername());
+		final Role adminRole = roleRepository.findByName("ROLE_ADMIN");
+		if(userData.getRoles().contains(adminRole)) {
+			List<UserDto> users = new ArrayList<UserDto>();
+			for(User user : userRepository.findAll()) {
+				System.out.println(user.getFirstName());
+				UserDto u = new UserDto();
+				u.setId(user.getId());
+				u.setEmail(user.getEmail());
+				u.setFirstName(user.getFirstName());
+				u.setLastName(user.getLastName());
+				users.add(u);
+			}
+			return users;
+		}
+		return null;
+	}
 
 	@GetMapping("/account")
-	public String getAccount() {
+	public String getAngularAccount() {
 		return "angular/account";
+	}
+	
+	@GetMapping("/users")
+	public String getAngularUsers() {
+		return "angular/users";
 	}
 }

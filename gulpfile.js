@@ -51,7 +51,7 @@ gulp.task('minify-css', ['less'], function() {
 
 // Minify JS
 gulp.task('minify-js', function() {
-    gulp.src(['src/main/resources/static/dev/js/*.js', '!src/main/resources/static/dev/js/dashboard.js'])
+    gulp.src(['src/main/resources/static/dev/js/*.js', '!src/main/resources/static/dev/js/dashboard.js', '!src/main/resources/static/dev/js/adminDashboard.js'])
         .pipe(plumber({
           errorHandler: onError
         }))
@@ -66,6 +66,10 @@ gulp.task('minify-js', function() {
 // Copy Dashboard JS
 gulp.task('dashboard-js', function() {
     gulp.src('src/main/resources/static/dev/js/dashboard.js')
+        .pipe(header(banner, { pkg: pkg }))
+        .pipe(gulp.dest('src/main/resources/static/app/js'))
+        .pipe(gulp.dest('target/classes/static/app/js'))
+    gulp.src('src/main/resources/static/dev/js/adminDashboard.js')
         .pipe(header(banner, { pkg: pkg }))
         .pipe(gulp.dest('src/main/resources/static/app/js'))
         .pipe(gulp.dest('target/classes/static/app/js'))
@@ -130,7 +134,7 @@ gulp.task('serve', ['less', 'minify-css', 'minify-js'], function() {
     gulp.watch('src/main/resources/static/dev/less/*.less', ['less']);
     gulp.watch(['src/main/resources/static/app/css/*.css', '!src/main/resources/static/app/css/*.min.css'], ['minify-css']);
     gulp.watch('src/main/resources/static/dev/js/*.js', ['minify-js']);
-    gulp.watch('src/main/resources/static/dev/js/dashboard.js', ['dashboard-js']);
+    gulp.watch(['src/main/resources/static/dev/js/dashboard.js', 'src/main/resources/static/dev/js/adminDashboard.js'], ['dashboard-js']);
     gulp.watch('src/main/resources/templates/**/*.html', ['html-copy']);
     gulp.watch('src/main/resources/static/app/images/*.*', ['images-copy']);
     // Reloads the browser whenever HTML or JS files change
