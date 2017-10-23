@@ -1,4 +1,4 @@
-function loadOfferingData(element, offeringId) {
+function loadOfferingData(element, offeringId, alertClosed) {
   $.get(serverContext + "/offerings/" + offeringId, function(offering) {
     // Get the days left on escrow
     var now = moment();
@@ -8,7 +8,7 @@ function loadOfferingData(element, offeringId) {
     minutesLeft = closeDate.diff(now, 'minutes');
 
     // Get the progress of the funding
-    var recieved = parseFloat(offering.funds_received);
+    recieved = parseFloat(offering.funds_received);
     asking = parseFloat(offering.amount);
     progress = Math.ceil((recieved / asking) * 100);
   })
@@ -16,12 +16,13 @@ function loadOfferingData(element, offeringId) {
     // Set the HTML attributes
     if(minutesLeft < 2) {
       minutesLeft = 3000;
-      daysLeft = 0;
-      $.notify("Escrow closed on Offering", { position:"right bottom", className: "error" });
+      if(alertClosed) {
+        $.notify("Escrow closed on Offering", { position:"right bottom", className: "error" });
+      }
     }
 
-    $('.offeringDayHour').html("Days");
-    $('.offeringDaysLeft')
+    element.find('.offeringDayHour').html("Days");
+    element.find('.offeringDaysLeft')
       .prop('number', 90)
       .animateNumber(
         {
@@ -38,8 +39,8 @@ function loadOfferingData(element, offeringId) {
         1500,
         function() {
           if(minutesLeft < 2880) {
-            $('.offeringDayHour').html("Hours");
-            $('.offeringDaysLeft')
+            element.find('.offeringDayHour').html("Hours");
+            element.find('.offeringDaysLeft')
               .prop('number', 48)
               .animateNumber(
                 {
@@ -54,8 +55,8 @@ function loadOfferingData(element, offeringId) {
                 500,
                 function() {
                   if(minutesLeft < 120) {
-                    $('.offeringDayHour').html("Minutes");
-                    $('.offeringDaysLeft')
+                    element.find('.offeringDayHour').html("Minutes");
+                    element.find('.offeringDaysLeft')
                       .prop('number', 120)
                       .animateNumber(
                         {
@@ -76,6 +77,20 @@ function loadOfferingData(element, offeringId) {
         }
       );
 
+    // No animate time
+    if(minutesLeft < 120) {
+      element.find('.offeringDayHourNoAnimate').html("Minutes");
+      element.find('.offeringDaysLeftNoAnimate').html(minutesLeft);
+    }
+    else if(minutesLeft < 2880) {
+      element.find('.offeringDayHourNoAnimate').html("Hours");
+      element.find('.offeringDaysLeftNoAnimate').html(hoursLeft)
+    }
+    else {
+      element.find('.offeringDayHourNoAnimate').html("Days");
+      element.find('.offeringDaysLeftNoAnimate').html(daysLeft);
+    }
+
     element.find('.progress-bar').css('width', progress + '%').attr('aria-valuenow', progress);
 
     element.find('.offeringPercent').animateNumber(
@@ -84,6 +99,8 @@ function loadOfferingData(element, offeringId) {
       },
       2000
     );
+    element.find('.offeringPercentNoAnimate').html(progress);
+    element.find('.offeringRecievedNoAnimate').number(recieved);
 
     var comma_step = $.animateNumber.numberStepFactories.separator(',')
     element.find('.offeringAsking').animateNumber(
@@ -93,11 +110,12 @@ function loadOfferingData(element, offeringId) {
       },
       2000
     );
+    element.find('.offeringAskingNoAnimate').number(asking);
   })
   .fail(function(data) {
-    $('.offeringDaysLeft').html(0);
-    $('.offeringAsking').html(0);
-    $('.offeringPercent').html(0);
-    $('.progress-bar').css('width', 0 + '%').attr('aria-valuenow', 0);
+    element.find('.offeringDaysLeft').html(0);
+    element.find('.offeringAsking').html(0);
+    element.find('.offeringPercent').html(0);
+    element.find('.progress-bar').css('width', 0 + '%').attr('aria-valuenow', 0);
   });
 }

@@ -3,25 +3,18 @@ package com.fantank.controller;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fantank.dto.InvestmentDto;
-import com.fantank.dto.UserInvestmentsDto;
 import com.fantank.error.UserNotFoundException;
 import com.fantank.model.User;
 import com.fantank.model.Investment;
 import com.fantank.model.Offering;
-import com.fantank.repository.InvestmentRepository;
 import com.fantank.repository.OfferingRepository;
-import com.fantank.service.GenericResponse;
 import com.fantank.service.IFundamericaApiService;
 import com.fantank.service.ISecurityService;
 import com.fantank.service.IUserService;
@@ -34,9 +27,6 @@ public class FundamericaController {
 	
 	@Autowired
 	private ISecurityService securityService;
-	
-	@Autowired
-	private InvestmentRepository userInvestmentsRepository;
 
 	@Autowired
 	private IFundamericaApiService fundamericaApiService;

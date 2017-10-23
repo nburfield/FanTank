@@ -14,9 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fantank.dto.UserDto;
-import com.fantank.error.UserNotFoundException;
+import com.fantank.model.Offering;
 import com.fantank.model.Role;
 import com.fantank.model.User;
+import com.fantank.repository.OfferingRepository;
 import com.fantank.repository.RoleRepository;
 import com.fantank.repository.UserRepository;
 import com.fantank.service.ISecurityService;
@@ -36,6 +37,9 @@ public class MainController {
     
     @Autowired
     private UserRepository userRepository;
+    
+	@Autowired
+	private OfferingRepository offeringRepository;
 
 	@GetMapping("/")
 	public String welcome(Model model) {
@@ -55,9 +59,15 @@ public class MainController {
 
 	@GetMapping("/invest/{name}")
 	public String getFundingDetails(Model model, @PathVariable("name") final String project) {
-		User user = userService.findByEmail(securityService.findLoggedInUsername());
-		model.addAttribute("user", user);
-
+		Offering offering = offeringRepository.findByOfferingId(project);
+		if(offering == null) {
+			offering = offeringRepository.findById(project.replace("-", ""));
+		}
+		
+		if(offering == null) {
+			return "projects/template";
+		}
+		
 		return "projects/" + project;
 	}
 

@@ -2,13 +2,12 @@
 var serverContext = window.location.protocol + "//" + window.location.host + "/";
 
 var userLogged = null;
-var daysLeft = 0
-var hoursLeft = 0
-var minutesLeft = 0
-var asking = 0
-var progress = 0
-
-console.log("Calling my");
+var daysLeft = 0;
+var hoursLeft = 0;
+var minutesLeft = 0;
+var asking = 0;
+var progress = 0;
+var recieved= 0;
 
 // Invest Now Attributes
 var updateEvent = document.createEvent('Event');
@@ -22,7 +21,6 @@ var getDataEvent = document.createEvent('Event');
 getDataEvent.initEvent('fa.investnow.getData', true, false);
 
 document.addEventListener('fa.investnow.open', function(e) {
-  console.log("InvestNow Open")
   document.body.dispatchEvent(autofillEvent);
   document.body.dispatchEvent(getDataEvent);
 });
@@ -40,7 +38,7 @@ $(document).ready(function () {
   $(".user").hide();
   $(".nouser").hide();
   loadUser();
-  loadOfferingData($('#invest_now_panel'), window.location.pathname.split('/')[2]);
+  loadOfferingData($('#investment-container'), window.location.pathname.split('/')[2], true);
 });
 
 function loadUser() {

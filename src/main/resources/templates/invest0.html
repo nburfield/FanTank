@@ -121,7 +121,7 @@
         <!-- card end-->
 
         <!-- card start-->
-        <div class="col-12 col-md-4 d-flex">
+        <div id="perry" class="offering col-12 col-md-4 d-flex">
           <div class="card elegant-color my-2 outline">
             <div class="view overlay hm-white-slight">
               <img src="images/perry.jpg" class="img-fluid" alt="" />
@@ -150,13 +150,13 @@
                   </div>
                 </div>
                 <div class="col-12 my-0 py-0">
-                  <p class="font-weight-bold my-0 py-0">$6 million</p>
+                  <p class="font-weight-bold my-0 py-0">$<span class="offeringAskingNoAnimate">0</span></p>
                 </div>
                 <div class="col-6 mt-0 pyt-0">
-                  <span class="small text-muted">Raised: $300,000</span>
+                  <span class="small text-muted">Raised: $<span class="offeringRecievedNoAnimate">0</span></span>
                 </div>
                 <div class="col-6 fantank_blue_text mt-0 pt-0 text-right">
-                  <span class="small fantank_blue_text">90 days left</span>
+                  <span class="small fantank_blue_text"><span class="offeringDaysLeftNoAnimate">50</span>  <span class="offeringDayHourNoAnimate">Days</span> left</span>
                 </div>
               </div>
             </div>
@@ -259,7 +259,7 @@
           <div class="card elegant-color my-2 outline">
             <div class="view overlay hm-white-slight">
               <img src="images/cash-money.jpg" class="img-fluid" alt="" />
-              <a href="/invest/cash">
+              <a href="/invest/cash-money">
                 <div class="mask"></div>
               </a>
             </div>
@@ -305,7 +305,7 @@
           <div class="card elegant-color my-2 outline">
             <div class="view overlay hm-white-slight">
               <img src="images/frank-ocean.jpg" class="img-fluid" alt="" />
-              <a href="/invest/frank">
+              <a href="/invest/frank-ocean">
                 <div class="mask"></div>
               </a>
             </div>
@@ -361,6 +361,8 @@
     <script src="/js/jquery.animateNumber.min.js"></script>
     <script src="/js/fundingDetails.min.js"></script>
     <script src="/js/invest.min.js"></script>
+    <script src="/js/jquery.number.min.js"></script>
+
     <script>
       $('.invest .sortby .dropdown-menu a').click(function() {
         $('#selected').text($(this).text());
