@@ -42,15 +42,19 @@ public class MyUserDetailsService implements UserDetailsService {
         String ip = getClientIP();
         System.out.println("runnin the loadUserByUsername");
         if (loginAttemptService.isBlocked(ip)) {
+        	System.out.println("Blocked IP");
             throw new RuntimeException("blocked");
         }
         
         try {
             User user = userRepository.findByEmail(email);
+            System.out.println("Finding User");
             if (user == null) {
+            	System.out.println("No User Found");
                 throw new UsernameNotFoundException("No user found with username: " + email);
             }
             
+            System.out.println("Sending Back User Data");
             return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), user.getEnabled(), true, true, true, getAuthorities(user.getRoles()));
         } catch (final Exception e) {
         	System.out.println("error the loadUser");
