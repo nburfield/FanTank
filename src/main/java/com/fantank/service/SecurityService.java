@@ -42,7 +42,7 @@ public class SecurityService implements ISecurityService {
         }
 
         final User user = passToken.getUser();
-        final Authentication auth = new UsernamePasswordAuthenticationToken(user, null, Arrays.asList(new SimpleGrantedAuthority("CHANGE_PASSWORD_PRIVILEGE")));
+        final Authentication auth = new UsernamePasswordAuthenticationToken(user.getEmail(), null, Arrays.asList(new SimpleGrantedAuthority("CHANGE_PASSWORD_PRIVILEGE")));
         SecurityContextHolder.getContext().setAuthentication(auth);
         return null;
 	}

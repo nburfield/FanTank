@@ -96,6 +96,7 @@
               </div>
 
               <div class="text-center">
+                <p id="error" class="alert alert-danger" style="display:none"></p>
                 <button id="login-submit" class="btn btn-fantank-main waves-effect waves-light">Sign In</button>
               </div>
               <div class="text-center">
@@ -129,7 +130,8 @@
         }
         if($.urlParam('error')) {
           var error = /*[[${session[SPRING_SECURITY_LAST_EXCEPTION]}]]*/
-          $.notify(error, { position:"right bottom", className: "error" });
+          $("#error").show().html(error);
+          //$.notify(error, { position:"right bottom", className: "error" });
         }
         $('.facebook').click(function(event) {
           $('#facebookform').submit();

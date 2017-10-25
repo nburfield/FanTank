@@ -143,13 +143,13 @@ public class RegistrationController {
         }
         return "updatePassword";
     }
-   
+
     @PostMapping("/user/changePassword")
     @ResponseBody
     public GenericResponse savePassword(final Locale locale, @Valid PasswordDto passwordDto) {
-        final User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	final User user = userService.findByEmail(securityService.findLoggedInUsername());
         userService.changeUserPassword(user, passwordDto.getPassword());
-        return new GenericResponse(messages.getMessage("message.resetPasswordSuc", null, locale));
+        return new GenericResponse("success");
     }
 	
 	@GetMapping("/logout") 
