@@ -13,11 +13,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.UriUtils;
 
+import com.fantank.config.Routes;
+import com.fantank.dto.DataDto;
 import com.fantank.dto.FundamericaWebhookDto;
 import com.fantank.dto.InvestmentDto;
 import com.fantank.model.Investment;
@@ -53,6 +58,8 @@ public class FundamericaWebhookController {
 	@Autowired
 	private WebhookRepository webhookRepository;
 	
+	private static final Logger logger = LoggerFactory.getLogger(FundamericaWebhookController.class);
+	
 	// convert InputStream to String
 	private static String getStringFromInputStream(InputStream is) {
 
@@ -68,37 +75,45 @@ public class FundamericaWebhookController {
 			}
 
 		} catch (IOException e) {
+			logger.error("IOException: " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (br != null) {
 				try {
 					br.close();
 				} catch (IOException e) {
+					logger.error("IOException: " + e.getMessage());
 					e.printStackTrace();
 				}
 			}
 		}
 
 		return sb.toString();
-
 	}
 	
-	@PostMapping("/investments/webhook")
-	@ResponseBody
-	private GenericResponse fundamericaWebhook(HttpServletRequest request) {
-		Logger logger = LoggerFactory.getLogger(FundamericaWebhookController.class);
+	@RequestMapping(value = Routes.WEBHOOK, method = RequestMethod.POST, consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
+	public @ResponseBody GenericResponse fundamericaWebhook( DataDto data) {
 
-		FundamericaWebhookDto fundamericaWebhook;
-		try {
-			String hookData = getStringFromInputStream(request.getInputStream());
-			logger.error("Recieved Webhook: " + hookData);
-			String result = UriUtils.decode(hookData, "UTF-8");
-			String dataJson = StringUtils.substringAfter(result, "=");
-			ObjectMapper mapper = new ObjectMapper();
-			fundamericaWebhook = mapper.readValue(dataJson, FundamericaWebhookDto.class);
-		} catch (IOException e) {
-			throw new RuntimeException(e.getMessage());
-		}
+//		FundamericaWebhookDto fundamericaWebhook;
+//		try {
+//			String hookData = getStringFromInputStream(request.getInputStream());
+//			logger.error("Recieved Webhook: " + hookData);
+//			String result = UriUtils.decode(hookData, "UTF-8");
+//			String dataJson = StringUtils.substringAfter(result, "=");
+//			ObjectMapper mapper = new ObjectMapper();
+//			logger.error("Recieved Webhook Decode: " + result);
+//			logger.error("Recieved Webhook JSON: " + dataJson);
+//			fundamericaWebhook = mapper.readValue(dataJson, FundamericaWebhookDto.class);
+//		} catch (IOException e) {
+//			throw new RuntimeException(e.getMessage());
+//		}
+		
+		FundamericaWebhookDto fundamericaWebhook = data.getData();
+		logger.error("Data: " + data);
+		logger.error("Recieved Webhook: " + fundamericaWebhook.getId());
+		logger.error("Recieved Webhook Decode: " + fundamericaWebhook.getWebhook_id());
+		logger.error("Recieved Webhook JSON: " + fundamericaWebhook.getAction());
+		
 		
 		// Prevent duplicate webhook runs
 		if(webhookRepository.findById(fundamericaWebhook.getWebhook_id()) != null) {

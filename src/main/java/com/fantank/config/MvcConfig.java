@@ -14,7 +14,6 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.fantank.security.ActiveUserStore;
 
@@ -44,13 +43,6 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     public RequestContextListener requestContextListener() {
         return new RequestContextListener();
     }
-    
-    @Bean  
-    public InternalResourceViewResolver viewResolver() {  
-	InternalResourceViewResolver resolver = new InternalResourceViewResolver();  
-        resolver.setRedirectHttp10Compatible(false);
-        return resolver;  
-    }	
 
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
@@ -75,7 +67,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        //registry.addInterceptor(new HttpInterceptor()).addPathPatterns("/**").excludePathPatterns("");
+        registry.addInterceptor(new HttpInterceptor()).addPathPatterns("/**").excludePathPatterns("");
         registry.addInterceptor(new AuthInterceptor()).addPathPatterns("/login*", "/register*", "/user/reset*");
     }
 }

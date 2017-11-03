@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fantank.config.Routes;
 import com.fantank.dto.UserDto;
 import com.fantank.model.Offering;
 import com.fantank.model.Role;
@@ -41,7 +42,7 @@ public class MainController {
 	@Autowired
 	private OfferingRepository offeringRepository;
 
-	@GetMapping("/")
+	@GetMapping(Routes.INDEX)
 	public String welcome(Model model) {
 		User user = userService.findByEmail(securityService.findLoggedInUsername());
 		model.addAttribute("user", user);
@@ -71,7 +72,7 @@ public class MainController {
 		return "projects/" + project;
 	}
 
-	@GetMapping("/login")
+	@GetMapping(Routes.LOGIN)
 	public String getLogin(HttpServletRequest request, @RequestParam(value = "redirect", required = false, 	defaultValue = "false") Boolean redirect) {
 		if(redirect) {
 			System.out.println("Redirect enabled");
@@ -98,11 +99,12 @@ public class MainController {
 		return "dashboard";
 	}
 
-	@GetMapping("/user/data")
+	@GetMapping(Routes.USERDATA)
 	@ResponseBody
 	public UserDto getLoggedUser() {
 
 		User userData = userService.findByEmail(securityService.findLoggedInUsername());
+		
 		if(userData != null) {
 			UserDto user = new UserDto();
 			user.setId(userData.getId());

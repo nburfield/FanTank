@@ -23,8 +23,10 @@ public class MyLogoutSuccessHandler implements LogoutSuccessHandler {
 	@Override
 	public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
 		HttpSession session = request.getSession();
+		System.out.println("Running the logout success");
         if (session != null) {
             session.removeAttribute("user");
+            System.out.println("Running the logout success");
         }
 
         response.sendRedirect("/login?message=" + messages.getMessage("message.accountLogout", null, Locale.ENGLISH));

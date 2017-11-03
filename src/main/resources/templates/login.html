@@ -32,6 +32,9 @@
             </div>
             <form id="facebookform" action="/signin/facebook" method="POST">
               <input type="hidden" name="scope" value="public_profile,email" />
+
+              <!-- CSRF Token -->
+              <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
               <p class="facebook">
                 <a class="btn btn-block">
                   <span class="d-flex">
@@ -43,6 +46,9 @@
             </form>
             <form id="linkedinform" action="/signin/linkedin" method="POST">
               <input type="hidden" name="scope" value="r_basicprofile,r_emailaddress" />
+
+              <!-- CSRF Token -->
+              <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
               <p class="linkedin">
                 <a class="btn btn-block">
                   <span class="d-flex">
@@ -54,6 +60,9 @@
             </form>
             <form id="twitterform" action="/signin/twitter" method="POST">
               <input type="hidden" name="scope" value="include_email" />
+
+              <!-- CSRF Token -->
+              <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
               <p class="twitter">
                 <a class="btn btn-block">
                   <span class="d-flex">
@@ -65,6 +74,9 @@
             </form>
             <form id="googleform" action="/signin/google" method="POST">
               <input type="hidden" name="scope" value="profile email" />
+
+              <!-- CSRF Token -->
+              <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
               <p class="google-plus">
                 <a class="btn btn-block">
                   <span class="d-flex">
@@ -99,6 +111,10 @@
                 <p id="error" class="alert alert-danger" style="display:none"></p>
                 <button id="login-submit" class="btn btn-fantank-main waves-effect waves-light">Sign In</button>
               </div>
+
+              <!-- CSRF Token -->
+              <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
               <div class="text-center">
                 <a class="pull-right fantank_blue_text" href="/user/reset">Forgot Password</a>
               </div>

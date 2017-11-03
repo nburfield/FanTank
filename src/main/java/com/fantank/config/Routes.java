@@ -15,5 +15,17 @@ public class Routes {
 	public static final String TERMS = INDEX + "terms";
 	public static final String JOBS = INDEX + "jobs";
 	public static final String PROJECTS = INDEX + "projects/**";
-
+	public static final String CSS = INDEX + "css/**/*";
+	public static final String IMAGES = INDEX + "images/**/*";
+	public static final String JS = INDEX + "js/**/*";
+	public static final String FONTS = INDEX + "fonts/**/*";
+	public static final String CONFIRM = INDEX + "registrationConfirm*";
+	public static final String RESET = INDEX + "user/reset*";
+	public static final String TOKEN = INDEX + "user/token*";
+	public static final String SOCIALERROR = INDEX + "signin/**";
+	public static final String WEBHOOK = INDEX + "investments/webhook";
+	public static final String ROBOTS = INDEX + "robots.txt";
+	public static final String USERDATA = INDEX + "user/data";
+	public static final String CHANGEPASSWORD = INDEX + "user/changePassword*";
+	public static final String CSRF = INDEX + "csrf";
 }

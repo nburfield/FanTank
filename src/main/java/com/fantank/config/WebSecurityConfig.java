@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.session.SessionRegistry;
@@ -40,31 +41,32 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
     private MessageSource messages;
+	
+	@Override
+    public void configure(WebSecurity web) throws Exception {
+        web
+            .ignoring()
+                .antMatchers(Routes.WEBHOOK);
+    }
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
     	//@formatter: off
         http
-            .csrf().disable()
-            .authorizeRequests()
-                .antMatchers("/", 
-                		"/user/reset*", 
-                		"/user/token*", 
-                		"/signin/**", 
-                		"/signup*", 
-                		"/user/changePassword*",
-                		"/logout*", 
-                		"/explore", 
-                		"/explore/*",
-                		"/registrationConfirm*", 
-                		"/css/**/*", 
-                		"/images/**/*", 
-                		"/js/**/*", 
-                		"/fonts/**/*", 
-                		"/user/data", 
-                		"/investments/webhook", 
-                		"/offerings/*", 
-                		"/robots.txt",
+        	//.csrf().disable()
+            	.authorizeRequests()
+                	.antMatchers(
+                		Routes.INDEX,
+                		"/signup*",
+                		"/offerings/*",
+                		Routes.CHANGEPASSWORD,
+                		Routes.USERDATA,
+                		Routes.CSRF,
+                		Routes.ROBOTS,
+                		Routes.SOCIALERROR,
+                		Routes.RESET,
+                		Routes.TOKEN,
+                		Routes.CONFIRM,
                 		Routes.ABOUT,
                 		Routes.CONTACT,
                 		Routes.DISCLAIMER,
@@ -76,27 +78,31 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 		Routes.PRIVACY,
                 		Routes.REGISTER,
                 		Routes.TERMS,
-                		Routes.PROJECTS
+                		Routes.PROJECTS,
+                		Routes.CSS,
+                		Routes.JS,
+                		Routes.FONTS,
+                		Routes.IMAGES
                 		).permitAll()
                 .anyRequest().authenticated()
-                .and()
+            .and()
             .formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/")
-                .failureUrl("/login?error=true")
+                .loginPage(Routes.LOGIN)
+                .defaultSuccessUrl(Routes.INDEX)
+                .failureUrl(Routes.LOGIN + "?error=true")
                 .successHandler(myAuthenticationSuccessHandler)
                 .failureHandler(authenticationFailureHandler)
-            .permitAll()
+                .permitAll()
             .and()
-            .sessionManagement()
-                .invalidSessionUrl("/login")
+            .sessionManagement()            	
+                .invalidSessionUrl(Routes.LOGIN)
                 .maximumSessions(1).sessionRegistry(sessionRegistry()).and()
                 .sessionFixation().none()
             .and()
             .logout()
                 .logoutSuccessHandler(myLogoutSuccessHandler)
                 .invalidateHttpSession(false)
-                .logoutSuccessUrl("/login?message=" + messages.getMessage("message.accountLogout", null, Locale.ENGLISH))
+                .logoutSuccessUrl(Routes.LOGIN + "?message=" + messages.getMessage("message.accountLogout", null, Locale.ENGLISH))
                 .deleteCookies("JSESSIONID")
                 .permitAll();
         // @formatter: on

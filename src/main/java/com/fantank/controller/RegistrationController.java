@@ -14,7 +14,6 @@ import org.springframework.context.MessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -76,7 +75,7 @@ public class RegistrationController {
         return new GenericResponse("success");
 	}
 	
-	@GetMapping("/signin")
+	@GetMapping(Routes.SOCIALERROR)
 	public String socialError(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("calling social error");
 		String errorMessage = "Social authentication failed";
@@ -84,7 +83,7 @@ public class RegistrationController {
 		return "redirect:/login?error=true";
 	}
 	
-	@GetMapping("/registrationConfirm")
+	@GetMapping(Routes.CONFIRM)
     public String confirmRegistration(HttpServletRequest request, Locale locale, Model model, @RequestParam("token") final String token) throws UnsupportedEncodingException {
 		String result = userService.validateVerificationToken(token);
         if (result.equals("valid")) {
@@ -96,12 +95,12 @@ public class RegistrationController {
         return "redirect:/login?error=true";
     }
 	
-	@GetMapping("user/token")
+	@GetMapping(Routes.TOKEN)
 	public String tokenReset() {
 		return "resendConfirmation";
 	}
 	
-	@PostMapping("user/token")
+	@PostMapping(Routes.TOKEN)
 	@ResponseBody
 	public GenericResponse tokenReset(HttpServletRequest request, @RequestParam("email") final String userEmail) {
 		User user = userService.findByEmail(userEmail);
@@ -117,12 +116,12 @@ public class RegistrationController {
         return new GenericResponse(messages.getMessage("message.userNotFound", null, request.getLocale()));
 	}
 	
-	@GetMapping("user/reset")
+	@GetMapping(Routes.RESET)
 	public String passwordReset() {
 		return "passwordReset";
 	}
 	
-	@PostMapping("user/reset")
+	@PostMapping(Routes.RESET)
 	@ResponseBody
 	public GenericResponse passwordReset(HttpServletRequest request, @RequestParam("email") final String userEmail) {
 		User user = userService.findByEmail(userEmail);
@@ -134,7 +133,7 @@ public class RegistrationController {
         return new GenericResponse(messages.getMessage("message.resetPasswordEmail", null, request.getLocale()));
 	}
 	
-    @GetMapping("/user/changePassword")
+    @GetMapping(Routes.CHANGEPASSWORD)
     public String showChangePasswordPage(final Locale locale, final Model model, @RequestParam("id") final long id, @RequestParam("token") final String token) {
         final String result = securityService.validatePasswordResetToken(id, token);
         if (result != null) {
@@ -144,19 +143,13 @@ public class RegistrationController {
         return "updatePassword";
     }
 
-    @PostMapping("/user/changePassword")
+    @PostMapping(Routes.CHANGEPASSWORD)
     @ResponseBody
     public GenericResponse savePassword(final Locale locale, @Valid PasswordDto passwordDto) {
     	final User user = userService.findByEmail(securityService.findLoggedInUsername());
         userService.changeUserPassword(user, passwordDto.getPassword());
         return new GenericResponse("success");
     }
-	
-	@GetMapping("/logout") 
-	public String confirmLogout(Locale locale, Model model) {
-		model.addAttribute("message", messages.getMessage("message.accountLogout", null, locale));
-        return "login";
-	}
 	
 	private String getAppUrl(HttpServletRequest request) {
         return "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();

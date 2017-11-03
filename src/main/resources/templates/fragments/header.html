@@ -60,7 +60,12 @@
               <a class="dropdown-item white-text" href="/dashboard" target="_self">
                 Dashboard <i class="fa fa-tachometer" aria-hidden="true"></i>
               </a>
-              <a class="dropdown-item white-text" href="/logout" target="_self">
+              <!-- <form action="/logout" method="POST">
+                
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                <input class="text-center mr-auto" type="submit">Logout<i class="fa fa-sign-out" aria-hidden="true"></i></input>
+              </form> -->
+              <a class="dropdown-item white-text" onclick="logout()" target="_self">
                 Logout<i class="fa fa-sign-out" aria-hidden="true"></i>
               </a>
             </div>
