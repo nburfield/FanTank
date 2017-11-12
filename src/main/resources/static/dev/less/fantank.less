@@ -36,7 +36,7 @@
 }
 
 .social-share {
-  padding: 1px;
+  padding: 1px 1px 8px 1px;
   line-height: 10px;
 }
 
@@ -137,7 +137,6 @@ body {
   background-image: url('../images/homepage-dark.jpg') ; //url("../images/crowd-hands-dark-quality-small-screen-scale.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -145,11 +144,25 @@ body {
 
   @media (min-width: 768px) {
     background-image: url('../images/homepage-dark.jpg'); //url("../images/crowd-hands-dark-quality.jpg");
+    background-attachment: fixed;
   }
 
 }
+
+
 #invest-in-art {
   height: 100%;
+}
+
+.blank-line {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  display: block;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  height: 20px;
 }
 
 .header .register {
