@@ -19,12 +19,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
-import org.springframework.session.data.redis.config.ConfigureRedisAction;
-import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
+//import org.springframework.session.data.redis.config.ConfigureRedisAction;
+//import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 @Configuration
 @EnableWebSecurity
-@EnableRedisHttpSession
+//@EnableRedisHttpSession
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
@@ -123,8 +123,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new SessionRegistryImpl();
     }
     
-    @Bean
-    public static ConfigureRedisAction configureRedisAction() {
-        return ConfigureRedisAction.NO_OP;
-    }
+//    @Bean
+//    public static ConfigureRedisAction configureRedisAction() {
+//        return ConfigureRedisAction.NO_OP;
+//    }
 }

@@ -8,7 +8,7 @@ function loadOfferingData(element, offeringId, alertClosed) {
     minutesLeft = closeDate.diff(now, 'minutes');
 
     // Get the progress of the funding
-    recieved = parseFloat(offering.funds_received);
+    recieved = parseFloat(offering.funds_in_escrow);
     asking = parseFloat(offering.amount);
     progress = Math.ceil((recieved / asking) * 100);
   })
@@ -16,6 +16,7 @@ function loadOfferingData(element, offeringId, alertClosed) {
     // Set the HTML attributes
     if(minutesLeft < 2) {
       minutesLeft = 3000;
+      daysLeft = 0;
       if(alertClosed) {
         $.notify("Escrow closed on Offering", { position:"right bottom", className: "error" });
       }

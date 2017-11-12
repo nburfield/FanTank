@@ -91,25 +91,25 @@ public class FundamericaWebhookController {
 		return sb.toString();
 	}
 	
-	@RequestMapping(value = Routes.WEBHOOK, method = RequestMethod.POST, consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
-	public @ResponseBody GenericResponse fundamericaWebhook( DataDto data) {
+	@RequestMapping(value = Routes.WEBHOOK, method = RequestMethod.POST/*, consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE}*/)
+	public @ResponseBody GenericResponse fundamericaWebhook(HttpServletRequest request) {
 
-//		FundamericaWebhookDto fundamericaWebhook;
-//		try {
-//			String hookData = getStringFromInputStream(request.getInputStream());
-//			logger.error("Recieved Webhook: " + hookData);
-//			String result = UriUtils.decode(hookData, "UTF-8");
-//			String dataJson = StringUtils.substringAfter(result, "=");
-//			ObjectMapper mapper = new ObjectMapper();
-//			logger.error("Recieved Webhook Decode: " + result);
-//			logger.error("Recieved Webhook JSON: " + dataJson);
-//			fundamericaWebhook = mapper.readValue(dataJson, FundamericaWebhookDto.class);
-//		} catch (IOException e) {
-//			throw new RuntimeException(e.getMessage());
-//		}
+		FundamericaWebhookDto fundamericaWebhook;
+		try {
+			String hookData = getStringFromInputStream(request.getInputStream());
+			logger.error("Recieved Webhook: " + hookData);
+			String result = UriUtils.decode(hookData, "UTF-8");
+			String dataJson = StringUtils.substringAfter(result, "=");
+			ObjectMapper mapper = new ObjectMapper();
+			logger.error("Recieved Webhook Decode: " + result);
+			logger.error("Recieved Webhook JSON: " + dataJson);
+			fundamericaWebhook = mapper.readValue(dataJson, FundamericaWebhookDto.class);
+		} catch (IOException e) {
+			throw new RuntimeException(e.getMessage());
+		}
 		
-		FundamericaWebhookDto fundamericaWebhook = data.getData();
-		logger.error("Data: " + data);
+		//FundamericaWebhookDto fundamericaWebhook = data.getData();
+		//logger.error("Data: " + data);
 		logger.error("Recieved Webhook: " + fundamericaWebhook.getId());
 		logger.error("Recieved Webhook Decode: " + fundamericaWebhook.getWebhook_id());
 		logger.error("Recieved Webhook JSON: " + fundamericaWebhook.getAction());
