@@ -18,7 +18,7 @@ curl https://sandbox.fundamerica.com/api/investments \
 curl https://sandbox.fundamerica.com/api/test_mode/investments/whXuoKQjS6etko6jkjfdtA \
 -u Bn9Zt7XwZADoUMLh_nFPxZ81bYR0aXpy: \
 -X PATCH \
--d status="not_received"
+-d status="received"
 
 http://crowdfunding-env-dev.khpjqzkh6p.us-east-2.elasticbeanstalk.com/login
 // Test Webhook
@@ -62,12 +62,12 @@ curl https://sandbox.fundamerica.com/api/test_mode/offerings/oti-7QMSSFyi2Q9Wt2w
 -X PATCH \
 -d accept_investments="true"
 
-curl https://sandbox.fundamerica.com/api/investments/whXuoKQjS6etko6jkjfdtA \
+curl https://sandbox.fundamerica.com/api/test_mode/investments/iPl9_QKzRQy-mpteWkEshQ \
 -u Bn9Zt7XwZADoUMLh_nFPxZ81bYR0aXpy: \
 -X PATCH \
--d amount="0"
+-d status="refunded"
 
-curl https://sandbox.fundamerica.com/api/test_mode/offerings/oti-7QMSSFyi2Q9Wt2w0nw \
+curl https://sandbox.fundamerica.com/api/test_mode/investments/iPl9_QKzRQy-mpteWkEshQ \
 -u Bn9Zt7XwZADoUMLh_nFPxZ81bYR0aXpy: \
 -X PATCH \
--d funds_received="0"
+-d status="cancelled"
